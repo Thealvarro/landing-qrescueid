@@ -1,0 +1,5 @@
+config.php
+cache/
+.vercel/
+*.log
+.DS_Store

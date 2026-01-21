@@ -6,9 +6,15 @@
 
 // Configuration
 $PLACE_ID = 'ChIJNQn2c0zZYpYRg18NXY24X1A'; // QrescueID Place ID
-$API_KEY = 'AIzaSyBLEB4s5vC4BYz0wO3UETeIHgQ1CEmMF4k'; // REPLACE WITH YOUR GOOGLE PLACES API KEY
 $CACHE_FILE = __DIR__ . '/cache/google-reviews.json';
 $CACHE_DURATION = 86400; // 24 hours in seconds
+
+// Load API Key from config.php
+if (file_exists('config.php')) {
+	include 'config.php';
+} else {
+	$API_KEY = getenv('GOOGLE_PLACES_API_KEY') ?: ''; // Fallback to env var or empty
+}
 
 // Enable CORS for local development
 header('Access-Control-Allow-Origin: *');
