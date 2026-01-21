@@ -1311,6 +1311,27 @@ img {
     .pricing-card {
         padding: 2rem 1.5rem;
     }
+
+    /* Fix hero section padding on mobile */
+    .hero-section {
+        padding-top: 80px;
+        min-height: 100vh;
+    }
+
+    /* Prevent horizontal scroll */
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        overflow-x: hidden;
+    }
+
+    /* Fix product gallery images to show QR sticker */
+    #mainProductImage {
+        height: 300px !important;
+        object-position: center center;
+    }
 }
 
 @media (max-width: 576px) {

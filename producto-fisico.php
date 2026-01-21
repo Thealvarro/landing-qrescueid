@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="styles.css?v=3">
     <link rel="icon" href="img/favicon.ico">
     <!-- Desarrollado por www.alvarocofre.dev -->
 </head>
@@ -43,7 +43,8 @@
             <div class="row g-5 align-items-start">
                 <div class="col-lg-6" data-aos="fade-right">
                     <img id="mainProductImage" src="img/caja-qrescueid_resultado.webp" alt="QRescueID Físico"
-                        class="img-fluid rounded-4 shadow mb-3" style="width: 100%; height: 500px; object-fit: cover;">
+                        class="img-fluid rounded-4 shadow mb-3"
+                        style="width: 100%; height: 500px; object-fit: cover; object-position: center center;">
 
                     <!-- Thumbnails -->
                     <div class="row g-2">
