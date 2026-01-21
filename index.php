@@ -19,6 +19,8 @@
         rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="icon" href="img/favicon.ico">
+    <!-- Desarrollado por www.alvarocofre.dev -->
 </head>
 
 <body>
@@ -28,7 +30,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Header / Navbar -->
+
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.php">
@@ -46,6 +48,9 @@
                         <a class="nav-link" href="servicios.php">Planes</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="empresas.php">Empresas</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="tienda.php">Tienda</a>
                     </li>
                     <li class="nav-item">
@@ -59,7 +64,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+
     <section class="hero-section">
         <div class="container">
             <div class="row align-items-center min-vh-100">
@@ -70,15 +75,19 @@
                     <p class="hero-subtitle mb-5">
                         QRescueID guarda tu información médica y contactos vitales en un QR y NFC.
                     </p>
-                    <a href="servicios.php" class="btn btn-primary-yellow btn-lg">Crea tu cuenta gratis</a>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <a href="servicios.php" class="btn btn-primary-yellow btn-lg">Crea tu cuenta gratis</a>
+                        <a href="https://plataforma.qrescueid.app/info/IE8WLJVP" target="_blank"
+                            class="btn btn-custom-red btn-lg">Ver Perfil demo</a>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="hero-background"></div>
     </section>
 
-    <!-- Why QRescueID Section -->
-    <section class="why-section py-5">
+
+    <section class="why-section">
         <div class="container">
             <div class="row align-items-center py-5">
                 <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
@@ -110,7 +119,7 @@
     </section>
 
     <!-- 5 Reasons Section -->
-    <section class="reasons-section py-5">
+    <section class="reasons-section">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
@@ -179,7 +188,7 @@
     </section>
 
     <!-- Trust Section -->
-    <section class="trust-section py-5">
+    <section class="trust-section">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
@@ -207,7 +216,7 @@
     </section>
 
     <!-- Confían Section -->
-    <section class="confian-section py-5">
+    <section class="confian-section">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center mb-5" data-aos="fade-up">
@@ -233,7 +242,7 @@
     </section>
 
     <!-- Explore Section -->
-    <section class="explore-section py-5">
+    <section class="explore-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 mx-auto text-center" data-aos="fade-up">
@@ -277,7 +286,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section py-5">
+    <section class="cta-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
@@ -291,7 +300,7 @@
     </section>
 
     <!-- Google Reviews Section -->
-    <section class="reviews-section py-5">
+    <section class="reviews-section">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
@@ -326,7 +335,7 @@
     </section>
 
     <!-- Final CTA -->
-    <section class="final-cta-section py-5">
+    <section class="final-cta-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 mx-auto text-center" data-aos="fade-up">
@@ -348,7 +357,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+
     <footer class="footer py-5">
         <div class="container">
             <div class="row">

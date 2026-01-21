@@ -19,6 +19,8 @@
         rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="icon" href="img/favicon.ico">
+    <!-- Desarrollado por www.alvarocofre.dev -->
 </head>
 
 <body>
@@ -46,6 +48,9 @@
                         <a class="nav-link" href="servicios.php">Planes</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="empresas.php">Empresas</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="tienda.php">Tienda</a>
                     </li>
                     <li class="nav-item">
@@ -60,7 +65,7 @@
     </nav>
 
     <!-- Plans Hero Section -->
-    <section class="plans-hero-section py-5">
+    <section class="plans-hero-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center py-5 mt-5" data-aos="fade-up">
@@ -83,7 +88,7 @@
     </section>
 
     <!-- Pricing Plans Section -->
-    <section class="pricing-section py-5">
+    <section class="pricing-section">
         <div class="container">
             <div class="row g-4 justify-content-center">
                 <!-- Free Plan -->
@@ -222,7 +227,7 @@
     </section>
 
     <!-- Products Discount Section -->
-    <section class="products-section py-5">
+    <section class="products-section">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
@@ -275,7 +280,7 @@
     </section>
 
     <!-- Sustainability Section -->
-    <section class="sustainability-section py-5">
+    <section class="sustainability-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 mx-auto" data-aos="fade-up">
@@ -319,7 +324,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section py-5">
+    <section class="cta-section" style="padding: 8rem 0;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">

@@ -112,6 +112,27 @@ html {
     box-shadow: 0 8px 20px rgba(245, 183, 0, 0.3);
 }
 
+/* Custom Red Button */
+.btn-custom-red {
+    background-color: #dc3545;
+    color: #ffffff;
+    font-weight: 600;
+    border: 2px solid #dc3545;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-custom-red:hover {
+    background-color: #bb2d3b;
+    border-color: #bb2d3b;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
 .btn-outline-yellow {
     background-color: transparent;
     color: var(--golden-yellow);
@@ -173,6 +194,12 @@ html {
     z-index: -1;
 }
 
+.hero-background-empresas {
+    background: linear-gradient(rgba(15, 23, 42, 0.5), rgba(30, 41, 59, 0.5)), url('img/cascos-cuadrilla-arauco.jpeg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
 .hero-title {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 800;
@@ -207,7 +234,13 @@ html {
    ============================================ */
 .why-section {
     background-color: var(--dark-blue);
-    padding: 5rem 0;
+    padding: 8rem 0;
+}
+
+@media (max-width: 768px) {
+    .why-section {
+        padding: 4rem 0;
+    }
 }
 
 .content-block {
@@ -225,8 +258,16 @@ html {
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
-    max-width: 70%;
+    max-width: 100%;
+    width: 600px;
     margin: 0 auto;
+}
+
+@media (max-width: 991px) {
+    .image-container {
+        width: 100%;
+        max-width: 500px;
+    }
 }
 
 .image-container:hover {
@@ -244,7 +285,13 @@ html {
    ============================================ */
 .reasons-section {
     background-color: #1E293B;
-    padding: 5rem 0;
+    padding: 8rem 0;
+}
+
+@media (max-width: 768px) {
+    .reasons-section {
+        padding: 4rem 0;
+    }
 }
 
 .feature-card {
@@ -287,7 +334,7 @@ html {
    ============================================ */
 .trust-section {
     background-color: var(--dark-blue);
-    padding: 5rem 0;
+    padding: 8rem 0;
 }
 
 .trust-section img {
@@ -302,7 +349,7 @@ html {
    ============================================ */
 .confian-section {
     background-color: #1E293B;
-    padding: 5rem 0;
+    padding: 8rem 0;
 }
 
 .confian-section img {
@@ -318,7 +365,7 @@ html {
    ============================================ */
 .explore-section {
     background-color: #1E293B;
-    padding: 5rem 0;
+    padding: 8rem 0;
 }
 
 .icon-box {
@@ -342,7 +389,7 @@ html {
    ============================================ */
 .cta-section {
     background: linear-gradient(135deg, var(--golden-yellow) 0%, #E5A800 100%);
-    padding: 5rem 0;
+    padding: 8rem 0;
     text-align: center;
 }
 
@@ -358,7 +405,7 @@ html {
    ============================================ */
 .reviews-section {
     background-color: var(--dark-blue);
-    padding: 5rem 0;
+    padding: 8rem 0;
 }
 
 .review-card {
@@ -436,8 +483,14 @@ html {
    ============================================ */
 .final-cta-section {
     background-color: #1E293B;
-    padding: 5rem 0;
+    padding: 8rem 0;
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    .final-cta-section {
+        padding: 4rem 0;
+    }
 }
 
 /* ============================================
@@ -450,7 +503,13 @@ html {
 
 .pricing-section {
     background-color: var(--dark-blue);
-    padding: 5rem 0;
+    padding: 8rem 0;
+}
+
+@media (max-width: 768px) {
+    .pricing-section {
+        padding: 4rem 0;
+    }
 }
 
 .pricing-card {
@@ -592,7 +651,13 @@ html {
    ============================================ */
 .products-section {
     background-color: #1E293B;
-    padding: 5rem 0;
+    padding: 8rem 0;
+}
+
+@media (max-width: 768px) {
+    .products-section {
+        padding: 4rem 0;
+    }
 }
 
 .product-feature {
@@ -621,7 +686,13 @@ html {
    ============================================ */
 .sustainability-section {
     background-color: var(--dark-blue);
-    padding: 5rem 0;
+    padding: 8rem 0;
+}
+
+@media (max-width: 768px) {
+    .sustainability-section {
+        padding: 4rem 0;
+    }
 }
 
 .sustainability-card {
@@ -657,7 +728,7 @@ html {
 
 .contact-form-section {
     background-color: var(--dark-blue);
-    padding: 5rem 0;
+    padding: 8rem 0;
 }
 
 .contact-form-container {
@@ -1254,6 +1325,10 @@ img {
     .navbar-brand {
         font-size: 1.25rem;
     }
+
+    #mainProductImage {
+        height: 300px !important;
+    }
 }
 
 /* ============================================
@@ -1312,4 +1387,26 @@ img {
         padding-top: 3rem;
         padding-bottom: 3rem;
     }
+}
+
+
+/* Custom Red Button */
+.btn-custom-red {
+    background-color: #dc3545;
+    color: #ffffff;
+    font-weight: 600;
+    border: 2px solid #dc3545;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-custom-red:hover {
+    background-color: #bb2d3b;
+    border-color: #bb2d3b;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
 }

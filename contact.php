@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - QRescueID</title>
-    <meta name="description" content="Contáctanos - QRescueID. Estamos aquí para ayudarte con cualquier pregunta o consulta.">
-    
+    <meta name="description"
+        content="Contáctanos - QRescueID. Estamos aquí para ayudarte con cualquier pregunta o consulta.">
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css?v=2" rel="stylesheet">
     <!-- AOS Animation Library -->
@@ -13,17 +15,22 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="icon" href="img/favicon.ico">
+    <!-- Desarrollado por www.alvarocofre.dev -->
 </head>
+
 <body>
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/56954751380" target="_blank" class="whatsapp-float" data-bs-toggle="tooltip" title="Habla con nosotros">
+    <a href="https://wa.me/56954751380" target="_blank" class="whatsapp-float" data-bs-toggle="tooltip"
+        title="Habla con nosotros">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Header / Navbar -->
+
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.php">
@@ -39,6 +46,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="servicios.php">Planes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="empresas.php">Empresas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tienda.php">Tienda</a>
@@ -58,116 +68,86 @@
     <section class="contact-hero-section py-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto text-center py-5 mt-5" data-aos="fade-up">
-                    <h1 class="section-heading mb-4">
-                        Contáctanos
-                    </h1>
+                <div class="col-lg-8 mx-auto text-center py-lg-5 mt-lg-5" data-aos="fade-up">
+                    <h1 class="display-4 fw-bold mb-3 mt-4 mt-lg-0">Hablemos ahora</h1>
                     <p class="lead text-muted">
-                        ¿Tienes alguna pregunta? Estamos aquí para ayudarte. Completa el formulario y te responderemos lo antes posible.
+                        Elige el canal que te sea más rápido para contactarnos. Sin formularios largos.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <section class="contact-form-section py-5">
+    <!-- Quick Actions Section -->
+    <section class="contact-actions-section pb-5 mb-5">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8" data-aos="fade-up">
-                    <div class="contact-form-container">
-                        <?php
-                        // Procesar formulario
-                        $mensaje_enviado = false;
-                        $error = '';
+            <div class="row g-4 justify-content-center">
 
-                        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                            // Obtener datos del formulario
-                            $nombre = isset($_POST['nombre']) ? trim($_POST['nombre']) : '';
-                            $correo = isset($_POST['correo']) ? trim($_POST['correo']) : '';
-                            $mensaje = isset($_POST['mensaje']) ? trim($_POST['mensaje']) : '';
-
-                            // Validar campos
-                            if (empty($nombre) || empty($correo) || empty($mensaje)) {
-                                $error = 'Por favor, completa todos los campos.';
-                            } elseif (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
-                                $error = 'Por favor, ingresa un correo electrónico válido.';
-                            } else {
-                                // IMPORTANTE: Configurar email de destino
-                                // Cambia 'contacto@qrescueid.com' por tu email real
-                                $to = 'contacto@qrescueid.com';
-                                $subject = 'Nuevo mensaje de contacto - QRescueID';
-                                $email_message = "Nombre: " . htmlspecialchars($nombre) . "\n";
-                                $email_message .= "Correo: " . htmlspecialchars($correo) . "\n\n";
-                                $email_message .= "Mensaje:\n" . htmlspecialchars($mensaje);
-                                $headers = "From: " . htmlspecialchars($correo) . "\r\n";
-                                $headers .= "Reply-To: " . htmlspecialchars($correo) . "\r\n";
-                                $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-
-                                // Enviar email
-                                if (mail($to, $subject, $email_message, $headers)) {
-                                    $mensaje_enviado = true;
-                                } else {
-                                    $error = 'Hubo un error al enviar el mensaje. Por favor, intenta nuevamente o contáctanos por WhatsApp.';
-                                }
-                            }
-                        }
-                        ?>
-
-                        <?php if ($mensaje_enviado): ?>
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                <i class="fas fa-check-circle me-2"></i>
-                                ¡Mensaje enviado con éxito! Te responderemos pronto.
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <!-- WhatsApp Action (Priority) -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <a href="https://wa.me/56954751380?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20QRescueID%20para%20empresas"
+                        target="_blank"
+                        class="card action-card bg-success text-white text-decoration-none h-100 border-0 shadow-lg text-center p-4">
+                        <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                            <div class="icon-mb mb-3">
+                                <i class="fab fa-whatsapp fa-4x"></i>
                             </div>
-                        <?php endif; ?>
-
-                        <?php if ($error): ?>
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                <i class="fas fa-exclamation-circle me-2"></i>
-                                <?php echo htmlspecialchars($error); ?>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                            </div>
-                        <?php endif; ?>
-
-                        <form method="POST" action="" class="contact-form">
-                            <div class="mb-4">
-                                <label for="nombre" class="form-label">Nombre completo</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre" required 
-                                       value="<?php echo isset($_POST['nombre']) ? htmlspecialchars($_POST['nombre']) : ''; ?>">
-                            </div>
-
-                            <div class="mb-4">
-                                <label for="correo" class="form-label">Correo electrónico</label>
-                                <input type="email" class="form-control" id="correo" name="correo" required 
-                                       value="<?php echo isset($_POST['correo']) ? htmlspecialchars($_POST['correo']) : ''; ?>">
-                            </div>
-
-                            <div class="mb-4">
-                                <label for="mensaje" class="form-label">Mensaje</label>
-                                <textarea class="form-control" id="mensaje" name="mensaje" rows="6" required><?php echo isset($_POST['mensaje']) ? htmlspecialchars($_POST['mensaje']) : ''; ?></textarea>
-                            </div>
-
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-primary-yellow btn-lg">
-                                    <i class="fas fa-paper-plane me-2"></i>Enviar mensaje
-                                </button>
-                            </div>
-                        </form>
-
-                        <div class="text-center mt-4">
-                            <p class="text-muted">O contáctanos directamente por WhatsApp</p>
-                            <a href="https://wa.me/56954751380" target="_blank" class="btn btn-outline-yellow">
-                                <i class="fab fa-whatsapp me-2"></i>Hablar por WhatsApp
-                            </a>
+                            <h3 class="fw-bold mb-2">Hablar por WhatsApp</h3>
+                            <span class="badge bg-white text-success rounded-pill px-3 py-2 mb-3">Respuesta
+                                rápida</span>
+                            <p class="small opacity-75 mb-0">Clic para abrir chat directo</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
+
+                <!-- Schedule Call -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://calendar.app.google/fWgoGk32DYdEpF7NA" target="_blank"
+                        class="card action-card bg-primary text-white text-decoration-none h-100 border-0 shadow text-center p-4">
+                        <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                            <div class="icon-mb mb-3">
+                                <i class="fas fa-calendar-check fa-4x"></i>
+                            </div>
+                            <h3 class="fw-bold mb-2">Agendar llamada</h3>
+                            <p class="mb-0 small text-white-50">15 minutos</p>
+                            <span class="btn btn-sm btn-light text-primary mt-3 px-4 rounded-pill">Ver
+                                disponibilidad</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Email -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <a href="mailto:acofre@qrescue.cl?subject=Consulta%20QRescueID&body=Hola,%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n."
+                        class="card action-card bg-white text-dark text-decoration-none h-100 border shadow-sm text-center p-4">
+                        <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                            <div class="icon-mb mb-3 text-secondary">
+                                <i class="fas fa-envelope fa-4x"></i>
+                            </div>
+                            <h3 class="fw-bold mb-2">Enviar correo</h3>
+                            <p class="mb-0 small text-muted">Contacto directo</p>
+                            <span class="btn btn-sm btn-outline-dark mt-3 px-4 rounded-pill">Redactar email</span>
+                        </div>
+                    </a>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Styles for Hover Effects -->
+    <style>
+        .action-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .action-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
+        }
+    </style>
+
+
     <footer class="footer py-5">
         <div class="container">
             <div class="row">
@@ -205,14 +185,14 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js?v=2"></script>
     <!-- Custom JS -->
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        tooltipTriggerList.map(function (tooltipTriggerEl) {
-          return new bootstrap.Tooltip(tooltipTriggerEl);
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
         });
-      });
     </script>
 </body>
-</html>
 
+</html>

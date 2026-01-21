@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,13 +14,18 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="icon" href="img/favicon.ico">
+    <!-- Desarrollado por www.alvarocofre.dev -->
 </head>
+
 <body>
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/56954751380" target="_blank" class="whatsapp-float" data-bs-toggle="tooltip" title="Habla con nosotros">
+    <a href="https://wa.me/56954751380" target="_blank" class="whatsapp-float" data-bs-toggle="tooltip"
+        title="Habla con nosotros">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -39,6 +45,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="servicios.php">Planes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="empresas.php">Empresas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="tienda.php">Tienda</a>
@@ -71,60 +80,69 @@
     </section>
 
     <!-- Productos -->
-     <section class="products-section py-5">
-         <div class="container">
-             <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
-                 <!-- Card: QRescueID Físico -->
-                 <div class="col" data-aos="fade-up">
-                     <div class="card h-100 shadow-sm">
-                         <a href="producto-fisico.php" class="text-decoration-none text-reset">
-                             <img src="img/caja-qrescueid_resultado.webp" alt="QRescueID Físico" class="card-img-top" style="height:220px;object-fit:cover;">
-                         </a>
-                         <div class="card-body d-flex flex-column">
-                             <h5 class="card-title mb-2">
-                                 <a href="producto-fisico.php" class="text-decoration-none text-reset">QRescueID Físico</a>
-                             </h5>
-                             <p class="card-text text-muted mb-3">Identificación de emergencia física con QR y NFC.</p>
-                             <div class="mt-auto">
-                                 <div class="pricing-price mb-3">
-                                     <span class="price-currency">$</span>
-                                     <span class="price-amount">19.990</span>
-                                     <span class="price-period">CLP</span>
-                                 </div>
-                                 <a href="producto-fisico.php" class="btn btn-primary-yellow w-100">Ver detalles</a>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
- 
-                 <!-- Card: Kit Premium QRescueID -->
-                 <div class="col" data-aos="fade-up" data-aos-delay="100">
-                     <div class="card h-100 shadow-sm">
-                         <a href="producto-kit-premium.php" class="text-decoration-none text-reset">
-                             <img src="img/casco-qrescueid-fluor-nocturno_resultado.webp" alt="Kit Premium QRescueID" class="card-img-top" style="height:220px;object-fit:cover;">
-                         </a>
-                         <div class="card-body d-flex flex-column">
-                             <h5 class="card-title mb-2">
-                                 <a href="producto-kit-premium.php" class="text-decoration-none text-reset">Kit Premium QRescueID</a>
-                             </h5>
-                             <p class="card-text text-muted mb-3">2 QRescueID físicos + 1 año Plan Premium.</p>
-                             <div class="mt-auto">
-                                 <div class="mb-1">
-                                     <small class="text-muted text-decoration-line-through">$62.990</small>
-                                 </div>
-                                 <div class="pricing-price mb-3">
-                                     <span class="price-currency">$</span>
-                                     <span class="price-amount">49.990</span>
-                                     <span class="price-period">CLP</span>
-                                 </div>
-                                 <a href="producto-kit-premium.php" class="btn btn-primary-yellow w-100">Ver detalles</a>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </section>
+    <section class="products-section py-5">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+                <!-- Card: QRescueID Físico -->
+                <div class="col" data-aos="fade-up">
+                    <div class="card h-100 shadow-sm">
+                        <a href="producto-fisico.php" class="text-decoration-none text-reset">
+                            <img src="img/caja-qrescueid_resultado.webp" alt="QRescueID Físico" class="card-img-top"
+                                style="height:220px;object-fit:cover;">
+                        </a>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title mb-2">
+                                <a href="producto-fisico.php" class="text-decoration-none text-reset">QRescueID
+                                    Físico</a>
+                            </h5>
+                            <p class="card-text text-muted mb-3">Identificación de emergencia física con QR y NFC.</p>
+                            <div class="mt-auto">
+                                <div class="pricing-price mb-3">
+                                    <span class="price-currency"
+                                        style="color: var(--golden-yellow) !important;">$</span>
+                                    <span class="price-amount"
+                                        style="color: var(--golden-yellow) !important;">19.990</span>
+                                    <span class="price-period">CLP</span>
+                                </div>
+                                <a href="producto-fisico.php" class="btn btn-primary-yellow w-100">Ver detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card: Kit Premium QRescueID -->
+                <div class="col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100 shadow-sm">
+                        <a href="producto-kit-premium.php" class="text-decoration-none text-reset">
+                            <img src="img/casco-qrescueid-fluor-nocturno_resultado.webp" alt="Kit Premium QRescueID"
+                                class="card-img-top" style="height:220px;object-fit:cover;">
+                        </a>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title mb-2">
+                                <a href="producto-kit-premium.php" class="text-decoration-none text-reset">Kit Premium
+                                    QRescueID</a>
+                            </h5>
+                            <p class="card-text text-muted mb-3">2 QRescueID físicos + 1 año Plan Premium.</p>
+                            <div class="mt-auto">
+                                <div class="mb-1">
+                                    <small class="text-decoration-line-through"
+                                        style="color: var(--golden-yellow) !important;">$40.000</small>
+                                </div>
+                                <div class="pricing-price mb-3">
+                                    <span class="price-currency"
+                                        style="color: var(--golden-yellow) !important;">$</span>
+                                    <span class="price-amount"
+                                        style="color: var(--golden-yellow) !important;">36.990</span>
+                                    <span class="price-period">CLP</span>
+                                </div>
+                                <a href="producto-kit-premium.php" class="btn btn-primary-yellow w-100">Ver detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer py-5">
@@ -176,6 +194,7 @@
                 return new bootstrap.Tooltip(tooltipTriggerEl);
             });
         });
-</script>
+    </script>
 </body>
+
 </html>
