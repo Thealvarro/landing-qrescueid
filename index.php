@@ -196,19 +196,15 @@
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <h2 class="section-heading mb-4">
-                        Crea tu perfil en <span class="highlight-yellow">QRescueID</span> es fácil y rápido, estés donde
-                        estés.
+                        Crea tu perfil en <span class="highlight-yellow">QRescueID</span> es gratis, fácil y rápido.
                     </h2>
                     <p class="mb-4">
-                        La plataforma es intuitiva y accesible, así al crear tu cuenta sea un proceso sencillo, sin
-                        importar dónde te encuentres. Desde cualquier dispositivo móvil.
+                        Crear tu cuenta en QRescueID no tiene costo y puedes hacerlo en pocos pasos, estés donde estés.
                     </p>
-                    <h4 class="mb-3">Fácil, intuitiva y rápida</h4>
+                    <h4 class="mb-3">Puedes crear tu cuenta y luego puedes comprar tu ID y enlazar con tu cuenta</h4>
                     <p class="mb-4">
-                        Con solo unos clics, tendrás acceso a todas las funcionalidades de QRescueID, asegurando que tu
-                        información vital esté disponible en caso de emergencia. Además, nuestra interfaz está pensada
-                        para que cualquier persona pueda utilizarla sin complicaciones, haciendo que la seguridad esté
-                        al alcance de todos.
+                        Una vez que tu perfil esté creado, puedes comprar tu ID físico QRescueID y enlazarlo con tu
+                        cuenta de manera simple y rápida.
                     </p>
                 </div>
             </div>
