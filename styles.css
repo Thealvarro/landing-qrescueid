@@ -1314,8 +1314,8 @@ img {
 
     /* Fix hero section padding on mobile */
     .hero-section {
-        padding-top: 70px;
-        padding-bottom: 2rem;
+        padding-top: 60px;
+        padding-bottom: 1rem;
         min-height: auto;
         display: flex;
         align-items: center;
@@ -1323,9 +1323,11 @@ img {
     }
 
     .hero-section .row {
-        min-height: calc(100vh - 70px);
+        min-height: calc(100vh - 60px);
         display: flex;
         align-items: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
     }
 
     .hero-title {
