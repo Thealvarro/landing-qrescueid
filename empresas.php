@@ -112,7 +112,7 @@
 						<a class="nav-link" href="contact.php">Contacto</a>
 					</li>
 					<li class="nav-item ms-3">
-						<a href="contact.php" class="btn btn-primary-yellow">Solicitar Demo</a>
+						<a href="contact.php" class="btn btn-primary-yellow">Crear cuenta</a>
 					</li>
 				</ul>
 			</div>
@@ -165,9 +165,9 @@
 				<div class="col-lg-6" data-aos="fade-left">
 					<div class="image-container d-flex justify-content-center">
 						<!-- Dashboard Imagen Real -->
-					<img src="img/Photoroom_20250929_150344.jpg" alt="Dashboard de Gestión QRescueID"
-						class="img-fluid rounded-4 border border-secondary border-opacity-25"
-						style="width: 100%; height: auto;">
+						<img src="img/Photoroom_20250929_150344.jpg" alt="Dashboard de Gestión QRescueID"
+							class="img-fluid rounded-4 border border-secondary border-opacity-25"
+							style="width: 100%; height: auto;">
 					</div>
 				</div>
 			</div>
