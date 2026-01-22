@@ -1314,7 +1314,7 @@ img {
 
     /* Fix hero section padding on mobile */
     .hero-section {
-        padding-top: 60px;
+        padding-top: 50px;
         padding-bottom: 1rem;
         min-height: auto;
         display: flex;
