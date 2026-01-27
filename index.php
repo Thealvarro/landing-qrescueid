@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="styles.css?v=5">
     <link rel="icon" href="img/favicon.ico">
     <!-- Desarrollado por www.alvarocofre.dev -->
 </head>
@@ -57,7 +57,7 @@
                         <a class="nav-link" href="contact.php">Contacto</a>
                     </li>
                     <li class="nav-item ms-3">
-                        <a href="servicios.php" class="btn btn-primary-yellow">Crear cuenta</a>
+                        <a href="https://plataforma.qrescueid.app" class="btn btn-primary-yellow">Crear cuenta</a>
                     </li>
                 </ul>
             </div>
@@ -188,24 +188,40 @@
     </section>
 
     <!-- Trust Section -->
-    <section class="trust-section">
+    <!-- Section: Virtual ID / Account Creation -->
+    <section class="trust-section py-5">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
-                    <img src="img/crear-cuenta.jpg" alt="QRescueID fácil y rápido" class="img-fluid rounded-4">
+                    <img src="img/crear-cuenta.jpg" alt="Crea tu cuenta gratis en QRescueID" class="img-fluid rounded-4 shadow-lg">
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <h2 class="section-heading mb-4">
-                        Crea tu perfil en <span class="highlight-yellow">QRescueID</span> es gratis, fácil y rápido.
+                        ¿No tienes tu <span class="highlight-yellow">QRescueID físico</span>? <br>
+                        ¡Crea tu cuenta igual!
                     </h2>
-                    <p class="mb-4">
-                        Crear tu cuenta en QRescueID no tiene costo y puedes hacerlo en pocos pasos, estés donde estés.
+                    <p class="lead mb-4">
+                        Puedes registrarte totalmente gratis y obtener tu perfil de emergencia digital al instante.
                     </p>
-                    <h4 class="mb-3">Puedes crear tu cuenta y luego puedes comprar tu ID y enlazar con tu cuenta</h4>
-                    <p class="mb-4">
-                        Una vez que tu perfil esté creado, puedes comprar tu ID físico QRescueID y enlazarlo con tu
-                        cuenta de manera simple y rápida.
-                    </p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-check-circle text-warning mt-1 me-3"></i>
+                            <span>Crea tu cuenta digital sin costo.</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-check-circle text-warning mt-1 me-3"></i>
+                            <span>Genera e imprime tu propio código QR temporal.</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-check-circle text-warning mt-1 me-3"></i>
+                            <span>Pégalo en tu casco, billetera o donde prefieras.</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-check-circle text-warning mt-1 me-3"></i>
+                            <span>Si luego decides comprar el ID físico, podrás enlazarlo fácilmente a tu cuenta ya creada.</span>
+                        </li>
+                    </ul>
+                    <a href="https://plataforma.qrescueid.app/register" target="_blank" class="btn btn-primary-yellow btn-lg">Crear cuenta gratis</a>
                 </div>
             </div>
         </div>

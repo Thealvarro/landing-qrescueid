@@ -31,7 +31,8 @@
                     <li class="nav-item"><a class="nav-link" href="empresas.php">Empresas</a></li>
                     <li class="nav-item"><a class="nav-link" href="tienda.php">Tienda</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.php">Contacto</a></li>
-                    <li class="nav-item ms-3"><a href="servicios.php" class="btn btn-primary-yellow">Crear cuenta</a>
+                    <li class="nav-item ms-3"><a href="https://plataforma.qrescueid.app"
+                            class="btn btn-primary-yellow">Crear cuenta</a>
                     </li>
                 </ul>
             </div>

@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="styles.css?v=5">
     <link rel="icon" href="img/favicon.ico">
     <!-- Desarrollado por www.alvarocofre.dev -->
 </head>
@@ -57,7 +57,7 @@
                         <a class="nav-link" href="contact.php">Contacto</a>
                     </li>
                     <li class="nav-item ms-3">
-                        <a href="servicios.php" class="btn btn-primary-yellow">Crear cuenta</a>
+                        <a href="https://plataforma.qrescueid.app" class="btn btn-primary-yellow">Crear cuenta</a>
                     </li>
                 </ul>
             </div>

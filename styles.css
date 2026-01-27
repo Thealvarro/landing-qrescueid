@@ -12,11 +12,13 @@
     --text-light: #CBD5E1;
 }
 
-/* Reset y Base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Base styles */
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -24,10 +26,11 @@ body {
     background-color: var(--dark-blue);
     color: var(--white);
     line-height: 1.6;
-    overflow-x: hidden;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    margin: 0;
+    padding: 0;
 }
 
 /* Smooth Scrolling */
@@ -906,16 +909,32 @@ html {
         padding: 2rem 1.5rem;
     }
 
-    /* Make images full width on mobile */
     .image-container,
     .trust-section img {
         max-width: 100% !important;
     }
 
-    /* Adjust billing toggle for mobile */
     .billing-toggle-btn {
         padding: 0.6rem 1.5rem;
         font-size: 0.9rem;
+    }
+
+    /* Fix hero section padding on mobile */
+    .hero-section {
+        padding-top: 50px;
+        padding-bottom: 1rem;
+        min-height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-section .row {
+        min-height: calc(100vh - 60px);
+        display: flex;
+        align-items: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
     }
 }
 
@@ -1340,19 +1359,27 @@ img {
         margin-bottom: 2rem;
     }
 
-    /* Prevent horizontal scroll */
-    body {
-        overflow-x: hidden;
-    }
-
-    .container {
-        overflow-x: hidden;
-    }
-
     /* Fix product gallery images to show QR sticker */
     #mainProductImage {
         height: 300px !important;
         object-position: center center;
+    }
+
+    .py-5 {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .stats-section {
+        padding: 4rem 0;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .stat-text {
+        font-size: 0.9rem;
     }
 }
 
