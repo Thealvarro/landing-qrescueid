@@ -193,7 +193,8 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
-                    <img src="img/crear-cuenta.jpg" alt="Crea tu cuenta gratis en QRescueID" class="img-fluid rounded-4 shadow-lg">
+                    <img src="img/cel-plataforma-qrescueid-perfil.png" alt="Crea tu cuenta gratis en QRescueID"
+                        class="img-fluid">
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <h2 class="section-heading mb-4">
@@ -218,10 +219,12 @@
                         </li>
                         <li class="mb-3 d-flex align-items-start">
                             <i class="fas fa-check-circle text-warning mt-1 me-3"></i>
-                            <span>Si luego decides comprar el ID físico, podrás enlazarlo fácilmente a tu cuenta ya creada.</span>
+                            <span>Si luego decides comprar el ID físico, podrás enlazarlo fácilmente a tu cuenta ya
+                                creada.</span>
                         </li>
                     </ul>
-                    <a href="https://plataforma.qrescueid.app/register" target="_blank" class="btn btn-primary-yellow btn-lg">Crear cuenta gratis</a>
+                    <a href="https://plataforma.qrescueid.app/register" target="_blank"
+                        class="btn btn-primary-yellow btn-lg">Crear cuenta gratis</a>
                 </div>
             </div>
         </div>
