@@ -20,7 +20,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
 		rel="stylesheet">
 	<!-- Custom CSS -->
-	<link rel="stylesheet" href="styles.css?v=3">
+	<link rel="stylesheet" href="styles.css?v=4">
 	<link rel="icon" href="img/favicon.ico">
 	<!-- Desarrollado por www.alvarocofre.dev -->
 	<style>
@@ -402,21 +402,20 @@
 		// Counter Animation
 		function animateCounters() {
 			const counters = document.querySelectorAll('.stat-number');
-			const speed = 200; // lower is slower
+			const speed = 100; // Adjusted for better feel
 
 			counters.forEach(counter => {
+				const target = +counter.getAttribute('data-target');
+				let count = 0;
+
 				const updateCount = () => {
-					const target = +counter.getAttribute('data-target');
-					const count = +counter.innerText;
-
-					// Lower inc to slow and higher inc to fast
-					const inc = Math.ceil(target / speed);
-
+					const inc = target / speed;
 					if (count < target) {
-						counter.innerText = count + inc;
-						setTimeout(updateCount, 15);
+						count += inc;
+						counter.innerText = Math.ceil(count);
+						setTimeout(updateCount, 20);
 					} else {
-						counter.innerText = target + (target === 2500 ? '+' : '+');
+						counter.innerText = target + '+';
 					}
 				};
 				updateCount();
@@ -425,11 +424,9 @@
 
 		// Trigger when visible
 		const statsSection = document.querySelector('.stats-section');
-		const observerOptions = {
-			threshold: 0.5
-		};
+		const observerOptions = { threshold: 0.3 };
 
-		const observer = new IntersectionObserver((entries, observer) => {
+		const observer = new IntersectionObserver((entries) => {
 			entries.forEach(entry => {
 				if (entry.isIntersecting) {
 					animateCounters();
@@ -438,9 +435,7 @@
 			});
 		}, observerOptions);
 
-		if (statsSection) {
-			observer.observe(statsSection);
-		}
+		if (statsSection) observer.observe(statsSection);
 	</script>
 </body>
 
