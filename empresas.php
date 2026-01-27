@@ -173,6 +173,25 @@
 			</div>
 		</div>
 	</section>
+	<!-- Stats Section -->
+	<section class="stats-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6" data-aos="zoom-in">
+					<div class="stat-item">
+						<span class="stat-number" data-target="2500">0</span>
+						<span class="stat-text">Trabajadores usando QRescueID</span>
+					</div>
+				</div>
+				<div class="col-md-6" data-aos="zoom-in" data-aos-delay="200">
+					<div class="stat-item">
+						<span class="stat-number" data-target="2">0</span>
+						<span class="stat-text">Años en el mercado</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<!-- Cómo Funciona (Paso a Paso) -->
 	<section class="explore-section">
@@ -378,6 +397,50 @@
 				return new bootstrap.Tooltip(tooltipTriggerEl);
 			});
 		});
+	</script>
+	<script>
+		// Counter Animation
+		function animateCounters() {
+			const counters = document.querySelectorAll('.stat-number');
+			const speed = 200; // lower is slower
+
+			counters.forEach(counter => {
+				const updateCount = () => {
+					const target = +counter.getAttribute('data-target');
+					const count = +counter.innerText;
+
+					// Lower inc to slow and higher inc to fast
+					const inc = Math.ceil(target / speed);
+
+					if (count < target) {
+						counter.innerText = count + inc;
+						setTimeout(updateCount, 15);
+					} else {
+						counter.innerText = target + (target === 2500 ? '+' : '+');
+					}
+				};
+				updateCount();
+			});
+		}
+
+		// Trigger when visible
+		const statsSection = document.querySelector('.stats-section');
+		const observerOptions = {
+			threshold: 0.5
+		};
+
+		const observer = new IntersectionObserver((entries, observer) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					animateCounters();
+					observer.unobserve(entry.target);
+				}
+			});
+		}, observerOptions);
+
+		if (statsSection) {
+			observer.observe(statsSection);
+		}
 	</script>
 </body>
 
