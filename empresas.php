@@ -103,7 +103,7 @@
 						<a class="nav-link" href="servicios.php">Planes</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" href="empresas.php">Empresas</a>
+						<a class="nav-link highlight active" href="empresas.php">Empresas</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="tienda.php">Tienda</a>

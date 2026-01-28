@@ -93,6 +93,17 @@ html {
     color: var(--golden-yellow) !important;
 }
 
+.nav-link.highlight {
+    color: var(--golden-yellow) !important;
+    font-weight: 600;
+    background: rgba(245, 183, 0, 0.1);
+    border-radius: 6px;
+}
+
+.nav-link.highlight:hover {
+    background: rgba(245, 183, 0, 0.15);
+}
+
 /* ============================================
    Botones
    ============================================ */

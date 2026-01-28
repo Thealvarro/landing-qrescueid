@@ -28,7 +28,7 @@
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="servicios.php">Planes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="empresas.php">Empresas</a></li>
+                    <li class="nav-item"><a class="nav-link highlight" href="empresas.php">Empresas</a></li>
                     <li class="nav-item"><a class="nav-link" href="tienda.php">Tienda</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.php">Contacto</a></li>
                     <li class="nav-item ms-3"><a href="https://plataforma.qrescueid.app"
