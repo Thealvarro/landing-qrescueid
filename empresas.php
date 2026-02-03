@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+	<?php include 'google-analytics.php'; ?>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>QRescueID Empresas - Gestión de Seguridad Ocupacional y Control de EPP</title>
