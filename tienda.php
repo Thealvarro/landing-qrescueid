@@ -88,7 +88,7 @@
                 <div class="col" data-aos="fade-up">
                     <div class="card h-100 shadow-sm">
                         <a href="producto-fisico.php" class="text-decoration-none text-reset">
-                            <img src="img/caja-qrescueid_resultado.webp" alt="QRescueID Físico" class="card-img-top"
+                            <img src="img/caja-qrescueid_resultado_optimized.webp" alt="QRescueID Físico" class="card-img-top"
                                 style="height:220px;object-fit:cover;">
                         </a>
                         <div class="card-body d-flex flex-column">
@@ -115,7 +115,7 @@
                 <div class="col" data-aos="fade-up" data-aos-delay="100">
                     <div class="card h-100 shadow-sm">
                         <a href="producto-kit-premium.php" class="text-decoration-none text-reset">
-                            <img src="img/casco-qrescueid-fluor-nocturno_resultado.webp" alt="Kit Premium QRescueID"
+                            <img src="img/casco-qrescueid-fluor-nocturno_resultado_optimized.webp" alt="Kit Premium QRescueID"
                                 class="card-img-top" style="height:220px;object-fit:cover;">
                         </a>
                         <div class="card-body d-flex flex-column">

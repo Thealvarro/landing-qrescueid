@@ -232,7 +232,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
-                    <img src="img/caja-qrescueid_resultado.webp" alt="Producto QRescueID" class="img-fluid rounded-4">
+                    <img src="img/caja-qrescueid_resultado_optimized.webp" alt="Producto QRescueID" class="img-fluid rounded-4">
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
 

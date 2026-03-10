@@ -194,7 +194,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
-                    <img src="img/cel-plataforma-qrescueid-perfil.png" alt="Crea tu cuenta gratis en QRescueID"
+                    <img src="img/cel-plataforma-qrescueid-perfil_optimized.webp" alt="Crea tu cuenta gratis en QRescueID"
                         class="img-fluid">
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
@@ -247,10 +247,10 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
                     <!-- Imagen para Desktop -->
-                    <img src="img/confian.jpg" alt="Empresas que confían en QRescueID"
+                    <img src="img/confian_optimized.webp" alt="Empresas que confían en QRescueID"
                         class="img-fluid rounded-4 d-none d-lg-block w-100 shadow-lg">
                     <!-- Imagen para Mobile -->
-                    <img src="img/confian-cel.jpg" alt="Empresas que confían en QRescueID"
+                    <img src="img/confian-cel_optimized.webp" alt="Empresas que confían en QRescueID"
                         class="img-fluid rounded-4 d-block d-lg-none w-100 shadow-lg">
                 </div>
             </div>
