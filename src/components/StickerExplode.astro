@@ -1,0 +1,495 @@
+---
+// 5 capas basadas en el producto real QRescueID
+const layers = [
+  {
+    id: 'laminate',
+    label: 'Laminado protector',
+    desc: 'Protección UV transparente antirayones',
+    side: 'right',
+  },
+  {
+    id: 'print',
+    label: 'Superficie impresa',
+    desc: 'QR · Cruz roja · NFC · SOS',
+    side: 'left',
+  },
+  {
+    id: 'nfc',
+    label: 'Antena NFC NTAG 213',
+    desc: 'Chip 13.56 MHz · 180 bytes',
+    side: 'right',
+  },
+  {
+    id: 'adhesive',
+    label: 'Adhesivo 3M',
+    desc: 'Permanente · Resistente al agua y calor',
+    side: 'left',
+  },
+  {
+    id: 'base',
+    label: 'Base protectora',
+    desc: 'Release liner removible',
+    side: 'right',
+  },
+];
+---
+
+<section class="explode-section" id="stickerExplodeSection">
+  <div class="explode-sticky">
+
+    <!-- Header -->
+    <div class="explode-header" id="explodeHeader">
+      <p class="explode-eyebrow">Tecnología en capas</p>
+      <h2 class="explode-title">Cinco capas.<br>Una sola misión.</h2>
+    </div>
+
+    <!-- Escena 3D -->
+    <div class="explode-scene-wrap" id="explodeSceneWrap">
+      <div class="explode-scene" id="explodeScene">
+
+        <!-- Capa 5: Base backing (bottom) -->
+        <div class="s-layer layer-base" id="layerBase">
+          <div class="s-face">
+            <svg viewBox="0 0 300 94" class="layer-svg">
+              <rect x="0" y="0" width="300" height="94" rx="18" fill="#f0f0f0"/>
+              <!-- líneas de release liner -->
+              <line x1="0" y1="18" x2="300" y2="18" stroke="#ddd" stroke-width="0.8"/>
+              <line x1="0" y1="36" x2="300" y2="36" stroke="#ddd" stroke-width="0.8"/>
+              <line x1="0" y1="54" x2="300" y2="54" stroke="#ddd" stroke-width="0.8"/>
+              <line x1="0" y1="72" x2="300" y2="72" stroke="#ddd" stroke-width="0.8"/>
+              <!-- esquina despegada -->
+              <path d="M 260 94 Q 290 94 300 65 L 300 94 Z" fill="#e0e0e0"/>
+              <path d="M 260 94 Q 278 86 285 70 Q 292 80 300 65" fill="none" stroke="#bbb" stroke-width="0.8"/>
+            </svg>
+          </div>
+          <div class="s-edge s-edge-f"></div>
+          <div class="s-edge s-edge-b"></div>
+          <div class="s-edge s-edge-l"></div>
+          <div class="s-edge s-edge-r"></div>
+        </div>
+
+        <!-- Capa 4: Adhesivo 3M (rojo) -->
+        <div class="s-layer layer-adhesive" id="layerAdhesive">
+          <div class="s-face">
+            <svg viewBox="0 0 300 94" class="layer-svg">
+              <rect x="0" y="0" width="300" height="94" rx="18" fill="#b91c1c"/>
+              <!-- textura sutil -->
+              <rect x="0" y="0" width="300" height="94" rx="18" fill="url(#dotPattern)" opacity="0.15"/>
+              <defs>
+                <pattern id="dotPattern" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+                  <circle cx="4" cy="4" r="1" fill="white"/>
+                </pattern>
+              </defs>
+              <text x="150" y="52" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-size="28" font-weight="900" font-family="Inter,sans-serif" letter-spacing="4">3M</text>
+            </svg>
+          </div>
+          <div class="s-edge s-edge-f"></div>
+          <div class="s-edge s-edge-b"></div>
+          <div class="s-edge s-edge-l"></div>
+          <div class="s-edge s-edge-r"></div>
+        </div>
+
+        <!-- Capa 3: Antena NFC -->
+        <div class="s-layer layer-nfc" id="layerNfc">
+          <div class="s-face">
+            <svg viewBox="0 0 300 94" class="layer-svg">
+              <rect x="0" y="0" width="300" height="94" rx="18" fill="#f5edd6"/>
+              <!-- Antena rectangular (espiral cuadrada) -->
+              <g transform="translate(105, 7)">
+                <rect x="0"  y="0"  width="90" height="80" rx="8"  fill="none" stroke="#c8963c" stroke-width="2.2"/>
+                <rect x="6"  y="6"  width="78" height="68" rx="6"  fill="none" stroke="#c8963c" stroke-width="1.8"/>
+                <rect x="12" y="12" width="66" height="56" rx="5"  fill="none" stroke="#c8963c" stroke-width="1.5"/>
+                <rect x="18" y="18" width="54" height="44" rx="4"  fill="none" stroke="#c8963c" stroke-width="1.2"/>
+                <rect x="24" y="24" width="42" height="32" rx="3"  fill="none" stroke="#c8963c" stroke-width="1.0"/>
+                <!-- Chip IC en el centro -->
+                <rect x="34" y="32" width="22" height="16" rx="2" fill="#b8832e"/>
+                <rect x="37" y="35" width="16" height="10" rx="1" fill="#d4a44e"/>
+                <!-- Pads del chip -->
+                <rect x="34" y="37" width="3" height="2" fill="#8a6020"/>
+                <rect x="55" y="37" width="3" height="2" fill="#8a6020"/>
+                <rect x="34" y="41" width="3" height="2" fill="#8a6020"/>
+                <rect x="55" y="41" width="3" height="2" fill="#8a6020"/>
+              </g>
+              <!-- Texto NTAG213 -->
+              <text x="150" y="90" text-anchor="middle" fill="#b8832e" font-size="7" font-family="Inter,sans-serif" font-weight="600">NTAG 213 · 13.56 MHz</text>
+            </svg>
+          </div>
+          <div class="s-edge s-edge-f"></div>
+          <div class="s-edge s-edge-b"></div>
+          <div class="s-edge s-edge-l"></div>
+          <div class="s-edge s-edge-r"></div>
+        </div>
+
+        <!-- Capa 2: Superficie impresa -->
+        <div class="s-layer layer-print" id="layerPrint">
+          <div class="s-face">
+            <svg viewBox="0 0 300 94" class="layer-svg">
+              <!-- Fondo negro -->
+              <rect x="0" y="0" width="300" height="94" rx="18" fill="#111111"/>
+              <!-- Franja SOS amarilla derecha -->
+              <path d="M 268 0 Q 300 0 300 18 L 300 76 Q 300 94 268 94 L 258 94 L 258 0 Z" fill="#F5B700"/>
+              <!-- Texto SOS (vertical) -->
+              <text x="279" y="36" text-anchor="middle" fill="#111" font-size="13" font-weight="900" font-family="Impact,sans-serif">S</text>
+              <text x="279" y="58" text-anchor="middle" fill="#111" font-size="13" font-weight="900" font-family="Impact,sans-serif">O</text>
+              <text x="279" y="80" text-anchor="middle" fill="#111" font-size="13" font-weight="900" font-family="Impact,sans-serif">S</text>
+              <!-- QR code area (izquierda) -->
+              <rect x="8" y="8" width="78" height="78" rx="4" fill="white"/>
+              <!-- QR finder TL -->
+              <rect x="13" y="13" width="18" height="18" rx="1" fill="#111"/>
+              <rect x="16" y="16" width="12" height="12" rx="1" fill="white"/>
+              <rect x="19" y="19" width="6" height="6" fill="#111"/>
+              <!-- QR finder TR -->
+              <rect x="49" y="13" width="18" height="18" rx="1" fill="#111"/>
+              <rect x="52" y="16" width="12" height="12" rx="1" fill="white"/>
+              <rect x="55" y="19" width="6" height="6" fill="#111"/>
+              <!-- QR finder BL -->
+              <rect x="13" y="49" width="18" height="18" rx="1" fill="#111"/>
+              <rect x="16" y="52" width="12" height="12" rx="1" fill="white"/>
+              <rect x="19" y="55" width="6" height="6" fill="#111"/>
+              <!-- QR data modules simplificados -->
+              <rect x="34" y="13" width="4" height="4" fill="#111"/>
+              <rect x="40" y="13" width="4" height="4" fill="#111"/>
+              <rect x="34" y="20" width="4" height="4" fill="#111"/>
+              <rect x="44" y="20" width="4" height="4" fill="#111"/>
+              <rect x="13" y="34" width="4" height="4" fill="#111"/>
+              <rect x="20" y="34" width="4" height="4" fill="#111"/>
+              <rect x="34" y="34" width="4" height="4" fill="#111"/>
+              <rect x="44" y="34" width="4" height="4" fill="#111"/>
+              <rect x="13" y="40" width="4" height="4" fill="#111"/>
+              <rect x="28" y="40" width="4" height="4" fill="#111"/>
+              <rect x="40" y="40" width="4" height="4" fill="#111"/>
+              <rect x="34" y="49" width="4" height="4" fill="#111"/>
+              <rect x="44" y="49" width="4" height="4" fill="#111"/>
+              <rect x="34" y="56" width="4" height="4" fill="#111"/>
+              <rect x="40" y="62" width="4" height="4" fill="#111"/>
+              <rect x="28" y="56" width="4" height="4" fill="#111"/>
+              <rect x="44" y="62" width="4" height="4" fill="#111"/>
+              <rect x="20" y="62" width="4" height="4" fill="#111"/>
+              <rect x="54" y="34" width="4" height="4" fill="#111"/>
+              <rect x="60" y="40" width="4" height="4" fill="#111"/>
+              <rect x="54" y="49" width="4" height="4" fill="#111"/>
+              <rect x="60" y="55" width="4" height="4" fill="#111"/>
+              <rect x="54" y="62" width="4" height="4" fill="#111"/>
+              <rect x="60" y="68" width="4" height="4" fill="#111"/>
+              <!-- Título IDENTIFICACION EMERGENCIA -->
+              <text x="183" y="22" text-anchor="middle" fill="white" font-size="8.5" font-weight="700" font-family="Inter,sans-serif" letter-spacing="0.5">IDENTIFICACION EMERGENCIA</text>
+              <!-- Cruz roja -->
+              <circle cx="148" cy="52" r="16" fill="white"/>
+              <rect x="144" y="42" width="8" height="20" rx="1" fill="#cc0000"/>
+              <rect x="138" y="48" width="20" height="8" rx="1" fill="#cc0000"/>
+              <!-- Señal NFC (ondas) -->
+              <path d="M 178 44 Q 184 52 178 60" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <path d="M 183 40 Q 192 52 183 64" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <path d="M 188 36 Q 200 52 188 68" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <!-- Icono celular NFC -->
+              <rect x="205" y="38" width="22" height="30" rx="3" fill="none" stroke="white" stroke-width="1.5"/>
+              <rect x="208" y="42" width="16" height="18" rx="1" fill="none" stroke="white" stroke-width="1"/>
+              <text x="216" y="75" text-anchor="middle" fill="white" font-size="7" font-weight="700" font-family="Inter,sans-serif">NFC</text>
+              <!-- URL -->
+              <text x="183" y="86" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-size="7.5" font-family="Inter,sans-serif" letter-spacing="0.3">www.qrescue.cl</text>
+            </svg>
+          </div>
+          <div class="s-edge s-edge-f"></div>
+          <div class="s-edge s-edge-b"></div>
+          <div class="s-edge s-edge-l"></div>
+          <div class="s-edge s-edge-r"></div>
+        </div>
+
+        <!-- Capa 1: Laminado transparente (top) -->
+        <div class="s-layer layer-laminate" id="layerLaminate">
+          <div class="s-face">
+            <svg viewBox="0 0 300 94" class="layer-svg">
+              <defs>
+                <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%"   stop-color="rgba(255,255,255,0.22)"/>
+                  <stop offset="45%"  stop-color="rgba(255,255,255,0.04)"/>
+                  <stop offset="100%" stop-color="rgba(255,255,255,0.12)"/>
+                </linearGradient>
+                <linearGradient id="shineGrad" x1="0%" y1="0%" x2="60%" y2="60%">
+                  <stop offset="0%"   stop-color="rgba(255,255,255,0.7)"/>
+                  <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+                </linearGradient>
+              </defs>
+              <!-- base transparente -->
+              <rect x="0" y="0" width="300" height="94" rx="18" fill="url(#glassGrad)" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+              <!-- destello esquina superior izquierda -->
+              <ellipse cx="55" cy="22" rx="40" ry="14" fill="url(#shineGrad)" opacity="0.6"/>
+              <!-- inner border refraction -->
+              <rect x="2" y="2" width="296" height="90" rx="17" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+            </svg>
+          </div>
+          <div class="s-edge s-edge-f"></div>
+          <div class="s-edge s-edge-b"></div>
+          <div class="s-edge s-edge-l"></div>
+          <div class="s-edge s-edge-r"></div>
+        </div>
+
+      </div><!-- /explode-scene -->
+
+      <!-- Labels -->
+      <div class="explode-labels" id="explodeLabels">
+        {layers.map((l) => (
+          <div class={`e-label e-label--${l.id} e-label--${l.side}`} id={`label-${l.id}`}>
+            <div class="e-line"></div>
+            <div class="e-text">
+              <span class="e-name">{l.label}</span>
+              <span class="e-desc">{l.desc}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div><!-- /explode-scene-wrap -->
+
+    <!-- CTA -->
+    <div class="explode-cta" id="explodeCta">
+      <a href="/tienda/qrescueid-fisico/" class="btn btn-primary-yellow btn-lg">Comprar QRescueID</a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .explode-section {
+    height: 400vh;
+    background: #0a0e18;
+  }
+  .explode-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    gap: 1.5rem;
+  }
+
+  /* Header */
+  .explode-header { text-align: center; z-index: 10; }
+  .explode-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--golden-yellow);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+  .explode-title {
+    font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  /* Scene */
+  .explode-scene-wrap {
+    position: relative;
+    width: 640px;
+    height: 360px;
+    max-width: 95vw;
+  }
+  .explode-scene {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%) rotateX(26deg) rotateY(-32deg);
+    width: 0;
+    height: 0;
+  }
+
+  /* Layers */
+  .s-layer {
+    position: absolute;
+    width: 300px;
+    height: 94px;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%) translateZ(0px);
+  }
+  .s-face {
+    position: absolute;
+    width: 300px;
+    height: 94px;
+    border-radius: 18px;
+    overflow: hidden;
+    backface-visibility: hidden;
+  }
+  .layer-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* Edges */
+  .s-edge {
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  .s-edge-f { width: 300px; height: 5px; bottom: -2.5px; left: 0; transform: rotateX(-90deg); transform-origin: bottom; }
+  .s-edge-b { width: 300px; height: 5px; top: -2.5px; left: 0; transform: rotateX(90deg); transform-origin: top; }
+  .s-edge-l { width: 5px; height: 94px; left: -2.5px; top: 0; transform: rotateY(90deg); transform-origin: left; }
+  .s-edge-r { width: 5px; height: 94px; right: -2.5px; top: 0; transform: rotateY(-90deg); transform-origin: right; }
+
+  .layer-laminate  .s-edge { background: rgba(200,220,240,0.4); }
+  .layer-print     .s-edge { background: #0a0a0a; }
+  .layer-nfc       .s-edge { background: #d4b87a; }
+  .layer-adhesive  .s-edge { background: #8b1010; }
+  .layer-base      .s-edge { background: #c0c0c0; }
+
+  /* Labels */
+  .explode-labels {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .e-label {
+    position: absolute;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 0.4s ease;
+  }
+  .e-label--right { left: 60%; flex-direction: row; }
+  .e-label--left  { right: 60%; flex-direction: row-reverse; }
+
+  .e-label--laminate  { top: 4%;  }
+  .e-label--print     { top: 22%; }
+  .e-label--nfc       { top: 44%; }
+  .e-label--adhesive  { top: 64%; }
+  .e-label--base      { top: 81%; }
+
+  .e-line {
+    width: 28px; height: 1px;
+    background: rgba(245,183,0,0.7);
+    flex-shrink: 0;
+  }
+  .e-text { display: flex; flex-direction: column; gap: 2px; }
+  .e-label--left .e-text { align-items: flex-end; }
+  .e-name {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .e-desc {
+    font-size: 0.62rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  /* CTA */
+  .explode-cta {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    z-index: 10;
+  }
+  .explode-cta.visible { opacity: 1; transform: translateY(0); }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .explode-section { height: 300vh; }
+    .explode-scene-wrap { width: 340px; height: 260px; }
+    .s-layer { width: 210px; height: 66px; }
+    .s-face  { width: 210px; height: 66px; }
+    .s-edge-f, .s-edge-b { width: 210px; }
+    .s-edge-l, .s-edge-r { height: 66px; }
+    .e-label--right { left: 56%; }
+    .e-label--left  { right: 56%; }
+    .e-desc { display: none; }
+  }
+</style>
+
+<script>
+  (function () {
+    function loadScript(src, cb) {
+      var s = document.createElement('script');
+      s.src = src;
+      s.onload = cb;
+      document.head.appendChild(s);
+    }
+
+    loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js', function () {
+      loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js', init);
+    });
+
+    function init() {
+      gsap.registerPlugin(ScrollTrigger);
+
+      var section      = document.getElementById('stickerExplodeSection');
+      var scene        = document.getElementById('explodeScene');
+      var cta          = document.getElementById('explodeCta');
+      var labelEls     = document.querySelectorAll('.e-label');
+
+      if (!section || !scene) return;
+
+      var layerLaminate  = document.getElementById('layerLaminate');
+      var layerPrint     = document.getElementById('layerPrint');
+      var layerNfc       = document.getElementById('layerNfc');
+      var layerAdhesive  = document.getElementById('layerAdhesive');
+      var layerBase      = document.getElementById('layerBase');
+
+      // Mouse parallax tilt (desktop)
+      if (window.innerWidth > 768) {
+        var targetRX = 26, targetRY = -32;
+        var curRX = 26, curRY = -32;
+
+        document.addEventListener('mousemove', function (e) {
+          var mx = (e.clientX / window.innerWidth  - 0.5) * 2;
+          var my = (e.clientY / window.innerHeight - 0.5) * 2;
+          targetRY = -32 + mx * 18;
+          targetRX =  26 - my * 12;
+        });
+
+        (function tick() {
+          curRX += (targetRX - curRX) * 0.055;
+          curRY += (targetRY - curRY) * 0.055;
+          scene.style.transform = 'translate(-50%, -50%) rotateX(' + curRX + 'deg) rotateY(' + curRY + 'deg)';
+          requestAnimationFrame(tick);
+        })();
+      }
+
+      // Z positions para cada fase
+      var zExploded = [170, 85, 0, -85, -170];
+      var layerNodes = [layerLaminate, layerPrint, layerNfc, layerAdhesive, layerBase];
+
+      var tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 1.4,
+          onUpdate: function (self) {
+            var p = self.progress;
+            // Labels visibles entre 35% y 85%
+            var showLabels = p > 0.35 && p < 0.85;
+            labelEls.forEach(function (el) {
+              el.style.opacity = showLabels ? '1' : '0';
+            });
+            // CTA al final
+            if (p > 0.84) cta.classList.add('visible');
+            else cta.classList.remove('visible');
+          }
+        }
+      });
+
+      // Fase 1 — separar capas
+      layerNodes.forEach(function (node, i) {
+        tl.to(node, { z: zExploded[i], ease: 'power2.inOut', duration: 2 }, 0);
+      });
+
+      // Fase 2 — pausa
+      tl.to({}, { duration: 2 });
+
+      // Fase 3 — volver a ensamblar
+      layerNodes.forEach(function (node) {
+        tl.to(node, { z: 0, ease: 'power2.inOut', duration: 1.6 }, '>-1.6');
+      });
+    }
+  })();
+</script>
