@@ -10,7 +10,7 @@ const jsonLd = [
     "name": "QRescueID",
     "url": "https://qrescueid.app",
     "logo": "https://qrescueid.app/img/favicon.ico",
-    "description": "QRescueID guarda tu información médica y contactos vitales en un QR y NFC. Seguridad y tranquilidad en cada aventura.",
+    "description": "QRescueID es el QR para cascos de moto, bicicleta y trabajo. Guarda tu información médica y contactos de emergencia en un sticker QR y NFC resistente.",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+56954751380",
@@ -23,13 +23,59 @@ const jsonLd = [
     "@type": "WebSite",
     "name": "QRescueID",
     "url": "https://qrescueid.app"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué es un QR para casco?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Un QR para casco es un sticker resistente con código QR y chip NFC que se adhiere a tu casco de moto, bicicleta o trabajo. Al escanearlo, muestra tu información médica y contactos de emergencia al instante, sin necesidad de descargar ninguna app."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Para qué sirve el QR en el casco?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El QR en el casco sirve para identificarte en caso de accidente. Si quedas inconsciente o no puedes hablar, cualquier persona con un celular puede escanear el QR y acceder a tu nombre, grupo sanguíneo, alergias, medicamentos y los teléfonos de tus contactos de emergencia."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿En qué cascos se puede usar QRescueID?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "QRescueID funciona en cualquier tipo de casco: casco de moto, casco de bicicleta, casco de MTB, casco de construcción y cascos de seguridad industrial. El adhesivo 3M ultra resistente se adhiere a cualquier superficie dura."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Necesito una app para escanear el QR del casco?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Cualquier celular con cámara puede escanear el código QR sin necesidad de descargar ninguna aplicación. Los celulares con NFC también pueden leer la información acercando el teléfono al casco."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Es resistente al agua y al calor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. QRescueID está diseñado para resistir condiciones extremas: es resistente al agua, al calor y al uso rudo. El adhesivo 3M garantiza que no se despegue del casco incluso en condiciones climáticas adversas."
+        }
+      }
+    ]
   }
 ];
 ---
 
 <BaseLayout
-  title="QRescueID - Tu Identificación de Emergencia, Siempre Contigo"
-  description="QRescueID guarda tu información médica y contactos vitales en un QR y NFC. Seguridad y tranquilidad en cada aventura."
+  title="QR para Cascos | QRescueID - Identificación de Emergencia con QR y NFC"
+  description="QRescueID es el sticker QR para cascos de moto, bicicleta y trabajo. En caso de accidente, muestra tu información médica y contactos de emergencia al instante. Desde gratis."
   ogImage="/img/caja-qrescueid_resultado_optimized.webp"
   jsonLd={jsonLd}
 >
@@ -41,10 +87,10 @@ const jsonLd = [
       <div class="row align-items-center min-vh-100">
         <div class="col-lg-12 text-center" data-aos="fade-up">
           <h1 class="hero-title mb-4">
-            Tu identificación de emergencia,<br>siempre contigo.
+            El QR para tu casco que puede<br>salvarte la vida.
           </h1>
           <p class="hero-subtitle mb-5">
-            QRescueID guarda tu información médica y contactos vitales en un QR y NFC.
+            Sticker QR y NFC para casco de moto, bicicleta y trabajo. En caso de accidente, tus datos médicos y contactos de emergencia al instante.
           </p>
           <div class="d-flex justify-content-center gap-3 flex-wrap">
             <a href="/planes/" class="btn btn-primary-yellow btn-lg">Crea tu cuenta gratis</a>
@@ -255,6 +301,78 @@ const jsonLd = [
           <div class="d-flex gap-3 justify-content-center flex-wrap">
             <a href="/planes/" class="btn btn-primary-yellow btn-lg">Comprar ahora</a>
             <a href="/contacto/" class="btn btn-outline-yellow btn-lg">Contactar empresa</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section py-5" style="background-color: rgba(255,255,255,0.02);">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+          <h2 class="section-heading mb-3">
+            Preguntas frecuentes sobre el <span class="highlight-yellow">QR para cascos</span>
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <div class="accordion" id="faqAccordion">
+
+            {[
+              {
+                id: 'faq1',
+                q: '¿Qué es un QR para casco?',
+                a: 'Es un sticker resistente con código QR y chip NFC que se adhiere a tu casco de moto, bicicleta o trabajo. Al escanearlo, muestra tu información médica y contactos de emergencia al instante, sin necesidad de descargar ninguna app.'
+              },
+              {
+                id: 'faq2',
+                q: '¿Para qué sirve el QR en el casco?',
+                a: 'Sirve para identificarte en caso de accidente. Si quedas inconsciente o no puedes hablar, cualquier persona con un celular puede escanear el QR y acceder a tu nombre, grupo sanguíneo, alergias, medicamentos y los teléfonos de tus contactos de emergencia.'
+              },
+              {
+                id: 'faq3',
+                q: '¿En qué cascos funciona QRescueID?',
+                a: 'Funciona en cualquier tipo de casco: moto, bicicleta, MTB, construcción y seguridad industrial. El adhesivo 3M ultra resistente se adhiere a cualquier superficie dura.'
+              },
+              {
+                id: 'faq4',
+                q: '¿Necesito una app para escanear el QR?',
+                a: 'No. Cualquier celular con cámara puede escanear el código QR sin instalar nada. Los celulares con NFC también pueden leer la información acercando el teléfono al casco.'
+              },
+              {
+                id: 'faq5',
+                q: '¿Es resistente al agua y al calor?',
+                a: 'Sí. QRescueID está diseñado para resistir condiciones extremas: agua, calor y uso rudo. El adhesivo 3M garantiza que no se despegue del casco incluso en condiciones climáticas adversas.'
+              },
+              {
+                id: 'faq6',
+                q: '¿Puedo actualizar mis datos después de pegarlo?',
+                a: 'Sí. Tus datos se guardan en tu perfil digital — puedes actualizarlos cuando quieras desde la plataforma. El sticker físico del casco siempre apunta a tu perfil actualizado.'
+              },
+            ].map((item, i) => (
+              <div class="accordion-item bg-transparent border-bottom border-secondary mb-2">
+                <h3 class="accordion-header" style="font-size: 1rem;">
+                  <button
+                    class={`accordion-button bg-transparent text-white fw-semibold${i !== 0 ? ' collapsed' : ''}`}
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target={`#${item.id}`}
+                    style="box-shadow: none;"
+                  >
+                    {item.q}
+                  </button>
+                </h3>
+                <div id={item.id} class={`accordion-collapse collapse${i === 0 ? ' show' : ''}`} data-bs-parent="#faqAccordion">
+                  <div class="accordion-body text-muted ps-0">
+                    {item.a}
+                  </div>
+                </div>
+              </div>
+            ))}
+
           </div>
         </div>
       </div>
