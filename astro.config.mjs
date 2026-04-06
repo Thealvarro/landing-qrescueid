@@ -6,5 +6,9 @@ export default defineConfig({
   site: 'https://qrescueid.app',
   output: 'hybrid',
   adapter: vercel(),
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/api/'),
+    }),
+  ],
 });
