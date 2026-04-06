@@ -1,0 +1,258 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import DemoEscaneo from '../components/DemoEscaneo.astro';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://qrescueid.app/" },
+    { "@type": "ListItem", "position": 2, "name": "Empresas", "item": "https://qrescueid.app/empresas/" }
+  ]
+};
+---
+
+<BaseLayout
+  title="QRescueID Empresas - Gestión de Seguridad Ocupacional y Control de EPP"
+  description="Plataforma de gestión de seguridad ocupacional para empresas. Control de EPP, identificación de trabajadores con QR/NFC y trazabilidad en seguridad industrial digital."
+  ogImage="/img/Photoroom_20250929_150344.jpg"
+  jsonLd={jsonLd}
+>
+  <Navbar />
+
+  <style>
+    .hero-section-empresas {
+      background: linear-gradient(rgba(15,23,42,0.9), rgba(30,41,59,0.9)), url('/img/construccion-hero.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .process-step {
+      position: relative; padding: 2rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px; height: 100%;
+      transition: all 0.3s ease;
+    }
+    .process-step:hover { transform: translateY(-5px); border-color: var(--golden-yellow); }
+    .step-number { font-size: 3rem; font-weight: 800; color: var(--golden-yellow); opacity: 0.2; position: absolute; top: 10px; right: 20px; }
+    .data-list li { margin-bottom: 1rem; display: flex; align-items: center; color: var(--text-light); }
+    .data-list li i { color: var(--golden-yellow); margin-right: 1rem; width: 20px; text-align: center; }
+    .impact-card { border-left: 4px solid var(--golden-yellow); background: rgba(255,255,255,0.03); padding: 2rem; height: 100%; }
+  </style>
+
+  <!-- Hero -->
+  <section class="hero-section hero-section-empresas">
+    <div class="container">
+      <div class="row align-items-center min-vh-100">
+        <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+          <h1 class="hero-title mb-4">
+            Control Total y Trazabilidad en Seguridad Industrial Digital
+          </h1>
+          <p class="hero-subtitle mb-5">
+            Centralice la gestión de seguridad ocupacional. QRescueID transforma la identificación de sus trabajadores en una potente herramienta de control de EPP, certificaciones y respuesta ante emergencias.
+          </p>
+          <div class="d-flex gap-3 justify-content-center">
+            <a href="/contacto/" class="btn btn-primary-yellow btn-lg">Solicitar Información</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-background hero-background-empresas"></div>
+  </section>
+
+  <!-- Qué es para empresas -->
+  <section class="why-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+          <h2 class="section-heading mb-4">
+            Más que un código QR: <br><span class="highlight-yellow">Plataforma Integral</span>
+          </h2>
+          <p class="lead mb-4">QRescueID es el puente digital entre sus trabajadores y la gestión centralizada de seguridad.</p>
+          <p class="mb-4">Validación en tiempo real de competencias, EPP e información médica crítica para una operación segura.</p>
+          <p class="mb-0"><strong>Visibilidad total. Control absoluto.</strong></p>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="image-container d-flex justify-content-center">
+            <img src="/img/Photoroom_20250929_150344.jpg" alt="Dashboard de Gestión QRescueID para empresas" class="img-fluid rounded-4 border border-secondary border-opacity-25" style="width:100%;height:auto;" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6" data-aos="zoom-in">
+          <div class="stat-item">
+            <span class="stat-number" data-target="2500">0</span>
+            <span class="stat-text">Trabajadores usando QRescueID</span>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="zoom-in" data-aos-delay="200">
+          <div class="stat-item">
+            <span class="stat-number" data-target="2">0</span>
+            <span class="stat-text">Años en el mercado</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo Funciona -->
+  <section class="explore-section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+          <h2 class="section-heading">Integración Operativa Simplificada</h2>
+          <p class="text-muted">Implementación rápida sin interrumpir faenas</p>
+        </div>
+      </div>
+      <div class="row g-4">
+        {[
+          { n: '01', icon: 'fa-users-cog', title: 'Registro Digital', text: 'Carga masiva de trabajadores y perfiles en la plataforma centralizada.' },
+          { n: '02', icon: 'fa-qrcode', title: 'Asignación ID', text: 'Entrega y vinculación del dispositivo físico QR/NFC único por trabajador.' },
+          { n: '03', icon: 'fa-helmet-safety', title: 'Instalación EPP', text: 'El dispositivo se adhiere al casco con resistencia industrial para ambientes hostiles.' },
+          { n: '04', icon: 'fa-mobile-screen-button', title: 'Gestión & Control', text: 'Escaneo para verificación de credenciales, emergencias y auditoría de EPP.' },
+        ].map((step, i) => (
+          <div class="col-md-3" data-aos="fade-up" data-aos-delay={(i + 1) * 100}>
+            <div class="process-step">
+              <span class="step-number">{step.n}</span>
+              <i class={`fas ${step.icon} fa-2x text-warning mb-3`}></i>
+              <h5>{step.title}</h5>
+              <p class="small text-light">{step.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo Escaneo -->
+  <section class="demo-section py-5" style="background-color: #1a2236;">
+    <div class="container">
+      <DemoEscaneo />
+    </div>
+  </section>
+
+  <!-- Información que gestiona -->
+  <section class="sustainability-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-5 order-lg-2" data-aos="fade-left">
+          <div class="mb-4 mb-lg-0">
+            <img src="/img/notificaciones-dashboard.jpg" alt="Ficha Digital y Notificaciones de Seguridad" class="img-fluid rounded-4 shadow-lg border border-secondary border-opacity-25" style="width:100%;height:auto;" />
+          </div>
+        </div>
+        <div class="col-lg-7 order-lg-1" data-aos="fade-right">
+          <h2 class="section-heading mb-4">¿Qué gestiona nuestra plataforma?</h2>
+          <p class="mb-4">Centralice toda la información crítica para la prevención de riesgos y recursos humanos en un solo lugar accesible vía escaneo.</p>
+          <div class="row">
+            <div class="col-md-6">
+              <ul class="list-unstyled data-list">
+                <li><i class="fas fa-heartbeat"></i> Información Médica de Emergencia</li>
+                <li><i class="fas fa-briefcase"></i> Cargo, Rol y Departamento</li>
+                <li><i class="fas fa-hard-hat"></i> Listado de EPP Asignados</li>
+                <li><i class="fas fa-history"></i> Historial de Recambio de EPP</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul class="list-unstyled data-list">
+                <li><i class="fas fa-certificate"></i> Cursos y Capacitaciones</li>
+                <li><i class="fas fa-check-circle"></i> Certificaciones y Habilitaciones</li>
+                <li><i class="fas fa-traffic-light"></i> Estado de Cumplimiento (Semáforo)</li>
+                <li><i class="fas fa-route"></i> Trazabilidad de Accesos</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impacto -->
+  <section class="confian-section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+          <h2 class="section-heading">Impacto Estratégico en la Organización</h2>
+        </div>
+      </div>
+      <div class="row g-4">
+        {[
+          { icon: 'fa-server', title: 'Centralización', text: 'Elimine las planillas dispersas. Toda la documentación de seguridad y EPP unificada y disponible 24/7 para jefaturas y prevencionistas.' },
+          { icon: 'fa-file-contract', title: 'Reducción de Riesgo', text: 'Minimice errores humanos y brechas de información. Asegure que cada trabajador tenga sus certificaciones al día antes de iniciar tareas.' },
+          { icon: 'fa-stopwatch', title: 'Eficiencia Operativa', text: 'Acelere los procesos de auditoría en terreno y respuesta ante emergencias. Información vital accesible en segundos, no en horas.' },
+        ].map((card, i) => (
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay={(i + 1) * 100}>
+            <div class="impact-card">
+              <i class={`fas ${card.icon} fa-2x text-warning mb-3`}></i>
+              <h4>{card.title}</h4>
+              <p class="text-light small">{card.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 mx-auto text-center" data-aos="zoom-in">
+          <h3 class="mb-4 text-white" style="font-weight:300;font-style:italic;">
+            "La tecnología bien aplicada no solo protege personas, también optimiza la gestión y fortalece el liderazgo en seguridad."
+          </h3>
+          <div class="mt-5">
+            <h2 class="section-heading mb-4">Lleve su gestión de seguridad al siguiente nivel</h2>
+            <a href="https://wa.me/56954751380?text=Hola,%20quisiera%20agendar%20una%20consultoria%20sobre%20QRescueID%20para%20empresas" target="_blank" class="btn btn-primary-yellow btn-lg px-5">
+              <i class="fab fa-whatsapp me-2"></i>Hablar con un consultor
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer variant="empresas" />
+
+  <Fragment slot="body-end">
+    <!-- Alpine.js Collapse plugin debe cargarse ANTES de Alpine -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js" is:inline></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" is:inline></script>
+    <script is:inline>
+      // Counter Animation
+      function animateCounters() {
+        const counters = document.querySelectorAll('.stat-number');
+        counters.forEach(function(counter) {
+          const target = +counter.getAttribute('data-target');
+          let count = 0;
+          const inc = target / 100;
+          const update = function() {
+            if (count < target) {
+              count += inc;
+              counter.innerText = Math.ceil(count);
+              setTimeout(update, 20);
+            } else {
+              counter.innerText = target + '+';
+            }
+          };
+          update();
+        });
+      }
+      const statsSection = document.querySelector('.stats-section');
+      if (statsSection) {
+        new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) { animateCounters(); this.unobserve(entry.target); }
+          }.bind(this));
+        }, { threshold: 0.3 }).observe(statsSection);
+      }
+    </script>
+  </Fragment>
+</BaseLayout>

@@ -1,0 +1,217 @@
+---
+// Datos mock del trabajador demo (equivalente al PHP array)
+const worker = {
+  name: 'Eduardo Jofré',
+  position: 'Jefe de Brigada',
+  photo: 'https://randomuser.me/api/portraits/men/32.jpg',
+  age: 42,
+  country: 'Chile',
+  emergency: {
+    rut: '12.345.678-9',
+    blood_type: 'A+',
+    allergies: 'Penicilina',
+    diseases: 'Diabetes Tipo 1',
+    medications: 'Insulina',
+    implants: 'Marcapasos',
+    donor: 'Sí',
+    insurance: 'Fonasa',
+  },
+  contacts: [
+    { name: 'María Jofré', relation: 'Esposa', phone: '+56 9 1234 5678' },
+    { name: 'Carlos Jofré', relation: 'Hermano', phone: '+56 9 8765 4321' },
+  ],
+  epp: [
+    { name: 'Casco de Seguridad', status: 'ok', icon: 'fa-helmet-safety' },
+    { name: 'Protección Auditiva', status: 'ok', icon: 'fa-ear-listen' },
+    { name: 'Lentes de Seguridad', status: 'ok', icon: 'fa-glasses' },
+    { name: 'Guantes de Cabritilla', status: 'ok', icon: 'fa-hands' },
+    { name: 'Zapatos de Seguridad', status: 'warning', icon: 'fa-shoe-prints' },
+    { name: 'Silbato de Emergencia', status: 'missing', icon: 'fa-bullhorn' },
+  ],
+  certifications: [
+    { name: 'Trabajo en Altura', date: 'Vence: Dic 2025' },
+    { name: 'Primeros Auxilios', date: 'Vence: Mar 2026' },
+    { name: 'Manejo de Extintores', date: 'Vence: Jun 2025' },
+  ],
+};
+---
+
+<div class="demo-scan-container my-5" x-data="{ openSection: null, toggle(s){ this.openSection = this.openSection === s ? null : s; } }">
+  <div class="row">
+    <div class="col-lg-8 mx-auto text-center mb-5">
+      <span class="badge bg-warning text-dark mb-2">Simulación Interactiva</span>
+      <h2 class="section-heading mb-3">Escaneo en Vivo: <span class="highlight-yellow">Perfil de Trabajador</span></h2>
+      <p class="text-light">Experimente exactamente lo que vería un paramédico o supervisor al escanear el casco de un trabajador.</p>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+      <div class="mobile-frame-wrapper">
+        <div class="mobile-frame shadow-lg">
+          <!-- Top Bar -->
+          <div class="mobile-header d-flex justify-content-between align-items-center p-3 bg-white border-bottom">
+            <div class="brand-logo text-dark fw-bold" style="font-size:1.2rem;">Qrescue<span style="color:#0dcaf0;">id</span></div>
+            <div class="text-uppercase fw-bold text-muted small" style="border:1px dashed #ccc;padding:2px 5px;border-radius:4px;">TU LOGO AQUÍ</div>
+          </div>
+
+          <!-- Profile Header -->
+          <div class="profile-header text-center p-4 bg-white">
+            <div class="profile-photo-container mb-3 position-relative d-inline-block">
+              <img src={worker.photo} alt={worker.name} class="rounded-circle border border-3 border-light shadow-sm" style="width:120px;height:120px;object-fit:cover;" />
+              <div class="verification-badge"><i class="fas fa-check-circle text-success"></i></div>
+            </div>
+            <h4 class="text-dark fw-bold mb-1">{worker.name}</h4>
+            <div class="badge bg-secondary text-uppercase px-3 py-2 mb-3">{worker.position}</div>
+            <div class="row g-2 text-start mt-2 border-top pt-3">
+              <div class="col-6">
+                <small class="text-muted d-block" style="font-size:0.75rem;">EDAD</small>
+                <strong class="text-dark">{worker.age} Años</strong>
+              </div>
+              <div class="col-6">
+                <small class="text-muted d-block" style="font-size:0.75rem;">PAÍS</small>
+                <strong class="text-dark">{worker.country}</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion Sections -->
+          <div class="mobile-body bg-light">
+
+            <!-- 1. Emergencia -->
+            <div class="accordion-item-custom mb-2 shadow-sm">
+              <button @click="toggle('emergency')" class="accordion-header-custom d-flex justify-content-between align-items-center w-100 p-3 border-0 text-white bg-dark-gray">
+                <div class="d-flex align-items-center gap-2">
+                  <i class="fas fa-heartbeat text-danger"></i>
+                  <span class="fw-bold">Información de emergencia</span>
+                </div>
+                <i class="fas" :class="openSection === 'emergency' ? 'fa-minus' : 'fa-plus'"></i>
+              </button>
+              <div x-show="openSection === 'emergency'" x-collapse class="accordion-content bg-white p-3">
+                {[
+                  { icon: 'fa-id-card', label: 'RUT / DNI', value: worker.emergency.rut, color: '' },
+                  { icon: 'fa-droplet', label: 'Grupo Sanguíneo', value: worker.emergency.blood_type, color: 'text-danger fw-bold' },
+                  { icon: 'fa-file-medical', label: 'Alergias', value: worker.emergency.allergies, color: 'text-danger fw-bold' },
+                  { icon: 'fa-notes-medical', label: 'Enfermedades Crónicas', value: worker.emergency.diseases, color: '' },
+                  { icon: 'fa-pills', label: 'Medicamentos', value: worker.emergency.medications, color: '' },
+                  { icon: 'fa-heart-pulse', label: 'Implantes', value: worker.emergency.implants, color: '' },
+                  { icon: 'fa-hand-holding-heart', label: 'Donante', value: worker.emergency.donor, color: 'fw-bold' },
+                  { icon: 'fa-briefcase-medical', label: 'Previsión', value: worker.emergency.insurance, color: '' },
+                ].map(item => (
+                  <div class="info-row mb-2 pb-2 border-bottom border-light">
+                    <div class="d-flex align-items-center gap-2 mb-1">
+                      <i class={`fas ${item.icon} text-muted`} style="width:20px;"></i>
+                      <small class="text-muted fw-bold">{item.label}</small>
+                    </div>
+                    <div class={`ps-4 text-dark ${item.color}`}>{item.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <!-- 2. Contactos -->
+            <div class="accordion-item-custom mb-2 shadow-sm">
+              <button @click="toggle('contacts')" class="accordion-header-custom d-flex justify-content-between align-items-center w-100 p-3 border-0 text-white bg-danger">
+                <div class="d-flex align-items-center gap-2">
+                  <i class="fas fa-phone-volume"></i>
+                  <span class="fw-bold">Contactos de emergencia</span>
+                </div>
+                <i class="fas" :class="openSection === 'contacts' ? 'fa-minus' : 'fa-plus'"></i>
+              </button>
+              <div x-show="openSection === 'contacts'" x-collapse class="accordion-content bg-white p-3">
+                {worker.contacts.map(c => (
+                  <div class="contact-card p-2 mb-2 bg-light rounded border border-light">
+                    <div class="fw-bold text-dark">{c.name}</div>
+                    <div class="small text-muted mb-1">{c.relation}</div>
+                    <a href="#" class="btn btn-sm btn-outline-danger w-100"><i class="fas fa-phone me-2"></i>Llamar</a>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <!-- 3. EPP -->
+            <div class="accordion-item-custom mb-2 shadow-sm">
+              <button @click="toggle('epp')" class="accordion-header-custom d-flex justify-content-between align-items-center w-100 p-3 border-0 text-white bg-primary">
+                <div class="d-flex align-items-center gap-2">
+                  <i class="fas fa-helmet-safety"></i>
+                  <span class="fw-bold">EPP del Brigadista</span>
+                </div>
+                <i class="fas" :class="openSection === 'epp' ? 'fa-minus' : 'fa-plus'"></i>
+              </button>
+              <div x-show="openSection === 'epp'" x-collapse class="accordion-content bg-white p-3">
+                {worker.epp.map(e => (
+                  <div class="d-flex justify-content-between align-items-center mb-2 pb-2 border-bottom border-light">
+                    <div class="d-flex align-items-center gap-2">
+                      <i class={`fas ${e.icon} ${e.status === 'missing' ? 'text-danger' : 'text-primary'}`}></i>
+                      <span class="text-dark small fw-bold">{e.name}</span>
+                    </div>
+                    {e.status === 'warning' && <span class="badge bg-warning text-dark" style="font-size:0.65rem;">Por Vencer</span>}
+                    {e.status === 'missing' && <span class="badge bg-danger" style="font-size:0.65rem;"><i class="fas fa-times me-1"></i>No Entregado</span>}
+                    {e.status === 'ok' && <span class="badge bg-success" style="font-size:0.65rem;"><i class="fas fa-check me-1"></i>OK</span>}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <!-- 4. Certificaciones -->
+            <div class="accordion-item-custom mb-2 shadow-sm">
+              <button @click="toggle('certifications')" class="accordion-header-custom d-flex justify-content-between align-items-center w-100 p-3 border-0 text-white bg-success">
+                <div class="d-flex align-items-center gap-2">
+                  <i class="fas fa-certificate"></i>
+                  <span class="fw-bold">Habilitación Profesional</span>
+                </div>
+                <i class="fas" :class="openSection === 'certifications' ? 'fa-minus' : 'fa-plus'"></i>
+              </button>
+              <div x-show="openSection === 'certifications'" x-collapse class="accordion-content bg-white p-3">
+                {worker.certifications.map(cert => (
+                  <div class="certification-card mb-2 p-2 bg-light rounded border-start border-4 border-success">
+                    <div class="d-flex justify-content-between">
+                      <span class="text-dark fw-bold small">{cert.name}</span>
+                      <i class="fas fa-check-circle text-success"></i>
+                    </div>
+                    <div class="text-muted" style="font-size:0.7rem;">{cert.date}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Mobile Footer -->
+          <div class="mobile-footer p-3 bg-dark text-center">
+            <small class="text-light" style="font-size:0.7rem;">&copy; 2025 QRescueID. Todos los derechos reservados.</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contextual Help -->
+      <div class="text-center mt-4">
+        <p class="text-muted small mb-3"><i class="fas fa-hand-pointer me-2 animate-bounce"></i>Interactúa con las secciones para ver detalles</p>
+        <div class="d-grid gap-2">
+          <a href="https://wa.me/56954751380?text=Hola,%20me%20interesa%20conocer%20mas%20sobre%20QRescueID%20para%20empresas" target="_blank" class="btn btn-primary-yellow">
+            <i class="fab fa-whatsapp me-2"></i>Contacto
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .mobile-frame-wrapper {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 8px solid #333;
+    background-color: #fff;
+  }
+  .mobile-frame { background-color: #f8f9fa; min-height: 600px; }
+  .bg-dark-gray { background-color: #4a4a4a; }
+  .accordion-header-custom { text-align: left; transition: background-color 0.2s; cursor: pointer; }
+  .accordion-header-custom:hover { filter: brightness(1.1); }
+  .verification-badge { position: absolute; bottom: 0; right: 0; background: white; border-radius: 50%; padding: 2px; }
+  @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+  .animate-bounce { animation: bounce 2s infinite; }
+</style>

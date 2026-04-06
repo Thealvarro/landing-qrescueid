@@ -3,3 +3,10 @@ cache/
 .vercel/
 *.log
 .DS_Store
+
+# Astro
+dist/
+.astro/
+node_modules/
+.env
+.env.local

@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://qrescueid.app/" },
+    { "@type": "ListItem", "position": 2, "name": "Contacto", "item": "https://qrescueid.app/contacto/" }
+  ]
+};
+---
+
+<BaseLayout
+  title="Contacto - QRescueID | WhatsApp, Llamada o Email"
+  description="Contáctanos fácilmente. Respuesta rápida por WhatsApp, agenda una llamada de 15 minutos o envíanos un correo. Estamos para ayudarte."
+  jsonLd={jsonLd}
+>
+  <Navbar />
+
+  <!-- Hero -->
+  <section class="contact-hero-section py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center py-lg-5 mt-lg-5" data-aos="fade-up">
+          <h1 class="display-4 fw-bold mb-3 mt-4 mt-lg-0">Hablemos ahora</h1>
+          <p class="lead text-muted">Elige el canal que te sea más rápido para contactarnos. Sin formularios largos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Acciones -->
+  <section class="contact-actions-section pb-5 mb-5">
+    <div class="container">
+      <div class="row g-4 justify-content-center">
+
+        <!-- WhatsApp -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <a href="https://wa.me/56954751380?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20QRescueID%20para%20empresas" target="_blank"
+            class="card action-card bg-success text-white text-decoration-none h-100 border-0 shadow-lg text-center p-4">
+            <div class="card-body d-flex flex-column align-items-center justify-content-center">
+              <div class="icon-mb mb-3"><i class="fab fa-whatsapp fa-4x"></i></div>
+              <h2 class="fw-bold mb-2" style="font-size: 1.5rem;">Hablar por WhatsApp</h2>
+              <span class="badge bg-white text-success rounded-pill px-3 py-2 mb-3">Respuesta rápida</span>
+              <p class="small opacity-75 mb-0">Clic para abrir chat directo</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Agendar llamada -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <a href="https://calendar.app.google/fWgoGk32DYdEpF7NA" target="_blank"
+            class="card action-card bg-primary text-white text-decoration-none h-100 border-0 shadow text-center p-4">
+            <div class="card-body d-flex flex-column align-items-center justify-content-center">
+              <div class="icon-mb mb-3"><i class="fas fa-calendar-check fa-4x"></i></div>
+              <h2 class="fw-bold mb-2" style="font-size: 1.5rem;">Agendar llamada</h2>
+              <p class="mb-0 small text-white-50">15 minutos</p>
+              <span class="btn btn-sm btn-light text-primary mt-3 px-4 rounded-pill">Ver disponibilidad</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Email -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <a href="mailto:acofre@qrescue.cl?subject=Consulta%20QRescueID&body=Hola,%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n."
+            class="card action-card bg-white text-dark text-decoration-none h-100 border shadow-sm text-center p-4">
+            <div class="card-body d-flex flex-column align-items-center justify-content-center">
+              <div class="icon-mb mb-3 text-secondary"><i class="fas fa-envelope fa-4x"></i></div>
+              <h2 class="fw-bold mb-2" style="font-size: 1.5rem;">Enviar correo</h2>
+              <p class="mb-0 small text-muted">Contacto directo</p>
+              <span class="btn btn-sm btn-outline-dark mt-3 px-4 rounded-pill">Redactar email</span>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .action-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .action-card:hover { transform: translateY(-10px); box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important; }
+  </style>
+
+  <Footer />
+</BaseLayout>

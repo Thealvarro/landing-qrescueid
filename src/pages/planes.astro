@@ -1,0 +1,244 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://qrescueid.app/" },
+    { "@type": "ListItem", "position": 2, "name": "Planes", "item": "https://qrescueid.app/planes/" }
+  ]
+};
+---
+
+<BaseLayout
+  title="Planes y Precios - QRescueID | Desde Gratis hasta Premium"
+  description="Elige tu plan ideal de QRescueID. Plan Free, Pro ($2.500 CLP/mes) y Premium ($4.500 CLP/mes). Identificación de emergencia con QR y NFC."
+  ogImage="/img/caja-qrescueid_resultado_optimized.webp"
+  jsonLd={jsonLd}
+>
+  <Navbar />
+
+  <!-- Hero -->
+  <section class="plans-hero-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center py-5 mt-5" data-aos="fade-up">
+          <h1 class="section-heading mb-4">Elige tu plan <span class="highlight-yellow">ideal</span></h1>
+          <p class="lead text-muted">
+            Selecciona el plan que mejor se adapte a tus necesidades. Desde el plan gratuito hasta el premium con todas las funciones.
+          </p>
+          <div class="billing-toggle-container mt-4 mb-3">
+            <button class="billing-toggle-btn active" data-period="monthly">Mensual</button>
+            <button class="billing-toggle-btn" data-period="annual">Anual</button>
+          </div>
+          <a href="https://plataforma.qrescueid.app/register" target="_blank" class="btn btn-primary-yellow btn-lg mt-3">Crear cuenta gratis</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Precios -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="row g-4 justify-content-center">
+
+        <!-- Plan Free -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="pricing-card h-100" style="border: 2px solid var(--golden-yellow);">
+            <div class="pricing-header">
+              <div class="d-flex align-items-center mb-3">
+                <div class="plan-icon me-3" style="background: var(--golden-yellow); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                  <i class="fas fa-check" style="color: white; font-size: 24px;"></i>
+                </div>
+                <h3 class="pricing-title mb-0">Plan Free</h3>
+              </div>
+              <p class="text-muted small">Plan gratuito con funcionalidades básicas</p>
+              <div class="pricing-price">
+                <span class="price-amount" style="font-size: 2.5rem; font-weight: 700;">Gratis</span>
+              </div>
+            </div>
+            <div class="mt-3 mb-3"><p class="fw-bold mb-2">Características incluidas:</p></div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check-circle" style="color: var(--golden-yellow);"></i> 1 contacto de emergencia</li>
+              <li><i class="fas fa-check-circle" style="color: var(--golden-yellow);"></i> Perfil médico completo</li>
+              <li><i class="fas fa-check-circle" style="color: var(--golden-yellow);"></i> QR Visible en perfil</li>
+              <li><i class="fas fa-check-circle" style="color: var(--golden-yellow);"></i> Botón de envío de ubicación por SMS</li>
+            </ul>
+            <div class="pricing-footer mt-auto">
+              <a href="https://plataforma.qrescueid.app" class="btn btn-outline-yellow w-100">Crear Cuenta Gratis</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plan Pro -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="pricing-card featured h-100" style="border: 2px solid #f59e0b;">
+            <div class="badge-featured" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">Más Popular</div>
+            <div class="pricing-header">
+              <div class="d-flex align-items-center mb-3">
+                <div class="plan-icon me-3" style="background: #f59e0b; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                  <i class="fas fa-crown" style="color: white; font-size: 24px;"></i>
+                </div>
+                <h3 class="pricing-title mb-0">Plan Pro</h3>
+              </div>
+              <p class="text-muted small">Plan premium con funcionalidades avanzadas</p>
+              <div class="pricing-price">
+                <span class="price-currency">$</span>
+                <span class="price-amount" data-monthly="2.500" data-annual="20.000">2.500</span>
+                <span class="price-period" data-monthly="CLP/mes" data-annual="CLP/año">CLP/mes</span>
+              </div>
+            </div>
+            <div class="mt-3 mb-3"><p class="fw-bold mb-2">Características incluidas:</p></div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check-circle" style="color: #f59e0b;"></i> ✨ Todo lo del Plan Free, más:</li>
+              <li><i class="fas fa-check-circle" style="color: #f59e0b;"></i> Hasta 2 contactos de emergencia</li>
+              <li><i class="fas fa-check-circle" style="color: #f59e0b;"></i> QR descargable en digital PDF/JPG/PNG/SVG</li>
+              <li><i class="fas fa-check-circle" style="color: #f59e0b;"></i> Ubicación automática a email configurable</li>
+              <li><i class="fas fa-check-circle" style="color: #f59e0b;"></i> Botón envío de ubicación por WhatsApp/SMS</li>
+            </ul>
+            <div class="pricing-footer mt-auto">
+              <a href="https://plataforma.qrescueid.app" class="btn w-100" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; font-weight: 600; padding: 12px;">
+                <i class="fas fa-crown me-2"></i>Comenzar plan Pro
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plan Premium -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="pricing-card h-100" style="border: 2px solid #a855f7;">
+            <div class="pricing-header">
+              <div class="d-flex align-items-center mb-3">
+                <div class="plan-icon me-3" style="background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                  <i class="fas fa-bolt" style="color: white; font-size: 24px;"></i>
+                </div>
+                <h3 class="pricing-title mb-0">Plan Premium</h3>
+              </div>
+              <p class="text-muted small">Plan completo con todas las funcionalidades avanzadas</p>
+              <div class="pricing-price">
+                <span class="price-currency">$</span>
+                <span class="price-amount" data-monthly="4.500" data-annual="40.000">4.500</span>
+                <span class="price-period" data-monthly="CLP/mes" data-annual="CLP/año">CLP/mes</span>
+              </div>
+            </div>
+            <div class="mt-3 mb-3"><p class="fw-bold mb-2">Características incluidas:</p></div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check-circle" style="color: #a855f7;"></i> ✨ Todo lo del Plan Pro, más:</li>
+              <li><i class="fas fa-check-circle" style="color: #a855f7;"></i> Hasta 4 contactos de emergencia</li>
+              <li><i class="fas fa-check-circle" style="color: #a855f7;"></i> Subida de archivos (recetas, informes médicos)</li>
+              <li><i class="fas fa-check-circle" style="color: #a855f7;"></i> Traducción automática de ficha médica (viajes)</li>
+              <li><i class="fas fa-check-circle" style="color: #a855f7;"></i> Descarga de ficha médica completa en PDF</li>
+              <li><i class="fas fa-check-circle" style="color: #a855f7;"></i> 20% descuento en QRescueID físico para el casco</li>
+            </ul>
+            <div class="pricing-footer mt-auto">
+              <a href="https://plataforma.qrescueid.app" class="btn w-100" style="background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%); color: white; font-weight: 600; padding: 12px;">
+                <i class="fas fa-bolt me-2"></i>Comenzar plan Premium
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Producto con descuento -->
+  <section class="products-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+          <img src="/img/caja-qrescueid_resultado_optimized.webp" alt="Producto QRescueID físico para casco" class="img-fluid rounded-4" />
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <p class="mb-4">
+            QRescueID físico con todas las características premium: resistente al agua, adhesivo 3M ultra fuerte, tecnología NFC y diseño discreto para tu casco.
+          </p>
+          <div class="row g-4 mb-4">
+            {[
+              { icon: 'fa-shield-alt', title: 'Resistente', text: 'QRescueID se adhiere a tu casco con pegamento ultra resistente 3M, así cuenta con una adherencia total.' },
+              { icon: 'fa-mobile-alt', title: 'Tecnología NFC', text: 'Cuenta con un chip NFC NTAG 213 con una memoria total de 180 bytes, el chip más versátil y adecuado para este uso.' },
+              { icon: 'fa-lock', title: 'Datos seguros', text: 'Tu información personal está segura en nuestra base de datos totalmente encriptada.' },
+              { icon: 'fa-check-circle', title: 'Compatibilidad', text: 'Compatible con todos los dispositivos Apple y Android del mercado.' },
+            ].map(f => (
+              <div class="col-md-6">
+                <div class="product-feature">
+                  <i class={`fas ${f.icon} fa-2x mb-2`}></i>
+                  <h5>{f.title}</h5>
+                  <p>{f.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <a href="/tienda/" class="btn btn-primary-yellow btn-lg d-block mx-auto">Tienda</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sostenibilidad -->
+  <section class="sustainability-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 mx-auto" data-aos="fade-up">
+          <h2 class="section-heading text-center mb-5">
+            Nuestro Compromiso con la <span class="highlight-yellow">Sostenibilidad</span>
+          </h2>
+          <p class="lead text-center text-muted mb-5">
+            En QRescueID, estamos comprometidos no solo con la seguridad de nuestros usuarios, sino también con la salud de nuestro planeta.
+          </p>
+          <div class="row g-4">
+            {[
+              { icon: 'fa-leaf', title: 'Materiales Biodegradables' },
+              { icon: 'fa-palette', title: 'Tintas Ecológicas' },
+              { icon: 'fa-recycle', title: 'Reciclado y Reciclable' },
+              { icon: 'fa-heart', title: 'Conciencia Ambiental' },
+            ].map((s, i) => (
+              <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay={(i + 1) * 100}>
+                <div class="sustainability-card text-center">
+                  <i class={`fas ${s.icon} fa-3x mb-3`}></i>
+                  <h5>{s.title}</h5>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" style="padding: 8rem 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+          <h2 class="cta-title mb-4">Activa tu QRescueID hoy y ten tranquilidad en tus aventuras.</h2>
+          <a href="/contacto/" class="btn btn-dark-blue btn-lg">Comenzar ahora</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <Fragment slot="body-end">
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function () {
+        const toggleButtons = document.querySelectorAll('.billing-toggle-btn');
+        const priceAmounts = document.querySelectorAll('.price-amount[data-monthly]');
+        const pricePeriods = document.querySelectorAll('.price-period[data-monthly]');
+        toggleButtons.forEach(function(button) {
+          button.addEventListener('click', function () {
+            toggleButtons.forEach(function(btn){ btn.classList.remove('active'); });
+            this.classList.add('active');
+            const period = this.dataset.period;
+            priceAmounts.forEach(function(el){ el.textContent = period === 'monthly' ? el.dataset.monthly : el.dataset.annual; });
+            pricePeriods.forEach(function(el){ el.textContent = period === 'monthly' ? el.dataset.monthly : el.dataset.annual; });
+          });
+        });
+      });
+    </script>
+  </Fragment>
+</BaseLayout>

@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const images = [
+  { src: '/img/caja-qrescueid_resultado.webp', alt: 'QRescueID Físico - caja' },
+  { src: '/img/_MG_3493_resultado.webp', alt: 'QRescueID Físico en casco' },
+  { src: '/img/_MG_3494blanynegro_resultado.webp', alt: 'QRescueID Físico blanco y negro' },
+  { src: '/img/_MG_3496_resultado.webp', alt: 'QRescueID Físico detalle' },
+  { src: '/img/_MG_5074_resultado.webp', alt: 'QRescueID Físico en uso' },
+  { src: '/img/Casco-bicicleta-reflectante-blanco%20_resultado.webp', alt: 'QRescueID en casco bicicleta' },
+  { src: '/img/foto-casco-barro.jpg', alt: 'QRescueID en casco resistente al barro' },
+  { src: '/img/foto1.png', alt: 'QRescueID Físico foto' },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://qrescueid.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Tienda", "item": "https://qrescueid.app/tienda/" },
+      { "@type": "ListItem", "position": 3, "name": "QRescueID Físico", "item": "https://qrescueid.app/tienda/qrescueid-fisico/" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "QRescueID Físico",
+    "description": "Identificación de emergencia física con QR y NFC, resistente al agua y al calor, ideal para cascos y superficies duras. Adhesivo 3M ultra fuerte.",
+    "image": "https://qrescueid.app/img/caja-qrescueid_resultado.webp",
+    "brand": { "@type": "Brand", "name": "QRescueID" },
+    "offers": {
+      "@type": "Offer",
+      "price": "19990",
+      "priceCurrency": "CLP",
+      "availability": "https://schema.org/InStock",
+      "url": "https://qrescueid.app/tienda/qrescueid-fisico/",
+      "seller": { "@type": "Organization", "name": "QRescueID" }
+    }
+  }
+];
+---
+
+<BaseLayout
+  title="QRescueID Físico - Identificación de Emergencia con QR y NFC | $19.990 CLP"
+  description="Compra QRescueID Físico por $19.990 CLP. Identificación de emergencia con QR y NFC para tu casco. Resistente al agua, adhesivo 3M, compatible con cualquier celular."
+  ogImage="/img/caja-qrescueid_resultado.webp"
+  ogType="product"
+  jsonLd={jsonLd}
+>
+  <Navbar />
+
+  <section class="product-detail-section" style="padding-top: 15rem; padding-bottom: 5rem;">
+    <div class="container">
+      <div class="row g-5 align-items-start">
+
+        <!-- Galería -->
+        <div class="col-lg-6" data-aos="fade-right">
+          <img id="mainProductImage" src={images[0].src} alt={images[0].alt}
+            class="img-fluid rounded-4 shadow mb-3"
+            style="width:100%;height:500px;object-fit:cover;object-position:center center;" />
+          <div class="row g-2">
+            {images.map((img, i) => (
+              <div class="col-3">
+                <img src={img.src} alt={img.alt}
+                  class={`img-fluid rounded border cursor-pointer${i === 0 ? ' thumbnail-active' : ''}`}
+                  onclick="changeImage(this)"
+                  style="cursor:pointer;height:80px;width:100%;object-fit:cover;" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="col-lg-6" data-aos="fade-left">
+          <h1 class="section-heading mb-3">QRescueID Físico</h1>
+          <p class="lead text-light mb-3">Identificación de emergencia física con QR y NFC, resistente al agua y al calor, ideal para cascos y superficies duras.</p>
+          <div class="pricing-price mb-3">
+            <span class="price-currency" style="color: var(--golden-yellow) !important;">$</span>
+            <span class="price-amount" style="color: var(--golden-yellow) !important;">19.990</span>
+            <span class="price-period" style="color: var(--golden-yellow) !important;">CLP</span>
+          </div>
+          <hr />
+          <h2 style="font-size: 1.25rem;" class="mb-3">Características</h2>
+          <ul class="list-unstyled feature-list">
+            <li class="mb-2"><i class="fas fa-shield-alt me-2 text-warning"></i>Adhesivo 3M ultra fuerte</li>
+            <li class="mb-2"><i class="fas fa-water me-2 text-warning"></i>Resistente al agua y calor</li>
+            <li class="mb-2"><i class="fas fa-mobile-alt me-2 text-warning"></i>Compatible con QR y NFC</li>
+            <li class="mb-2"><i class="fas fa-lock me-2 text-warning"></i>Datos en base de datos encriptada</li>
+            <li class="mb-2"><i class="fas fa-helmet-safety me-2 text-warning"></i>Diseño discreto para cascos</li>
+          </ul>
+          <hr />
+          <h2 style="font-size: 1.25rem;" class="mb-3">Qué incluye</h2>
+          <ul class="list-unstyled">
+            <li class="mb-2">1 unidad QRescueID físico</li>
+            <li class="mb-2">Instrucciones de instalación</li>
+            <li class="mb-2">Soporte por WhatsApp</li>
+          </ul>
+          <div class="mt-4 text-center">
+            <button type="button" class="btn btn-primary-yellow btn-lg" data-bs-toggle="modal" data-bs-target="#stockModal">
+              Comprar ahora
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Distribuidores -->
+  <div class="modal fade" id="stockModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-dark">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title fw-bold">Stock no disponible para B2C</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-2">
+          <p class="mb-3">Por el momento no tenemos stock disponible para venta directa. Encuentra QRescueID en nuestros distribuidores oficiales:</p>
+          <ul class="list-unstyled d-grid gap-2">
+            {[
+              { url: 'https://www.bigtrail.cl', label: 'www.bigtrail.cl' },
+              { url: 'https://www.motoss.cl', label: 'www.motoss.cl' },
+              { url: 'https://www.motoaventura.cl', label: 'www.motoaventura.cl' },
+              { url: 'https://www.chilemontana.cl', label: 'www.chilemontana.cl' },
+              { url: 'https://www.motoclases.cl', label: 'www.motoclases.cl' },
+              { url: 'https://www.laguaridademotos.cl', label: 'www.laguaridademotos.cl' },
+            ].map(d => (
+              <li>
+                <a href={d.url} target="_blank" class="text-decoration-none d-block p-2 bg-light rounded">
+                  <i class="fas fa-external-link-alt me-2 text-warning"></i>{d.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+
+  <Fragment slot="body-end">
+    <script is:inline>
+      function changeImage(element) {
+        document.getElementById('mainProductImage').src = element.src;
+        document.querySelectorAll('.thumbnail-active').forEach(function(t){ t.classList.remove('thumbnail-active', 'border-primary'); });
+        element.classList.add('thumbnail-active', 'border-primary');
+      }
+    </script>
+  </Fragment>
+</BaseLayout>

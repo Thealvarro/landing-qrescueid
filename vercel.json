@@ -1,1 +1,11 @@
-{"rewrites":[{"source":"/(.*)","destination":"/index.html"}]}
+{
+  "redirects": [
+    { "source": "/index.php", "destination": "/", "permanent": true },
+    { "source": "/servicios.php", "destination": "/planes/", "permanent": true },
+    { "source": "/tienda.php", "destination": "/tienda/", "permanent": true },
+    { "source": "/empresas.php", "destination": "/empresas/", "permanent": true },
+    { "source": "/contact.php", "destination": "/contacto/", "permanent": true },
+    { "source": "/producto-fisico.php", "destination": "/tienda/qrescueid-fisico/", "permanent": true },
+    { "source": "/producto-kit-premium.php", "destination": "/tienda/kit-premium/", "permanent": true }
+  ]
+}

@@ -1,0 +1,41 @@
+---
+interface Props {
+  variant?: 'default' | 'empresas';
+}
+const { variant = 'default' } = Astro.props;
+---
+
+<footer class="footer py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <h5 class="footer-brand mb-3">QRescueID</h5>
+        <p class="text-muted">
+          {variant === 'empresas'
+            ? 'Plataforma líder en gestión de identidad y seguridad ocupacional.'
+            : 'Tu identificación de emergencia, siempre contigo.'}
+        </p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <h5 class="mb-3">Enlaces</h5>
+        <ul class="footer-links list-unstyled">
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/planes/">Planes</a></li>
+          <li><a href="/tienda/">Tienda</a></li>
+          {variant === 'empresas' && <li><a href="/empresas/">Empresas</a></li>}
+          <li><a href="/contacto/">Contacto</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Términos</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="row">
+      <div class="col-12 text-center">
+        <p class="footer-copyright mb-0">
+          © 2025 QRescueID – Todos los derechos reservados.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

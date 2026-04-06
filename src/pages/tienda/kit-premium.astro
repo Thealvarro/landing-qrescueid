@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const images = [
+  { src: '/img/casco-qrescueid-fluor-nocturno_resultado.webp', alt: 'Kit Premium QRescueID - casco flúor nocturno' },
+  { src: '/img/_MG_3493_resultado.webp', alt: 'QRescueID en casco' },
+  { src: '/img/_MG_3494blanynegro_resultado.webp', alt: 'QRescueID blanco y negro' },
+  { src: '/img/_MG_3496_resultado.webp', alt: 'QRescueID detalle' },
+  { src: '/img/_MG_5074_resultado.webp', alt: 'QRescueID en uso' },
+  { src: '/img/Casco-bicicleta-reflectante-blanco%20_resultado.webp', alt: 'QRescueID en casco bicicleta' },
+  { src: '/img/foto-casco-barro.jpg', alt: 'QRescueID resistente al barro' },
+  { src: '/img/foto1.png', alt: 'Kit Premium QRescueID foto' },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://qrescueid.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Tienda", "item": "https://qrescueid.app/tienda/" },
+      { "@type": "ListItem", "position": 3, "name": "Kit Premium QRescueID", "item": "https://qrescueid.app/tienda/kit-premium/" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Kit Premium QRescueID",
+    "description": "2 unidades QRescueID físicos + 1 año de Plan Premium + 20% descuento en adicionales. Identificación de emergencia con QR y NFC para cascos.",
+    "image": "https://qrescueid.app/img/casco-qrescueid-fluor-nocturno_resultado.webp",
+    "brand": { "@type": "Brand", "name": "QRescueID" },
+    "offers": {
+      "@type": "Offer",
+      "price": "36990",
+      "priceCurrency": "CLP",
+      "availability": "https://schema.org/InStock",
+      "url": "https://qrescueid.app/tienda/kit-premium/",
+      "priceValidUntil": "2025-12-31",
+      "seller": { "@type": "Organization", "name": "QRescueID" }
+    }
+  }
+];
+---
+
+<BaseLayout
+  title="Kit Premium QRescueID - 2 Unidades + Plan Premium | $36.990 CLP"
+  description="Kit Premium QRescueID: 2 unidades físicas + 1 año Plan Premium + 20% descuento. Antes $40.000, ahora $36.990 CLP. Identificación de emergencia con QR y NFC."
+  ogImage="/img/casco-qrescueid-fluor-nocturno_resultado.webp"
+  ogType="product"
+  jsonLd={jsonLd}
+>
+  <Navbar />
+
+  <section class="product-detail-section" style="padding-top: 15rem; padding-bottom: 5rem;">
+    <div class="container">
+      <div class="row g-5 align-items-start">
+
+        <!-- Galería -->
+        <div class="col-lg-6" data-aos="fade-right">
+          <img id="mainProductImage" src={images[0].src} alt={images[0].alt}
+            class="img-fluid rounded-4 shadow mb-3"
+            style="width:100%;height:500px;object-fit:cover;object-position:center center;" />
+          <div class="row g-2">
+            {images.map((img, i) => (
+              <div class="col-3">
+                <img src={img.src} alt={img.alt}
+                  class={`img-fluid rounded border cursor-pointer${i === 0 ? ' thumbnail-active' : ''}`}
+                  onclick="changeImage(this)"
+                  style="cursor:pointer;height:80px;width:100%;object-fit:cover;" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="col-lg-6" data-aos="fade-left">
+          <h1 class="section-heading mb-3">Kit Premium QRescueID</h1>
+          <p class="lead text-light mb-3">Incluye 2 QRescueID físicos, 1 año de Plan Premium y 20% de descuento en QRescueID físicos adicionales.</p>
+          <div class="mb-1">
+            <small class="text-decoration-line-through" style="color: var(--golden-yellow) !important; opacity: 0.7;">$40.000</small>
+          </div>
+          <div class="pricing-price mb-3">
+            <span class="price-currency" style="color: var(--golden-yellow) !important;">$</span>
+            <span class="price-amount" style="color: var(--golden-yellow) !important;">36.990</span>
+            <span class="price-period" style="color: var(--golden-yellow) !important;">CLP</span>
+          </div>
+          <hr />
+          <h2 style="font-size: 1.25rem;" class="mb-3">Características del Kit</h2>
+          <ul class="list-unstyled feature-list">
+            <li class="mb-2"><i class="fas fa-box-open me-2 text-warning"></i>2 unidades físicas QRescueID</li>
+            <li class="mb-2"><i class="fas fa-crown me-2 text-warning"></i>1 año de Plan Premium</li>
+            <li class="mb-2"><i class="fas fa-percent me-2 text-warning"></i>20% de descuento en adicionales</li>
+            <li class="mb-2"><i class="fas fa-mobile-alt me-2 text-warning"></i>Compatible con QR y NFC</li>
+            <li class="mb-2"><i class="fas fa-lock me-2 text-warning"></i>Datos seguros y encriptados</li>
+          </ul>
+          <hr />
+          <h2 style="font-size: 1.25rem;" class="mb-3">Qué incluye</h2>
+          <ul class="list-unstyled">
+            <li class="mb-2">2 unidades QRescueID físico</li>
+            <li class="mb-2">Activación de Plan Premium por 1 año</li>
+            <li class="mb-2">Soporte por WhatsApp</li>
+          </ul>
+          <div class="mt-4 text-center">
+            <button type="button" class="btn btn-primary-yellow btn-lg" data-bs-toggle="modal" data-bs-target="#stockModal">
+              Comprar ahora
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Distribuidores -->
+  <div class="modal fade" id="stockModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-dark">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title fw-bold">Stock no disponible para B2C</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-2">
+          <p class="mb-3">Por el momento no tenemos stock disponible para venta directa. Encuentra QRescueID en nuestros distribuidores oficiales:</p>
+          <ul class="list-unstyled d-grid gap-2">
+            {[
+              { url: 'https://www.bigtrail.cl', label: 'www.bigtrail.cl' },
+              { url: 'https://www.motoss.cl', label: 'www.motoss.cl' },
+              { url: 'https://www.motoaventura.cl', label: 'www.motoaventura.cl' },
+              { url: 'https://www.chilemontana.cl', label: 'www.chilemontana.cl' },
+              { url: 'https://www.motoclases.cl', label: 'www.motoclases.cl' },
+              { url: 'https://www.laguaridademotos.cl', label: 'www.laguaridademotos.cl' },
+            ].map(d => (
+              <li>
+                <a href={d.url} target="_blank" class="text-decoration-none d-block p-2 bg-light rounded">
+                  <i class="fas fa-external-link-alt me-2 text-warning"></i>{d.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+
+  <Fragment slot="body-end">
+    <script is:inline>
+      function changeImage(element) {
+        document.getElementById('mainProductImage').src = element.src;
+        document.querySelectorAll('.thumbnail-active').forEach(function(t){ t.classList.remove('thumbnail-active', 'border-primary'); });
+        element.classList.add('thumbnail-active', 'border-primary');
+      }
+    </script>
+  </Fragment>
+</BaseLayout>

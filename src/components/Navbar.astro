@@ -1,0 +1,39 @@
+---
+const { pathname } = Astro.url;
+
+const isActive = (path: string) => {
+  if (path === '/') return pathname === '/';
+  return pathname.startsWith(path);
+};
+---
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="/"><strong>QRescueID</strong></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item">
+          <a class={`nav-link${isActive('/') ? ' active' : ''}`} href="/">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class={`nav-link${isActive('/planes') ? ' active' : ''}`} href="/planes/">Planes</a>
+        </li>
+        <li class="nav-item">
+          <a class={`nav-link highlight${isActive('/empresas') ? ' active' : ''}`} href="/empresas/">Empresas</a>
+        </li>
+        <li class="nav-item">
+          <a class={`nav-link${isActive('/tienda') ? ' active' : ''}`} href="/tienda/">Tienda</a>
+        </li>
+        <li class="nav-item">
+          <a class={`nav-link${isActive('/contacto') ? ' active' : ''}`} href="/contacto/">Contacto</a>
+        </li>
+        <li class="nav-item ms-3">
+          <a href="https://plataforma.qrescueid.app" class="btn btn-primary-yellow">Crear cuenta</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
