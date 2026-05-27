@@ -1,0 +1,41 @@
+---
+import { guias } from '../data/guias.js';
+
+interface Props {
+  actual: string; // URL de la guía actual, para excluirla
+}
+const { actual } = Astro.props;
+const otras = guias.filter((g) => g.url !== actual);
+---
+
+{otras.length > 0 && (
+  <section class="otras-guias">
+    <div class="container">
+      <h2 class="otras-guias-title">Sigue leyendo</h2>
+      <div class="row g-4">
+        {otras.map((g) => (
+          <div class="col-md-6">
+            <a class="otra-guia-card" href={g.url}>
+              <span class="otra-guia-cat">{g.cat}</span>
+              <h3>{g.title}</h3>
+              <p>{g.desc}</p>
+              <span class="otra-guia-link">Leer guía →</span>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .otras-guias { background: #f8fafc; padding: 3rem 0; border-top: 1px solid #e2e8f0; }
+  .otras-guias .container { max-width: 860px; }
+  .otras-guias-title { font-weight: 700; font-size: 1.4rem; color: #0f172a; margin-bottom: 1.5rem; }
+  .otra-guia-card { display: block; height: 100%; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.4rem; text-decoration: none; transition: all .25s ease; }
+  .otra-guia-card:hover { transform: translateY(-3px); border-color: var(--golden-yellow, #FFC107); box-shadow: 0 10px 24px rgba(15,23,42,.08); }
+  .otra-guia-cat { display: inline-block; font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #b45309; background: #fef3c7; padding: .22rem .55rem; border-radius: 4px; margin-bottom: .7rem; }
+  .otra-guia-card h3 { font-size: 1.08rem; font-weight: 700; color: #0f172a; margin-bottom: .4rem; }
+  .otra-guia-card p { font-size: .9rem; color: #475569; margin: 0 0 .8rem; line-height: 1.55; }
+  .otra-guia-link { font-size: .85rem; font-weight: 600; color: #b45309; }
+</style>

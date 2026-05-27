@@ -2,27 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
-
-const guias = [
-  {
-    url: '/guias/prevencion-de-riesgos-laborales/',
-    cat: 'Empresas',
-    title: 'Prevención de Riesgos Laborales: Guía Completa',
-    desc: 'Qué es, los tipos de riesgos, el marco legal en Chile (Ley 16.744, DS 40) y cómo gestionar la seguridad de tus trabajadores.',
-  },
-  {
-    url: '/guias/proteccion-para-motociclistas/',
-    cat: 'Motociclistas',
-    title: 'Protección para Motociclistas: Equipo Esencial',
-    desc: 'El equipo de seguridad que necesita todo motociclista, desde el casco hasta la identificación de emergencia.',
-  },
-  {
-    url: '/guias/que-hacer-en-caso-de-accidente-de-moto/',
-    cat: 'Motociclistas',
-    title: 'Qué Hacer en Caso de Accidente de Moto',
-    desc: 'Los pasos clave para reaccionar bien en los minutos que más importan tras un accidente.',
-  },
-];
+import { guias } from '../../data/guias.js';
 
 const jsonLd = {
   "@context": "https://schema.org",
