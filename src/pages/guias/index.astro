@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const guias = [
+  {
+    url: '/guias/prevencion-de-riesgos-laborales/',
+    cat: 'Empresas',
+    title: 'Prevención de Riesgos Laborales: Guía Completa',
+    desc: 'Qué es, los tipos de riesgos, el marco legal en Chile (Ley 16.744, DS 40) y cómo gestionar la seguridad de tus trabajadores.',
+  },
+  {
+    url: '/guias/proteccion-para-motociclistas/',
+    cat: 'Motociclistas',
+    title: 'Protección para Motociclistas: Equipo Esencial',
+    desc: 'El equipo de seguridad que necesita todo motociclista, desde el casco hasta la identificación de emergencia.',
+  },
+  {
+    url: '/guias/que-hacer-en-caso-de-accidente-de-moto/',
+    cat: 'Motociclistas',
+    title: 'Qué Hacer en Caso de Accidente de Moto',
+    desc: 'Los pasos clave para reaccionar bien en los minutos que más importan tras un accidente.',
+  },
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://qrescueid.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Guías", "item": "https://qrescueid.app/guias/" }
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "name": "Guías de QRescueID",
+      "description": "Guías sobre prevención de riesgos, seguridad en moto y respuesta ante emergencias.",
+      "url": "https://qrescueid.app/guias/"
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Guías: Prevención de Riesgos y Seguridad | QRescueID"
+  description="Guías prácticas sobre prevención de riesgos laborales, seguridad para motociclistas y qué hacer ante una emergencia. Por QRescueID."
+  jsonLd={jsonLd}
+>
+  <Navbar />
+
+  <style>
+    .guia-hero { background: linear-gradient(rgba(15,23,42,0.92), rgba(30,41,59,0.92)), url('/img/construccion-hero.jpg'); background-size: cover; background-position: center; padding: 9rem 0 4rem; }
+    .guias-list { background: #fff; padding: 3.5rem 0; }
+    .guia-card { display: block; height: 100%; background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 1.8rem; text-decoration: none; transition: all .25s ease; }
+    .guia-card:hover { transform: translateY(-4px); border-color: var(--golden-yellow, #FFC107); box-shadow: 0 12px 28px rgba(15,23,42,.1); }
+    .guia-card-cat { display: inline-block; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #b45309; background: #fef3c7; padding: .25rem .6rem; border-radius: 4px; margin-bottom: .9rem; }
+    .guia-card h2 { font-size: 1.2rem; font-weight: 700; color: #0f172a; margin-bottom: .5rem; }
+    .guia-card p { font-size: .95rem; color: #475569; margin: 0; line-height: 1.6; }
+  </style>
+
+  <section class="guia-hero">
+    <div class="container">
+      <div class="col-lg-9 mx-auto">
+        <nav style="font-size:.85rem;color:rgba(255,255,255,.6);margin-bottom:1rem;" aria-label="Migas de pan">
+          <a href="/" style="color:rgba(255,255,255,.8);text-decoration:none;">Inicio</a> / Guías
+        </nav>
+        <h1 class="hero-title text-white mb-3">Guías de seguridad y prevención</h1>
+        <p class="hero-subtitle text-white-50 mb-0">Recursos prácticos sobre prevención de riesgos laborales, seguridad en moto y respuesta ante emergencias.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guias-list">
+    <div class="container">
+      <div class="row g-4">
+        {guias.map((g, i) => (
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay={(i + 1) * 100}>
+            <a class="guia-card" href={g.url}>
+              <span class="guia-card-cat">{g.cat}</span>
+              <h2>{g.title}</h2>
+              <p>{g.desc}</p>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
