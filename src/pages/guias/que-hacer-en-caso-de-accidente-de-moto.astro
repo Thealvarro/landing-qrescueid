@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://qrescueid.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Guías", "item": "https://qrescueid.app/guias/" },
+        { "@type": "ListItem", "position": 3, "name": "Qué hacer en caso de accidente de moto", "item": "https://qrescueid.app/guias/que-hacer-en-caso-de-accidente-de-moto/" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "Qué Hacer en Caso de Accidente de Moto: Guía Paso a Paso",
+      "description": "Los pasos clave ante un accidente de moto: asegurar la zona, llamar a emergencias, no mover al herido e identificar sus datos médicos.",
+      "inLanguage": "es-CL",
+      "author": { "@type": "Organization", "name": "QRescueID", "url": "https://qrescueid.app" },
+      "publisher": { "@type": "Organization", "name": "QRescueID", "url": "https://qrescueid.app" },
+      "mainEntityOfPage": "https://qrescueid.app/guias/que-hacer-en-caso-de-accidente-de-moto/"
+    },
+    {
+      "@type": "HowTo",
+      "name": "Qué hacer en caso de accidente de moto",
+      "step": [
+        { "@type": "HowToStep", "position": 1, "name": "Asegura la zona", "text": "Señaliza para evitar un segundo accidente y protege al herido del tránsito." },
+        { "@type": "HowToStep", "position": 2, "name": "Llama a emergencias", "text": "En Chile, marca 131 (SAMU). Indica ubicación exacta y número de heridos." },
+        { "@type": "HowToStep", "position": 3, "name": "No muevas al herido ni le quites el casco", "text": "Salvo peligro inminente, no lo muevas: podría tener lesión de columna o cervical." },
+        { "@type": "HowToStep", "position": 4, "name": "Identifica sus datos médicos", "text": "Busca su información de emergencia (grupo sanguíneo, alergias, contactos) para dársela al rescate." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "¿Se le debe quitar el casco a un motociclista accidentado?", "acceptedAnswer": { "@type": "Answer", "text": "No, salvo que sea estrictamente necesario para que respire. Quitar el casco mal puede agravar una lesión cervical. Espera al personal de rescate." } },
+        { "@type": "Question", "name": "¿A qué número se llama en una emergencia en Chile?", "acceptedAnswer": { "@type": "Answer", "text": "Al SAMU 131 para ambulancia, Bomberos 132 y Carabineros 133. El 131 es el indicado para una urgencia médica." } },
+        { "@type": "Question", "name": "¿Cómo saber el grupo sanguíneo o los contactos de un accidentado inconsciente?", "acceptedAnswer": { "@type": "Answer", "text": "Si la persona lleva una identificación de emergencia con QR, como QRescueID en su casco, basta con escanearla para ver su información médica y contactos al instante." } }
+      ]
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Qué Hacer en Caso de Accidente de Moto: Guía Paso a Paso"
+  description="Los pasos clave ante un accidente de moto: asegurar la zona, llamar a emergencias, no mover al herido ni quitarle el casco, e identificar sus datos médicos."
+  jsonLd={jsonLd}
+>
+  <Navbar />
+
+  <style>
+    .guia-hero { background: linear-gradient(rgba(15,23,42,0.92), rgba(30,41,59,0.92)), url('/img/construccion-hero.jpg'); background-size: cover; background-position: center; padding: 9rem 0 4rem; }
+    .guia-breadcrumb { font-size: .85rem; color: rgba(255,255,255,.6); margin-bottom: 1rem; }
+    .guia-breadcrumb a { color: rgba(255,255,255,.8); text-decoration: none; }
+    .guia-breadcrumb a:hover { color: var(--golden-yellow, #FFC107); }
+    .guia-body { background: #fff; color: #1a202c; padding: 3.5rem 0; }
+    .guia-body .prose { max-width: 760px; margin: 0 auto; }
+    .guia-body h2 { font-weight: 700; font-size: 1.7rem; margin: 2.5rem 0 1rem; color: #0f172a; }
+    .guia-body h3 { font-weight: 600; font-size: 1.2rem; margin: 1.8rem 0 .6rem; color: #1e293b; }
+    .guia-body p, .guia-body li { color: #475569; line-height: 1.75; font-size: 1.05rem; }
+    .guia-body ul, .guia-body ol { margin-bottom: 1.2rem; }
+    .guia-body li { margin-bottom: .5rem; }
+    .guia-body strong { color: #1a202c; }
+    .guia-step { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.5rem; }
+    .guia-step-num { flex-shrink: 0; width: 38px; height: 38px; background: #0f172a; color: #fff; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .guia-cta-box { background: linear-gradient(135deg, #0f172a, #1e293b); border-radius: 14px; padding: 2.5rem; margin: 3rem 0; text-align: center; }
+    .guia-cta-box h3 { color: #fff; margin: 0 0 .6rem; }
+    .guia-cta-box p { color: rgba(255,255,255,.75); margin-bottom: 1.5rem; }
+    .guia-faq-item { border-bottom: 1px solid #e2e8f0; padding: 1.3rem 0; }
+    .guia-faq-item h3 { margin: 0 0 .5rem; }
+    .guia-faq-item p { margin: 0; }
+  </style>
+
+  <section class="guia-hero">
+    <div class="container">
+      <div class="col-lg-9 mx-auto">
+        <nav class="guia-breadcrumb" aria-label="Migas de pan">
+          <a href="/">Inicio</a> / <a href="/guias/proteccion-para-motociclistas/">Guías</a> / Qué hacer en un accidente de moto
+        </nav>
+        <h1 class="hero-title text-white mb-3">Qué Hacer en Caso de Accidente de Moto</h1>
+        <p class="hero-subtitle text-white-50 mb-0">Una guía clara para reaccionar bien en los minutos que más importan, seas el accidentado o quien presencia el hecho.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guia-body">
+    <div class="container">
+      <article class="prose">
+
+        <p>En un accidente de moto, los primeros minutos son decisivos. Saber qué hacer —y qué <strong>no</strong> hacer— puede marcar la diferencia entre una lesión que se recupera y una que se agrava. Esta guía resume los pasos esenciales para reaccionar con cabeza fría.</p>
+
+        <h2>Los 4 pasos clave</h2>
+
+        <div class="guia-step"><div class="guia-step-num">1</div><div><h3 style="margin-top:0;">Asegura la zona</h3><p>Antes de acercarte, evita un segundo accidente. Señaliza con las luces de emergencia de otros vehículos, pide a alguien que advierta al tránsito y, si es de noche, usa cualquier luz disponible. Tu seguridad primero: no sirves de ayuda si también te atropellan.</p></div></div>
+
+        <div class="guia-step"><div class="guia-step-num">2</div><div><h3 style="margin-top:0;">Llama a emergencias</h3><p>En Chile, marca <strong>131 (SAMU)</strong> para ambulancia. También está Bomberos (132) y Carabineros (133). Da la <strong>ubicación exacta</strong>, el número de heridos y su estado. No cuelgues hasta que te lo indiquen.</p></div></div>
+
+        <div class="guia-step"><div class="guia-step-num">3</div><div><h3 style="margin-top:0;">No muevas al herido ni le quites el casco</h3><p>Este es el error más común y más grave. Salvo peligro inminente (fuego, riesgo de ser atropellado) o que la persona no respire, <strong>no lo muevas y no le saques el casco</strong>: podría tener una lesión de columna o cervical que empeore con el movimiento. Espera al personal capacitado.</p></div></div>
+
+        <div class="guia-step"><div class="guia-step-num">4</div><div><h3 style="margin-top:0;">Identifica sus datos médicos</h3><p>Si la persona está consciente, pregúntale por alergias o condiciones. Si está inconsciente, busca alguna <strong>identificación de emergencia</strong>: su grupo sanguíneo, alergias y contactos son información que el rescate necesita y que tú puedes adelantar.</p></div></div>
+
+        <div class="guia-cta-box">
+          <h3>El problema: la mayoría no puede hablar tras el impacto</h3>
+          <p>QRescueID es un sticker QR/NFC en el casco. Quien auxilia lo escanea y ve al instante el grupo sanguíneo, alergias y contactos de emergencia del accidentado. Información vital cuando los segundos cuentan.</p>
+          <a href="/" class="btn btn-primary-yellow btn-lg">Protege tu identidad con QRescueID</a>
+        </div>
+
+        <h2>Qué NO hacer nunca</h2>
+        <ul>
+          <li>Quitar el casco sin necesidad ni preparación.</li>
+          <li>Mover o "acomodar" al herido por intuición.</li>
+          <li>Darle agua o comida.</li>
+          <li>Dejar la zona sin señalizar.</li>
+        </ul>
+
+        <h2>Preguntas frecuentes</h2>
+        <div class="guia-faq-item">
+          <h3>¿Se le debe quitar el casco a un motociclista accidentado?</h3>
+          <p>No, salvo que sea estrictamente necesario para que respire. Hacerlo mal puede agravar una lesión cervical. Espera al rescate.</p>
+        </div>
+        <div class="guia-faq-item">
+          <h3>¿A qué número se llama en una emergencia en Chile?</h3>
+          <p>SAMU 131 (ambulancia), Bomberos 132 y Carabineros 133. Para una urgencia médica, el 131.</p>
+        </div>
+        <div class="guia-faq-item">
+          <h3>¿Cómo saber el grupo sanguíneo de un accidentado inconsciente?</h3>
+          <p>Si lleva una identificación de emergencia con QR como QRescueID en su casco, basta con escanearla para ver su información médica al instante.</p>
+        </div>
+
+        <p style="margin-top:2rem;"><strong>Relacionado:</strong> <a href="/guias/proteccion-para-motociclistas/">Protección para motociclistas: el equipo de seguridad esencial</a>.</p>
+
+      </article>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

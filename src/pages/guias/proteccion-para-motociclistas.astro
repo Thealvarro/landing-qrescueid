@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://qrescueid.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Guías", "item": "https://qrescueid.app/guias/" },
+        { "@type": "ListItem", "position": 3, "name": "Protección para motociclistas", "item": "https://qrescueid.app/guias/proteccion-para-motociclistas/" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "Protección para Motociclistas: Guía del Equipo de Seguridad Esencial",
+      "description": "Qué equipo de protección necesita un motociclista: casco, guantes, chaqueta, protecciones e identificación de emergencia. Cómo elegir cada elemento.",
+      "inLanguage": "es-CL",
+      "author": { "@type": "Organization", "name": "QRescueID", "url": "https://qrescueid.app" },
+      "publisher": { "@type": "Organization", "name": "QRescueID", "url": "https://qrescueid.app" },
+      "mainEntityOfPage": "https://qrescueid.app/guias/proteccion-para-motociclistas/"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "¿Qué protección necesita un motociclista?", "acceptedAnswer": { "@type": "Answer", "text": "El equipo esencial es: casco certificado, guantes, chaqueta con protecciones, pantalón resistente, botas que cubran el tobillo y, cada vez más recomendado, una identificación de emergencia para que te reconozcan ante un accidente." } },
+        { "@type": "Question", "name": "¿Qué significa ATGATT?", "acceptedAnswer": { "@type": "Answer", "text": "ATGATT viene de 'All The Gear, All The Time' (todo el equipo, todo el tiempo). Es la filosofía de andar siempre con el equipo de protección completo, sin importar lo corto del trayecto." } },
+        { "@type": "Question", "name": "¿Por qué llevar una identificación de emergencia en moto?", "acceptedAnswer": { "@type": "Answer", "text": "Porque en un accidente la víctima suele estar inconsciente. Una identificación de emergencia con QR permite que el personal de rescate acceda de inmediato a tu grupo sanguíneo, alergias y contactos, ganando tiempo clave." } }
+      ]
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Protección para Motociclistas: Equipo de Seguridad Esencial 2026"
+  description="Guía del equipo de protección que necesita todo motociclista: casco, guantes, chaqueta, protecciones e identificación de emergencia. Cómo elegir cada elemento."
+  jsonLd={jsonLd}
+>
+  <Navbar />
+
+  <style>
+    .guia-hero { background: linear-gradient(rgba(15,23,42,0.92), rgba(30,41,59,0.92)), url('/img/construccion-hero.jpg'); background-size: cover; background-position: center; padding: 9rem 0 4rem; }
+    .guia-breadcrumb { font-size: .85rem; color: rgba(255,255,255,.6); margin-bottom: 1rem; }
+    .guia-breadcrumb a { color: rgba(255,255,255,.8); text-decoration: none; }
+    .guia-breadcrumb a:hover { color: var(--golden-yellow, #FFC107); }
+    .guia-body { background: #fff; color: #1a202c; padding: 3.5rem 0; }
+    .guia-body .prose { max-width: 760px; margin: 0 auto; }
+    .guia-body h2 { font-weight: 700; font-size: 1.7rem; margin: 2.5rem 0 1rem; color: #0f172a; }
+    .guia-body h3 { font-weight: 600; font-size: 1.2rem; margin: 1.8rem 0 .6rem; color: #1e293b; }
+    .guia-body p, .guia-body li { color: #475569; line-height: 1.75; font-size: 1.05rem; }
+    .guia-body ul, .guia-body ol { margin-bottom: 1.2rem; }
+    .guia-body li { margin-bottom: .5rem; }
+    .guia-body strong { color: #1a202c; }
+    .guia-cta-box { background: linear-gradient(135deg, #0f172a, #1e293b); border-radius: 14px; padding: 2.5rem; margin: 3rem 0; text-align: center; }
+    .guia-cta-box h3 { color: #fff; margin: 0 0 .6rem; }
+    .guia-cta-box p { color: rgba(255,255,255,.75); margin-bottom: 1.5rem; }
+    .guia-faq-item { border-bottom: 1px solid #e2e8f0; padding: 1.3rem 0; }
+    .guia-faq-item h3 { margin: 0 0 .5rem; }
+    .guia-faq-item p { margin: 0; }
+  </style>
+
+  <section class="guia-hero">
+    <div class="container">
+      <div class="col-lg-9 mx-auto">
+        <nav class="guia-breadcrumb" aria-label="Migas de pan">
+          <a href="/">Inicio</a> / <a href="/guias/proteccion-para-motociclistas/">Guías</a> / Protección para motociclistas
+        </nav>
+        <h1 class="hero-title text-white mb-3">Protección para Motociclistas: el Equipo de Seguridad Esencial</h1>
+        <p class="hero-subtitle text-white-50 mb-0">Qué equipo necesitas para andar seguro y cómo elegir cada elemento, desde el casco hasta la identificación de emergencia.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guia-body">
+    <div class="container">
+      <article class="prose">
+
+        <p>Andar en moto es libertad, pero también exposición: a diferencia de un auto, entre tú y el asfalto solo está tu equipo. La buena noticia es que un set de <strong>protección para motociclistas</strong> bien elegido reduce de forma enorme la gravedad de las lesiones en una caída. Esta es la guía del equipo esencial, pieza por pieza.</p>
+
+        <h2>La regla de oro: ATGATT</h2>
+        <p>Entre motociclistas existe una filosofía simple: <strong>ATGATT</strong>, del inglés <em>"All The Gear, All The Time"</em> (todo el equipo, todo el tiempo). La mayoría de los accidentes ocurren en trayectos cortos y conocidos, justo cuando uno se relaja y sale "a la vuelta de la esquina" sin equipo. Por eso la regla es: si te subes a la moto, vas con todo puesto.</p>
+
+        <h2>El equipo de protección esencial</h2>
+
+        <h3>1. Casco certificado</h3>
+        <p>Es el elemento más importante, no negociable. Busca uno con certificación reconocida (ECE 22.06, DOT o similar) y que calce firme sin apretar. Un casco vencido o de segunda mano con golpes previos no protege: ante cualquier impacto, reemplázalo.</p>
+
+        <h3>2. Guantes</h3>
+        <p>En toda caída las manos van primero. Unos guantes con protección en nudillos y palma evitan fracturas y la típica "quemadura de asfalto". Imprescindibles incluso en verano.</p>
+
+        <h3>3. Chaqueta con protecciones</h3>
+        <p>Más allá del abrigo, lo que importa son las protecciones (hombros, codos y espalda) y un material resistente a la abrasión. Las hay textiles ventiladas para el calor y de cuero para mayor resistencia.</p>
+
+        <h3>4. Pantalón resistente</h3>
+        <p>El jeans común se rompe en metros de arrastre. Existen pantalones de moto con fibras reforzadas y protecciones de cadera y rodilla que se ven casuales pero protegen de verdad.</p>
+
+        <h3>5. Botas o calzado que cubra el tobillo</h3>
+        <p>El tobillo es una de las zonas que más se lesiona. Un calzado que lo sujete y cubra evita esguinces y fracturas frecuentes en caídas a baja velocidad.</p>
+
+        <h3>6. Identificación de emergencia</h3>
+        <p>Es la protección que casi nadie considera y que puede salvarte la vida. En un accidente serio es muy probable que quedes <strong>inconsciente</strong>: no podrás decir tu grupo sanguíneo, tus alergias ni a quién llamar. Una identificación de emergencia resuelve justo ese momento.</p>
+
+        <div class="guia-cta-box">
+          <h3>Que te reconozcan cuando no puedas hablar</h3>
+          <p>QRescueID es un sticker QR/NFC que pegas en tu casco. Al escanearlo, el personal de rescate ve tu información médica y tus contactos de emergencia al instante. Se activa desde gratis.</p>
+          <a href="/" class="btn btn-primary-yellow btn-lg">Conoce QRescueID para tu casco</a>
+        </div>
+
+        <h2>Errores comunes que debes evitar</h2>
+        <ul>
+          <li>Salir "solo a la esquina" sin casco o sin guantes.</li>
+          <li>Usar un casco que ya recibió un golpe fuerte.</li>
+          <li>Confiar en ropa de calle como protección.</li>
+          <li>No llevar ninguna forma de identificación médica.</li>
+        </ul>
+
+        <h2>Preguntas frecuentes</h2>
+        <div class="guia-faq-item">
+          <h3>¿Qué protección necesita un motociclista?</h3>
+          <p>Casco certificado, guantes, chaqueta con protecciones, pantalón resistente, botas que cubran el tobillo y una identificación de emergencia.</p>
+        </div>
+        <div class="guia-faq-item">
+          <h3>¿Qué significa ATGATT?</h3>
+          <p>"All The Gear, All The Time": andar siempre con el equipo completo, sin importar lo corto del trayecto.</p>
+        </div>
+        <div class="guia-faq-item">
+          <h3>¿Por qué llevar una identificación de emergencia?</h3>
+          <p>Porque en un accidente sueles quedar inconsciente. Una identificación con QR permite al rescate acceder a tu grupo sanguíneo, alergias y contactos de inmediato.</p>
+        </div>
+
+        <p style="margin-top:2rem;"><strong>Relacionado:</strong> <a href="/guias/que-hacer-en-caso-de-accidente-de-moto/">Qué hacer en caso de accidente de moto</a>.</p>
+
+      </article>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

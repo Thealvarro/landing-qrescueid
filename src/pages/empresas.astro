@@ -6,17 +6,39 @@ import DemoEscaneo from '../components/DemoEscaneo.astro';
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://qrescueid.app/" },
-    { "@type": "ListItem", "position": 2, "name": "Empresas", "item": "https://qrescueid.app/empresas/" }
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://qrescueid.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Empresas", "item": "https://qrescueid.app/empresas/" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "QRescueID Empresas",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "Plataforma de prevención de riesgos laborales para empresas: gestión de EPP, ficha de emergencia de trabajadores e identificación con QR/NFC.",
+      "url": "https://qrescueid.app/empresas/",
+      "offers": { "@type": "Offer", "priceCurrency": "CLP", "price": "0" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "¿Qué es la gestión de prevención de riesgos?", "acceptedAnswer": { "@type": "Answer", "text": "Es el conjunto de procesos para identificar, controlar y reducir los riesgos laborales de una empresa: gestión de EPP, certificaciones, capacitaciones e información de emergencia de los trabajadores. QRescueID centraliza todo eso en una plataforma accesible vía escaneo QR/NFC." } },
+        { "@type": "Question", "name": "¿Cómo ayuda un software de prevención de riesgos a una empresa?", "acceptedAnswer": { "@type": "Answer", "text": "Reemplaza las planillas dispersas por un sistema único: el prevencionista ve en segundos si un trabajador tiene sus EPP, certificaciones y capacitaciones al día antes de iniciar faenas, y accede a su ficha médica de emergencia ante un accidente." } },
+        { "@type": "Question", "name": "¿Qué información de los trabajadores gestiona QRescueID?", "acceptedAnswer": { "@type": "Answer", "text": "Información médica de emergencia, cargo y departamento, EPP asignados e historial de recambio, cursos y certificaciones, estado de cumplimiento y trazabilidad de accesos." } },
+        { "@type": "Question", "name": "¿Cómo funciona la identificación con QR/NFC en terreno?", "acceptedAnswer": { "@type": "Answer", "text": "Cada trabajador lleva un dispositivo QR/NFC de uso industrial adherido a su casco. Al escanearlo desde cualquier celular, se valida su identidad, sus competencias y, en caso de emergencia, su información médica y contactos." } }
+      ]
+    }
   ]
 };
 ---
 
 <BaseLayout
-  title="QRescueID Empresas - Gestión de Seguridad Ocupacional y Control de EPP"
-  description="Plataforma de gestión de seguridad ocupacional para empresas. Control de EPP, identificación de trabajadores con QR/NFC y trazabilidad en seguridad industrial digital."
+  title="Software de Prevención de Riesgos con QR/NFC | QRescueID Empresas"
+  description="Plataforma de prevención de riesgos laborales para empresas: gestión de EPP, ficha de emergencia de trabajadores e identificación con QR/NFC. Centraliza certificaciones, capacitaciones y trazabilidad de seguridad."
   ogImage="/img/Photoroom_20250929_150344.jpg"
   jsonLd={jsonLd}
 >
@@ -48,10 +70,10 @@ const jsonLd = {
       <div class="row align-items-center min-vh-100">
         <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
           <h1 class="hero-title mb-4">
-            Control Total y Trazabilidad en Seguridad Industrial Digital
+            Software de Prevención de Riesgos: Control Total y Trazabilidad Digital
           </h1>
           <p class="hero-subtitle mb-5">
-            Centralice la gestión de seguridad ocupacional. QRescueID transforma la identificación de sus trabajadores en una potente herramienta de control de EPP, certificaciones y respuesta ante emergencias.
+            Centralice la prevención de riesgos de su empresa. QRescueID transforma la identificación de sus trabajadores en una potente plataforma de control de EPP, certificaciones y respuesta ante emergencias.
           </p>
           <div class="d-flex gap-3 justify-content-center">
             <a href="/contacto/" class="btn btn-primary-yellow btn-lg">Solicitar Información</a>
@@ -196,6 +218,37 @@ const jsonLd = {
             </div>
           </div>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="explore-section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+          <h2 class="section-heading">Preguntas frecuentes sobre prevención de riesgos</h2>
+        </div>
+      </div>
+      <div class="row g-4">
+        {[
+          { q: '¿Qué es la gestión de prevención de riesgos?', a: 'Es el conjunto de procesos para identificar, controlar y reducir los riesgos laborales de una empresa: gestión de EPP, certificaciones, capacitaciones e información de emergencia de los trabajadores. QRescueID centraliza todo eso en una plataforma accesible vía escaneo QR/NFC.' },
+          { q: '¿Cómo ayuda un software de prevención de riesgos a una empresa?', a: 'Reemplaza las planillas dispersas por un sistema único: el prevencionista ve en segundos si un trabajador tiene sus EPP, certificaciones y capacitaciones al día antes de iniciar faenas, y accede a su ficha médica de emergencia ante un accidente.' },
+          { q: '¿Qué información de los trabajadores gestiona QRescueID?', a: 'Información médica de emergencia, cargo y departamento, EPP asignados e historial de recambio, cursos y certificaciones, estado de cumplimiento y trazabilidad de accesos.' },
+          { q: '¿Cómo funciona la identificación con QR/NFC en terreno?', a: 'Cada trabajador lleva un dispositivo QR/NFC de uso industrial adherido a su casco. Al escanearlo desde cualquier celular se valida su identidad, sus competencias y, en caso de emergencia, su información médica y contactos.' },
+        ].map((item, i) => (
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay={(i + 1) * 100}>
+            <div class="impact-card">
+              <h3 class="h5 text-white mb-2">{item.q}</h3>
+              <p class="text-light small mb-0">{item.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="row mt-4">
+        <div class="col-lg-8 mx-auto text-center">
+          <p class="text-muted small">¿Quieres entender mejor el tema? Lee nuestra <a href="/guias/prevencion-de-riesgos-laborales/" style="color:var(--golden-yellow);">guía completa de prevención de riesgos laborales</a>.</p>
+        </div>
       </div>
     </div>
   </section>

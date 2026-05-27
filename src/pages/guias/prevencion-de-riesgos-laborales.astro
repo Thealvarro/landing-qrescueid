@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://qrescueid.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Guías", "item": "https://qrescueid.app/guias/" },
+        { "@type": "ListItem", "position": 3, "name": "Prevención de riesgos laborales", "item": "https://qrescueid.app/guias/prevencion-de-riesgos-laborales/" }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "Prevención de Riesgos Laborales: Guía Completa para Empresas en Chile",
+      "description": "Qué es la prevención de riesgos laborales, los tipos de riesgos, el marco legal chileno (Ley 16.744, DS 40) y cómo gestionarla en tu empresa.",
+      "inLanguage": "es-CL",
+      "author": { "@type": "Organization", "name": "QRescueID", "url": "https://qrescueid.app" },
+      "publisher": { "@type": "Organization", "name": "QRescueID", "url": "https://qrescueid.app" },
+      "mainEntityOfPage": "https://qrescueid.app/guias/prevencion-de-riesgos-laborales/"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "¿Qué significa la prevención de riesgos laborales?", "acceptedAnswer": { "@type": "Answer", "text": "Es el conjunto de acciones que una empresa toma para identificar, evaluar y controlar los peligros del trabajo, con el fin de evitar accidentes y enfermedades profesionales en sus trabajadores." } },
+        { "@type": "Question", "name": "¿Cuáles son los tipos de riesgos laborales?", "acceptedAnswer": { "@type": "Answer", "text": "Se agrupan en cinco categorías: riesgos físicos (ruido, temperatura, caídas), químicos (sustancias tóxicas), biológicos (virus, bacterias), ergonómicos (posturas, esfuerzo) y psicosociales (estrés, carga mental)." } },
+        { "@type": "Question", "name": "¿Qué ley regula la prevención de riesgos en Chile?", "acceptedAnswer": { "@type": "Answer", "text": "Principalmente la Ley 16.744 sobre accidentes del trabajo y enfermedades profesionales, junto con el Decreto Supremo 40 que reglamenta la prevención de riesgos profesionales y la obligación de informar (derecho a saber)." } },
+        { "@type": "Question", "name": "¿Qué hace un encargado de prevención de riesgos?", "acceptedAnswer": { "@type": "Answer", "text": "El prevencionista identifica peligros, evalúa riesgos, gestiona los elementos de protección personal (EPP), capacita a los trabajadores, investiga accidentes y asegura el cumplimiento de la normativa de seguridad." } }
+      ]
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Prevención de Riesgos Laborales: Guía Completa para Empresas 2026"
+  description="Qué es la prevención de riesgos laborales, los tipos de riesgos, el marco legal en Chile (Ley 16.744, DS 40) y cómo gestionarla en tu empresa paso a paso."
+  jsonLd={jsonLd}
+>
+  <Navbar />
+
+  <style>
+    .guia-hero {
+      background: linear-gradient(rgba(15,23,42,0.92), rgba(30,41,59,0.92)), url('/img/construccion-hero.jpg');
+      background-size: cover; background-position: center;
+      padding: 9rem 0 4rem;
+    }
+    .guia-breadcrumb { font-size: .85rem; color: rgba(255,255,255,.6); margin-bottom: 1rem; }
+    .guia-breadcrumb a { color: rgba(255,255,255,.8); text-decoration: none; }
+    .guia-breadcrumb a:hover { color: var(--golden-yellow, #FFC107); }
+    .guia-body { background: #fff; color: #1a202c; padding: 3.5rem 0; }
+    .guia-body .prose { max-width: 760px; margin: 0 auto; }
+    .guia-body h2 { font-weight: 700; font-size: 1.7rem; margin: 2.5rem 0 1rem; color: #0f172a; }
+    .guia-body h3 { font-weight: 600; font-size: 1.2rem; margin: 1.8rem 0 .6rem; color: #1e293b; }
+    .guia-body p, .guia-body li { color: #475569; line-height: 1.75; font-size: 1.05rem; }
+    .guia-body ul, .guia-body ol { margin-bottom: 1.2rem; }
+    .guia-body li { margin-bottom: .5rem; }
+    .guia-body strong { color: #1a202c; }
+    .guia-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .98rem; }
+    .guia-table th, .guia-table td { border: 1px solid #e2e8f0; padding: .8rem 1rem; text-align: left; vertical-align: top; }
+    .guia-table th { background: #f8fafc; color: #0f172a; font-weight: 600; }
+    .guia-cta-box {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      border-radius: 14px; padding: 2.5rem; margin: 3rem 0; text-align: center;
+    }
+    .guia-cta-box h3 { color: #fff; margin: 0 0 .6rem; }
+    .guia-cta-box p { color: rgba(255,255,255,.75); margin-bottom: 1.5rem; }
+    .guia-faq-item { border-bottom: 1px solid #e2e8f0; padding: 1.3rem 0; }
+    .guia-faq-item h3 { margin: 0 0 .5rem; }
+    .guia-faq-item p { margin: 0; }
+  </style>
+
+  <!-- Hero -->
+  <section class="guia-hero">
+    <div class="container">
+      <div class="col-lg-9 mx-auto">
+        <nav class="guia-breadcrumb" aria-label="Migas de pan">
+          <a href="/">Inicio</a> / <a href="/empresas/">Empresas</a> / Prevención de riesgos laborales
+        </nav>
+        <h1 class="hero-title text-white mb-3">Prevención de Riesgos Laborales: Guía Completa para Empresas</h1>
+        <p class="hero-subtitle text-white-50 mb-0">Qué es, los tipos de riesgos, el marco legal en Chile y cómo gestionar la seguridad de tus trabajadores de forma centralizada.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contenido -->
+  <section class="guia-body">
+    <div class="container">
+      <article class="prose">
+
+        <p>La <strong>prevención de riesgos laborales</strong> es la base de cualquier operación segura. Más allá de cumplir la ley, una buena gestión de la prevención evita accidentes, reduce costos por ausentismo y multas, y protege lo más importante: la integridad de los trabajadores. En esta guía verás qué es, qué tipos de riesgos existen, qué exige la normativa chilena y cómo llevar la gestión a la práctica.</p>
+
+        <h2>¿Qué es la prevención de riesgos laborales?</h2>
+        <p>Es el conjunto de acciones que una empresa toma para <strong>identificar, evaluar y controlar los peligros</strong> presentes en el trabajo, con el objetivo de evitar accidentes laborales y enfermedades profesionales. No es un trámite puntual: es un proceso continuo que abarca desde la inducción de un trabajador nuevo hasta la auditoría diaria de sus elementos de protección.</p>
+
+        <h2>¿Cuáles son los tipos de riesgos laborales?</h2>
+        <p>Los riesgos del trabajo se agrupan en cinco grandes categorías. Identificar a cuál pertenece cada peligro de tu faena es el primer paso para controlarlo:</p>
+        <table class="guia-table">
+          <thead>
+            <tr><th>Tipo de riesgo</th><th>Ejemplos</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Físicos</strong></td><td>Ruido, vibraciones, temperaturas extremas, caídas de altura, electricidad.</td></tr>
+            <tr><td><strong>Químicos</strong></td><td>Polvos, gases, vapores y sustancias tóxicas o inflamables.</td></tr>
+            <tr><td><strong>Biológicos</strong></td><td>Virus, bacterias, hongos y contacto con material contaminado.</td></tr>
+            <tr><td><strong>Ergonómicos</strong></td><td>Posturas forzadas, movimientos repetitivos, manejo manual de carga.</td></tr>
+            <tr><td><strong>Psicosociales</strong></td><td>Estrés, carga mental, turnos extensos, presión por metas.</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Marco legal de la prevención de riesgos en Chile</h2>
+        <p>En Chile, la prevención de riesgos se sostiene principalmente sobre dos normas:</p>
+        <ul>
+          <li><strong>Ley 16.744</strong>: establece el seguro social obligatorio contra accidentes del trabajo y enfermedades profesionales. Define las obligaciones del empleador y las prestaciones para el trabajador.</li>
+          <li><strong>Decreto Supremo 40</strong>: reglamenta la prevención de riesgos profesionales e incluye la <strong>obligación de informar</strong> (el "derecho a saber"): el empleador debe informar a sus trabajadores sobre los riesgos de sus labores y las medidas de control.</li>
+        </ul>
+        <p>La administración del seguro está a cargo de los <strong>organismos administradores</strong> (mutualidades como ACHS, IST y Mutual de Seguridad, o el ISL), y la fiscalización recae en la <strong>Superintendencia de Seguridad Social (SUSESO)</strong> y la Dirección del Trabajo. Las empresas con cierto número de trabajadores deben contar además con un <strong>Comité Paritario</strong> y un <strong>Departamento de Prevención de Riesgos</strong> a cargo de un experto.</p>
+
+        <h2>¿Qué hace un encargado de prevención de riesgos?</h2>
+        <p>El <strong>prevencionista</strong> (o experto en prevención de riesgos) es quien lleva la seguridad a la práctica. Sus tareas centrales son:</p>
+        <ul>
+          <li>Identificar peligros y evaluar los riesgos de cada puesto de trabajo.</li>
+          <li>Gestionar la entrega y el recambio de los <strong>elementos de protección personal (EPP)</strong>.</li>
+          <li>Capacitar a los trabajadores y dejar registro de cursos y certificaciones.</li>
+          <li>Investigar accidentes e incidentes para evitar que se repitan.</li>
+          <li>Asegurar el cumplimiento de la normativa y preparar la respuesta ante emergencias.</li>
+        </ul>
+        <p>El gran desafío del prevencionista no es saber qué hacer, sino <strong>tener la información a mano cuando la necesita</strong>: ¿este trabajador tiene su curso de altura vigente?, ¿le entregaron el casco nuevo?, ¿cuál es su grupo sanguíneo si se accidenta?</p>
+
+        <h2>Cómo gestionar la prevención de riesgos en tu empresa</h2>
+        <p>Una gestión moderna de prevención de riesgos sigue un ciclo claro:</p>
+        <ol>
+          <li><strong>Identifica y evalúa</strong> los riesgos de cada faena.</li>
+          <li><strong>Implementa controles</strong>: EPP, procedimientos y señalética.</li>
+          <li><strong>Capacita y registra</strong> cada curso y certificación.</li>
+          <li><strong>Controla en terreno</strong> que todo esté al día antes de iniciar tareas.</li>
+          <li><strong>Responde rápido</strong> ante una emergencia con la información del trabajador disponible al instante.</li>
+        </ol>
+        <p>El punto débil de la mayoría de las empresas está en los pasos 4 y 5: la información vive en planillas dispersas y no está accesible cuando ocurre el accidente. Ahí es donde una plataforma digital marca la diferencia.</p>
+
+        <div class="guia-cta-box">
+          <h3>Centraliza la prevención de riesgos de tu empresa</h3>
+          <p>QRescueID reúne EPP, certificaciones y ficha de emergencia de cada trabajador en un dispositivo QR/NFC. El prevencionista valida todo en segundos, y ante un accidente la información médica está disponible al instante.</p>
+          <a href="/empresas/" class="btn btn-primary-yellow btn-lg">Ver la plataforma para empresas</a>
+        </div>
+
+        <h2>Preguntas frecuentes</h2>
+        <div class="guia-faq-item">
+          <h3>¿Qué significa la prevención de riesgos laborales?</h3>
+          <p>Es el conjunto de acciones para identificar, evaluar y controlar los peligros del trabajo, con el fin de evitar accidentes y enfermedades profesionales.</p>
+        </div>
+        <div class="guia-faq-item">
+          <h3>¿Cuáles son los tipos de riesgos laborales?</h3>
+          <p>Físicos, químicos, biológicos, ergonómicos y psicosociales.</p>
+        </div>
+        <div class="guia-faq-item">
+          <h3>¿Qué ley regula la prevención de riesgos en Chile?</h3>
+          <p>Principalmente la Ley 16.744 (accidentes del trabajo y enfermedades profesionales) y el Decreto Supremo 40 (reglamento de prevención y obligación de informar).</p>
+        </div>
+        <div class="guia-faq-item">
+          <h3>¿Qué hace un encargado de prevención de riesgos?</h3>
+          <p>Identifica peligros, evalúa riesgos, gestiona los EPP, capacita a los trabajadores, investiga accidentes y asegura el cumplimiento de la normativa.</p>
+        </div>
+
+      </article>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
