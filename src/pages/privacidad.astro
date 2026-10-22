@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const actualizada = '22 de octubre de 2026';
+const correo = 'acofre@qrescue.cl';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://qrescueid.app/" },
+    { "@type": "ListItem", "position": 2, "name": "Política de privacidad", "item": "https://qrescueid.app/privacidad/" }
+  ]
+};
+---
+
+<BaseLayout
+  title="Política de privacidad - QRescueID"
+  description="Cómo QRescueID recopila, usa y protege tus datos personales y de salud, y cómo ejercer tus derechos."
+  jsonLd={jsonLd}
+>
+  <Navbar />
+
+  <section class="contact-hero-section py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto py-lg-5 mt-lg-5">
+          <h1 class="display-5 fw-bold mb-3 mt-4 mt-lg-0">Política de privacidad</h1>
+          <p class="text-muted mb-0">Última actualización: {actualizada}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-5 mb-5">
+    <div class="container">
+      <div class="row">
+        <article class="col-lg-8 mx-auto legal-text">
+
+          <p>
+            QRescueID es un identificador de emergencia: un código QR y NFC que, al ser escaneado, muestra la información
+            que tú decides compartir para que te puedan ayudar en un accidente. Esta política explica qué datos tratamos,
+            para qué, con quién los compartimos y cómo ejercer tus derechos, conforme a la Ley N° 19.628 sobre Protección
+            de la Vida Privada y a la Ley N° 21.719 de Protección de Datos Personales de Chile.
+          </p>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">1. Quién es responsable de tus datos</h2>
+          <p>
+            El responsable del tratamiento es QRescueID, servicio operado desde Chile. Para cualquier consulta sobre
+            privacidad puedes escribirnos a <a href={`mailto:${correo}`}>{correo}</a>.
+          </p>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">2. Qué datos tratamos</h2>
+          <ul>
+            <li><strong>Datos de cuenta:</strong> nombre, email y contraseña (guardada cifrada). Si entras con Google, recibimos de Google tu nombre, email y foto de perfil. No recibimos tu contraseña de Google.</li>
+            <li><strong>Ficha de emergencia:</strong> RUT o documento, fecha de nacimiento, grupo sanguíneo, peso, estatura, alergias, enfermedades, medicamentos, implantes, previsión de salud, si eres donante, dirección, foto, observaciones y archivos médicos que decidas subir.</li>
+            <li><strong>Contactos de emergencia:</strong> nombre, teléfono y relación de las personas que tú agregas.</li>
+            <li><strong>Ubicación:</strong> solo cuando quien escanea tu QR decide enviarla a tus contactos. No hacemos seguimiento continuo de tu ubicación.</li>
+            <li><strong>Datos de uso técnico:</strong> fecha de activación de tus dispositivos y datos básicos del navegador, para seguridad y para prevenir abusos.</li>
+            <li><strong>Datos de pago:</strong> los procesa directamente el proveedor de pagos. QRescueID no guarda el número completo de tu tarjeta.</li>
+          </ul>
+          <p>
+            Los datos de salud son <strong>datos sensibles</strong>. Los tratamos solo porque tú los ingresas y das tu
+            consentimiento expreso para que se muestren en una emergencia.
+          </p>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">3. Para qué los usamos</h2>
+          <ul>
+            <li>Mostrar tu ficha de emergencia a quien escanee tu QR o NFC.</li>
+            <li>Avisar a tus contactos de emergencia cuando se escanea tu identificador.</li>
+            <li>Administrar tu cuenta, tus dispositivos y tu plan.</li>
+            <li>Si tu QRescueID te lo entrega tu empresa, permitir que el administrador de esa empresa gestione tu ficha laboral.</li>
+            <li>Enviarte avisos sobre tu cuenta, como recordatorios para completar tu ficha.</li>
+          </ul>
+          <p>No vendemos tus datos ni los usamos para publicidad.</p>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">4. Ojo: tu ficha es visible al escanear</h2>
+          <p>
+            Para que el servicio sirva en una emergencia, cualquier persona que escanee tu QR o NFC puede ver la información
+            de tu ficha, sin iniciar sesión. Tú decides qué datos completas. Te recomendamos incluir solo lo que un
+            rescatista necesita saber.
+          </p>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">5. Con quién los compartimos</h2>
+          <p>Solo con proveedores que necesitamos para operar el servicio, que tratan los datos por encargo nuestro:</p>
+          <ul>
+            <li><strong>Supabase:</strong> base de datos, autenticación y almacenamiento de archivos.</li>
+            <li><strong>Vercel:</strong> alojamiento de la plataforma.</li>
+            <li><strong>Resend:</strong> envío de correos.</li>
+            <li><strong>Google:</strong> inicio de sesión con Google, si eliges usarlo.</li>
+            <li><strong>Cloudflare:</strong> protección contra bots en el inicio de sesión.</li>
+            <li><strong>Proveedor de pagos:</strong> cobro de los planes pagados.</li>
+          </ul>
+          <p>
+            Algunos de estos proveedores almacenan datos fuera de Chile. También compartiremos datos si una autoridad
+            competente lo exige conforme a la ley.
+          </p>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">6. Uso de datos de Google</h2>
+          <p>
+            Si entras con Google, solo usamos tu nombre, email y foto para crear e identificar tu cuenta. El uso que hace
+            QRescueID de la información recibida de las APIs de Google cumple con la
+            <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Política de Datos del Usuario de los Servicios de las APIs de Google</a>,
+            incluidos los requisitos de uso limitado.
+          </p>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">7. Cómo los protegemos</h2>
+          <ul>
+            <li>Conexiones cifradas (HTTPS) en todo el sitio y la plataforma.</li>
+            <li>Reglas de acceso en la base de datos: cada persona solo puede ver y editar su propia cuenta.</li>
+            <li>Contraseñas guardadas cifradas, nunca en texto plano.</li>
+            <li>Protección contra bots y accesos automatizados en el inicio de sesión.</li>
+          </ul>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">8. Cuánto tiempo los guardamos</h2>
+          <p>
+            Mientras tu cuenta esté activa. Si la eliminas, borramos tu ficha y tus datos personales en un plazo máximo de
+            30 días, salvo lo que la ley nos obligue a conservar, como registros de pagos.
+          </p>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">9. Tus derechos</h2>
+          <p>
+            Puedes pedir acceso, rectificación, supresión, oposición y portabilidad de tus datos, y retirar tu consentimiento
+            en cualquier momento. La mayoría de los datos los puedes editar tú mismo desde la plataforma. Para todo lo demás,
+            escríbenos a <a href={`mailto:${correo}`}>{correo}</a> y te responderemos dentro de los plazos legales.
+          </p>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">10. Menores de edad</h2>
+          <p>
+            Las fichas de menores de edad deben ser creadas y administradas por su padre, madre o tutor legal.
+          </p>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">11. Cambios a esta política</h2>
+          <p>
+            Si cambiamos esta política, actualizaremos la fecha de arriba y, si el cambio es importante, te avisaremos por
+            email.
+          </p>
+
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .legal-text { font-size: 1.05rem; line-height: 1.75; color: #334155; }
+  .legal-text li { margin-bottom: .5rem; }
+</style>
