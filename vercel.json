@@ -6,6 +6,7 @@
     { "source": "/empresas.php", "destination": "/empresas/", "permanent": true },
     { "source": "/contact.php", "destination": "/contacto/", "permanent": true },
     { "source": "/producto-fisico.php", "destination": "/tienda/qrescueid-fisico/", "permanent": true },
-    { "source": "/producto-kit-premium.php", "destination": "/tienda/kit-premium/", "permanent": true }
+    { "source": "/producto-kit-premium.php", "destination": "/tienda/kit-premium/", "permanent": true },
+    { "source": "/sitemap.xml", "destination": "/sitemap-index.xml", "permanent": true }
   ]
 }

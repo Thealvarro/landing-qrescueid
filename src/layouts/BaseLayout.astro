@@ -22,7 +22,7 @@ const ogImageAbsolute = ogImage.startsWith('http') ? ogImage : siteUrl + ogImage
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es-CL">
   <head>
     <!-- Google Tag Manager -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-64GQ2E4Z1P" is:inline></script>
@@ -40,6 +40,8 @@ const ogImageAbsolute = ogImage.startsWith('http') ? ogImage : siteUrl + ogImage
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="es-CL" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
 
     <!-- Open Graph -->
     <meta property="og:type" content={ogType} />
