@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const actualizada = '3 de noviembre de 2026';
+const correo = 'acofre@qrescue.cl';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://qrescueid.app/" },
+    { "@type": "ListItem", "position": 2, "name": "Términos y condiciones", "item": "https://qrescueid.app/terminos/" }
+  ]
+};
+---
+
+<BaseLayout
+  title="Términos y condiciones - QRescueID"
+  description="Condiciones de uso de QRescueID: cuentas, planes y suscripciones, compra de productos físicos, cancelación y responsabilidades."
+  jsonLd={jsonLd}
+>
+  <Navbar />
+
+  <section class="contact-hero-section py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto py-lg-5 mt-lg-5">
+          <h1 class="display-5 fw-bold mb-3 mt-4 mt-lg-0">Términos y condiciones</h1>
+          <p class="text-muted mb-0">Última actualización: {actualizada}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="legal-section py-5">
+    <div class="container">
+      <div class="row">
+        <article class="col-lg-8 mx-auto legal-text">
+
+          <p>
+            Estos términos regulan el uso del sitio qrescueid.app, de la plataforma plataforma.qrescueid.app, de la app
+            QRescueID y de los productos físicos QRescueID. Al crear una cuenta o comprar un producto aceptas estos términos
+            y nuestra <a href="/privacidad/">política de privacidad</a>. Se rigen por las leyes de Chile, incluida la
+            Ley N° 19.496 sobre Protección de los Derechos de los Consumidores.
+          </p>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">1. Qué es QRescueID</h2>
+          <p>
+            QRescueID es un identificador de emergencia: un código QR y NFC que, al ser escaneado, muestra la ficha que tú
+            completas para que te puedan ayudar en un accidente y avisa a tus contactos de emergencia.
+          </p>
+          <p>
+            <strong>QRescueID no es un servicio médico ni de rescate</strong> y no reemplaza la atención de profesionales de
+            la salud ni a los servicios de emergencia. Ante una emergencia, llama al 131 (SAMU), 132 (Bomberos) o
+            133 (Carabineros).
+          </p>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">2. Tu cuenta</h2>
+          <ul>
+            <li>Debes entregar datos verdaderos y mantenerlos actualizados. La utilidad de tu ficha depende de que esté correcta.</li>
+            <li>Eres responsable de cuidar el acceso a tu cuenta. Si crees que alguien entró sin tu permiso, cambia tu contraseña y escríbenos.</li>
+            <li>Las cuentas de menores de edad deben ser creadas y administradas por su padre, madre o tutor legal.</li>
+            <li>No puedes usar QRescueID para suplantar a otra persona, publicar información falsa o de terceros sin su consentimiento, ni intentar vulnerar la seguridad de la plataforma. Si lo haces, podemos suspender o cerrar tu cuenta.</li>
+          </ul>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">3. Tu ficha es visible al escanear</h2>
+          <p>
+            Cualquier persona que escanee tu QR o NFC puede ver la información de tu ficha, sin iniciar sesión. Tú decides
+            qué datos completas y puedes editarlos o borrarlos cuando quieras desde la plataforma.
+          </p>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">4. Planes y suscripciones</h2>
+          <ul>
+            <li>El Plan Free es gratuito. Los planes Pro y Premium se pagan de forma mensual o anual, según lo que elijas al contratar. Los precios vigentes están en <a href="/planes/">qrescueid.app/planes</a> y están en pesos chilenos con IVA incluido.</li>
+            <li>La suscripción se renueva automáticamente al final de cada periodo y se cobra al medio de pago que registraste, hasta que la canceles.</li>
+            <li>Los pagos los procesa un proveedor de pagos externo. QRescueID no guarda el número completo de tu tarjeta.</li>
+            <li>Si cambiamos un precio, te avisaremos por email antes de que se aplique a tu próxima renovación.</li>
+            <li>Los planes se contratan en la plataforma web. La app QRescueID no vende planes: solo muestra el estado de tu plan.</li>
+          </ul>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">5. Cancelación</h2>
+          <ul>
+            <li>Puedes cancelar tu suscripción cuando quieras desde la plataforma, en Mi Plan. No hay permanencia mínima.</li>
+            <li>Al cancelar no se hacen nuevos cobros, y mantienes los beneficios de tu plan hasta el final del periodo que ya pagaste. Después tu cuenta pasa al Plan Free y tu ficha sigue funcionando.</li>
+            <li>Si al cancelar tienes un pago pendiente o rechazado, la cancelación se aplica de inmediato.</li>
+            <li>No hacemos reembolsos por los días que queden del periodo ya pagado, salvo que la ley lo exija.</li>
+          </ul>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">6. Productos físicos</h2>
+          <ul>
+            <li>Los productos QRescueID se venden y despachan solo dentro de Chile. El costo y el plazo de despacho se informan antes de pagar.</li>
+            <li>Algunos productos se venden a través de distribuidores autorizados. En ese caso, la compra, el despacho y los cambios se rigen por las condiciones de ese distribuidor.</li>
+            <li><strong>Derecho a retracto:</strong> en compras hechas directamente con QRescueID por internet, puedes retractarte dentro de 10 días desde que recibes el producto, siempre que no lo hayas usado, pegado ni activado y lo devuelvas en su empaque original.</li>
+            <li><strong>Garantía legal:</strong> si el producto viene con una falla, dentro de los 6 meses siguientes a la entrega puedes elegir entre su reparación, su cambio o la devolución de lo pagado, conforme a la ley.</li>
+            <li>El Kit Premium incluye un año de Plan Premium, que comienza a contar desde que lo activas en tu cuenta.</li>
+          </ul>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">7. Cuentas de empresa</h2>
+          <p>
+            Si tu QRescueID te lo entrega tu empresa, el administrador de esa empresa puede gestionar tu ficha laboral.
+            Las condiciones comerciales entre QRescueID y la empresa se rigen por el contrato que firmen.
+          </p>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">8. Disponibilidad y responsabilidad</h2>
+          <ul>
+            <li>Hacemos todo lo razonable para que la plataforma esté disponible siempre, pero puede haber interrupciones por mantenimiento, fallas de proveedores o de conexión a internet.</li>
+            <li>Que tu ficha se vea en una emergencia depende de que alguien escanee tu QR o NFC y tenga un teléfono con conexión. No podemos garantizar que eso ocurra.</li>
+            <li>No somos responsables por decisiones tomadas en base a información incorrecta o desactualizada de tu ficha.</li>
+            <li>Nada de lo anterior limita los derechos que te otorga la Ley N° 19.496.</li>
+          </ul>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">9. Cerrar tu cuenta</h2>
+          <p>
+            Puedes eliminar tu cuenta cuando quieras desde la plataforma o escribiéndonos. Si tienes una suscripción activa,
+            primero se cancela. Lo que pasa con tus datos está explicado en la <a href="/privacidad/">política de privacidad</a>.
+          </p>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">10. Cambios a estos términos</h2>
+          <p>
+            Si cambiamos estos términos, actualizaremos la fecha de arriba y, si el cambio es importante, te avisaremos por
+            email antes de que se aplique.
+          </p>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">11. Contacto</h2>
+          <p>
+            Para cualquier consulta, reclamo o solicitud sobre estos términos, escríbenos a
+            <a href={`mailto:${correo}`}>{correo}</a>.
+          </p>
+
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .legal-section { background: #fff; }
+  .legal-text { font-size: 1.05rem; line-height: 1.75; color: #334155; }
+  .legal-text li { margin-bottom: .5rem; }
+</style>
