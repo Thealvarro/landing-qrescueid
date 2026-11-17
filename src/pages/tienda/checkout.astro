@@ -139,6 +139,16 @@ const regiones = [
               </label>
             </div>
 
+            <h2 class="h4 fw-bold mt-5 mb-3">Pago</h2>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="radio" name="medio" id="medio-webpay" value="webpay" checked required />
+              <label class="form-check-label" for="medio-webpay">Webpay (tarjetas de crédito, débito y prepago)</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="radio" name="medio" id="medio-mercadopago" value="mercadopago" required />
+              <label class="form-check-label" for="medio-mercadopago">Mercado Pago</label>
+            </div>
+
             <div id="turnstile"></div>
 
             <div id="aviso" class="alert alert-danger mt-4 d-none" role="alert"></div>
@@ -173,6 +183,8 @@ const regiones = [
         var API = 'https://byzjsuxbdmbmvwoagujg.supabase.co/functions/v1/tienda-crear-pedido';
         var SITEKEY = '0x4AAAAAADt7NVt_5oppicP0';
         var WEBPAY_HOSTS = ['webpay3gint.transbank.cl', 'webpay3g.transbank.cl'];
+        var MP_HOSTS = ['www.mercadopago.cl', 'sandbox.mercadopago.cl', 'www.mercadopago.com', 'sandbox.mercadopago.com'];
+        var NOMBRES = { webpay: 'Webpay', mercadopago: 'Mercado Pago' };
 
         // La llave de vista previa llega en el fragmento (#k=...), que nunca viaja al servidor.
         var llave = new URLSearchParams(location.hash.slice(1)).get('k');
@@ -204,6 +216,11 @@ const regiones = [
         form.addEventListener('change', actualizarResumen);
         actualizarResumen();
 
+        function medio() { return form.querySelector('input[name="medio"]:checked').value; }
+        function textoBoton() { return 'Pagar con ' + NOMBRES[medio()]; }
+        form.addEventListener('change', function () { if (!enviando) boton.textContent = textoBoton(); });
+        boton.textContent = textoBoton();
+
         // Turnstile invisible: se renderiza al cargar y se ejecuta recién al pagar.
         var widgetId = null;
         var pendiente = null;
@@ -233,14 +250,14 @@ const regiones = [
           aviso.textContent = msg;
           aviso.classList.remove('d-none');
           boton.disabled = false;
-          boton.textContent = 'Pagar con Webpay';
+          boton.textContent = textoBoton();
           if (widgetId !== null) turnstile.reset(widgetId);
         }
 
         var enviando = false;
         // Si vuelve desde Webpay con el botón atrás, el navegador restaura la página tal cual: reactivamos el botón.
         window.addEventListener('pageshow', function (e) {
-          if (e.persisted) { enviando = false; boton.disabled = false; boton.textContent = 'Pagar con Webpay'; }
+          if (e.persisted) { enviando = false; boton.disabled = false; boton.textContent = textoBoton(); }
         });
         form.addEventListener('submit', function (e) {
           e.preventDefault();
@@ -256,9 +273,10 @@ const regiones = [
             return;
           }
 
+          var provider = medio();
           enviando = true;
           boton.disabled = true;
-          boton.textContent = 'Conectando con Webpay…';
+          boton.textContent = 'Conectando con ' + NOMBRES[provider] + '…';
 
           var buyer = { name: v('nombre'), email: v('correo'), phone: v('telefono') };
           if (v('rut')) buyer.rut = v('rut');
@@ -275,7 +293,7 @@ const regiones = [
                   items: [{ product_id: form.querySelector('input[name="producto"]:checked').value, quantity: Number(form.cantidad.value) }],
                   buyer: buyer,
                   shipping: shipping,
-                  provider: 'webpay',
+                  provider: provider,
                   captcha_token: token,
                 }),
               }).catch(function () { throw new Error('No pudimos conectarnos. Revisa tu conexión e intenta de nuevo.'); });
@@ -285,6 +303,13 @@ const regiones = [
                 if (!res.ok) throw new Error(data.error || 'No pudimos crear tu pedido. Intenta de nuevo.');
                 var destino;
                 try { destino = new URL(data.url); } catch (e) {}
+                if (provider === 'mercadopago') {
+                  if (!destino || destino.protocol !== 'https:' || MP_HOSTS.indexOf(destino.hostname) === -1) {
+                    throw new Error('No pudimos conectar con Mercado Pago. Intenta de nuevo.');
+                  }
+                  location.assign(destino.href);
+                  return;
+                }
                 if (!destino || destino.protocol !== 'https:' || WEBPAY_HOSTS.indexOf(destino.hostname) === -1 || !data.token) {
                   throw new Error('No pudimos conectar con Webpay. Intenta de nuevo.');
                 }
