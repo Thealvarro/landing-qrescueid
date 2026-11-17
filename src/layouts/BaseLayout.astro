@@ -6,6 +6,7 @@ interface Props {
   ogImage?: string;
   ogType?: string;
   jsonLd?: object | object[];
+  noindex?: boolean;
 }
 
 const {
@@ -14,6 +15,7 @@ const {
   ogImage = '/img/caja-qrescueid_resultado_optimized.webp',
   ogType = 'website',
   jsonLd,
+  noindex = false,
 } = Astro.props;
 
 const siteUrl = 'https://qrescueid.app';
@@ -24,17 +26,22 @@ const ogImageAbsolute = ogImage.startsWith('http') ? ogImage : siteUrl + ogImage
 <!doctype html>
 <html lang="es">
   <head>
-    <!-- Google Tag Manager -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-64GQ2E4Z1P" is:inline></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-64GQ2E4Z1P');
-    </script>
+    <!-- Google Tag Manager (no se carga en páginas privadas, para no mandarle su URL a Google) -->
+    {!noindex && (
+      <Fragment>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-64GQ2E4Z1P" is:inline></script>
+        <script is:inline>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-64GQ2E4Z1P');
+        </script>
+      </Fragment>
+    )}
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
 
     <!-- SEO Primario -->
     <title>{title}</title>

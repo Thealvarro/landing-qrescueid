@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const correo = 'acofre@qrescue.cl';
+---
+
+<BaseLayout
+  title="Tu pedido - QRescueID"
+  description="Estado de tu pedido en QRescueID."
+  noindex
+>
+  <Navbar />
+
+  <section class="contact-hero-section py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto py-lg-5 mt-lg-5">
+
+          <div data-estado="ok" class="d-none">
+            <h1 class="display-5 fw-bold mb-3 mt-4 mt-lg-0">Pago recibido</h1>
+            <p class="lead">Gracias por tu compra.</p>
+            <p class="numero d-none">Tu número de pedido es <strong></strong></p>
+            <p>Te vamos a escribir por correo para coordinar el despacho.</p>
+          </div>
+
+          <div data-estado="rechazado" class="d-none">
+            <h1 class="display-5 fw-bold mb-3 mt-4 mt-lg-0">El pago fue rechazado</h1>
+            <p class="lead">Tu banco rechazó el pago y no se hizo ningún cobro. Puedes intentarlo de nuevo.</p>
+            <p class="numero d-none">Número de pedido: <strong></strong></p>
+          </div>
+
+          <div data-estado="cancelado" class="d-none">
+            <h1 class="display-5 fw-bold mb-3 mt-4 mt-lg-0">Pago anulado</h1>
+            <p class="lead">Anulaste el pago, así que no se hizo ningún cobro.</p>
+            <p class="numero d-none">Número de pedido: <strong></strong></p>
+          </div>
+
+          <div data-estado="error" class="d-none">
+            <h1 class="display-5 fw-bold mb-3 mt-4 mt-lg-0">No pudimos confirmar el pago</h1>
+            <p class="lead">
+              Si te hicieron un cargo, escríbenos a <a href={`mailto:${correo}`}>{correo}</a> o por
+              <a href="https://wa.me/56954751380" target="_blank" rel="noopener">WhatsApp</a> indicando tu número de pedido y lo revisamos.
+            </p>
+            <p class="numero d-none">Número de pedido: <strong></strong></p>
+          </div>
+
+          <a href="/tienda/" class="btn btn-primary-yellow mt-3">Volver a la tienda</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <Fragment slot="body-end">
+    <script is:inline>
+      (function () {
+        var q = new URLSearchParams(location.search);
+        var r = q.get('r');
+        if (['ok', 'rechazado', 'cancelado', 'error'].indexOf(r) === -1) r = 'error';
+        var bloque = document.querySelector('[data-estado="' + r + '"]');
+        bloque.classList.remove('d-none');
+
+        var n = q.get('n');
+        if (n && /^[A-Za-z0-9]{1,26}$/.test(n)) {
+          var p = bloque.querySelector('.numero');
+          p.querySelector('strong').textContent = n;
+          p.classList.remove('d-none');
+        }
+      })();
+    </script>
+  </Fragment>
+</BaseLayout>
