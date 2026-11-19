@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 
-const actualizada = '15 de noviembre de 2026';
+const actualizada = '18 de noviembre de 2026';
 const correo = 'acofre@qrescue.cl';
 
 const jsonLd = {
@@ -48,8 +48,10 @@ const jsonLd = {
 
           <h2 class="h4 fw-bold mt-5 mb-3">1. Quién es responsable de tus datos</h2>
           <p>
-            El responsable del tratamiento es QRescueID, servicio operado desde Chile. Para cualquier consulta sobre
-            privacidad puedes escribirnos a <a href={`mailto:${correo}`}>{correo}</a>.
+            El responsable del tratamiento es Soluciones Informáticas Cofre SpA, RUT 77.154.424-K, con domicilio en
+            Antonio Bellet 193, oficina 1210, Providencia, Santiago, Chile. Esta empresa opera QRescueID y publica la app
+            QRescueID en las tiendas de aplicaciones como SICS SpA. Para cualquier consulta sobre privacidad puedes
+            escribirnos a <a href={`mailto:${correo}`}>{correo}</a>.
           </p>
 
           <h2 class="h4 fw-bold mt-5 mb-3">2. Qué datos tratamos</h2>
@@ -106,7 +108,39 @@ const jsonLd = {
             incluidos los requisitos de uso limitado.
           </p>
 
-          <h2 class="h4 fw-bold mt-5 mb-3">7. Cómo los protegemos</h2>
+          <h2 class="h4 fw-bold mt-5 mb-3">7. La app QRescueID</h2>
+          <p>
+            La app QRescueID para Android y iOS usa la misma cuenta y los mismos datos que la plataforma web. Esto es lo
+            que recoge y hace:
+          </p>
+          <ul>
+            <li><strong>Cuenta y ficha:</strong> los datos de tu cuenta y de tu ficha de emergencia que tú ingresas: nombre, RUT, fecha de nacimiento, dirección o comuna, lugar de trabajo o estudio, peso, estatura, grupo sanguíneo, alergias, enfermedades, medicamentos, implantes, si eres donante, observaciones médicas, seguro de salud o previsión y número de póliza.</li>
+            <li><strong>Contactos de emergencia:</strong> hasta 4 contactos, según tu plan, con su nombre, teléfono y relación contigo, y el email que recibe los avisos cuando escanean tu QR. Son datos de otras personas: agrégalos solo si ellas están de acuerdo.</li>
+            <li><strong>Foto de perfil y archivos médicos:</strong> solo la foto y los archivos que tú eliges subir. La app no usa la cámara y solo accede a la foto o al documento que seleccionas.</li>
+            <li><strong>Etiquetas NFC:</strong> si usas la opción de leer una etiqueta, la app lee solo el código QRescueID que trae la etiqueta, para abrir la ficha que corresponde.</li>
+            <li><strong>Guardar tu QR:</strong> si lo pides, la app guarda la imagen de tu QR en la galería de tu teléfono. Para eso te pide permiso.</li>
+            <li><strong>Sesión en el teléfono:</strong> tu sesión y los borradores de tu ficha se guardan cifrados en el almacenamiento seguro del teléfono, no se incluyen en los respaldos y se borran al cerrar sesión o eliminar la cuenta.</li>
+          </ul>
+          <p>
+            La app <strong>no</strong> accede a la ubicación de tu teléfono, no muestra publicidad y no usa herramientas de
+            analítica ni de seguimiento.
+          </p>
+          <p>Los datos de la app los procesan estos proveedores:</p>
+          <ul>
+            <li><strong>Supabase:</strong> infraestructura, base de datos, inicio de sesión y almacenamiento de archivos.</li>
+            <li><strong>Cloudflare Turnstile:</strong> verifica que no eres un robot al iniciar sesión o registrarte.</li>
+            <li><strong>Google o Apple:</strong> solo si eliges entrar con tu cuenta de Google o, en iPhone, con tu cuenta de Apple. Recibimos tu nombre y tu email.</li>
+          </ul>
+          <p>
+            Recuerda que tu ficha de emergencia es visible para quien escanee tu QR o tu etiqueta NFC, porque ese es el
+            propósito del servicio. Tú decides qué datos pones en ella.
+          </p>
+          <p>
+            Puedes eliminar tu cuenta desde la app, en Cuenta y luego Eliminar mi cuenta. Los pasos, la vía por correo y qué
+            se borra están en <a href="/eliminar-cuenta/">qrescueid.app/eliminar-cuenta</a>.
+          </p>
+
+          <h2 class="h4 fw-bold mt-5 mb-3">8. Cómo los protegemos</h2>
           <ul>
             <li>Conexiones cifradas (HTTPS) en todo el sitio y la plataforma.</li>
             <li>Reglas de acceso en la base de datos: cada persona solo puede ver y editar su propia cuenta.</li>
@@ -114,25 +148,25 @@ const jsonLd = {
             <li>Protección contra bots y accesos automatizados en el inicio de sesión.</li>
           </ul>
 
-          <h2 class="h4 fw-bold mt-5 mb-3">8. Cuánto tiempo los guardamos</h2>
+          <h2 class="h4 fw-bold mt-5 mb-3">9. Cuánto tiempo los guardamos</h2>
           <p>
             Mientras tu cuenta esté activa. Si la eliminas, borramos tu ficha y tus datos personales en un plazo máximo de
             30 días, salvo lo que la ley nos obligue a conservar, como registros de pagos.
           </p>
 
-          <h2 class="h4 fw-bold mt-5 mb-3">9. Tus derechos</h2>
+          <h2 class="h4 fw-bold mt-5 mb-3">10. Tus derechos</h2>
           <p>
             Puedes pedir acceso, rectificación, supresión, oposición y portabilidad de tus datos, y retirar tu consentimiento
             en cualquier momento. La mayoría de los datos los puedes editar tú mismo desde la plataforma. Para todo lo demás,
             escríbenos a <a href={`mailto:${correo}`}>{correo}</a> y te responderemos dentro de los plazos legales.
           </p>
 
-          <h2 class="h4 fw-bold mt-5 mb-3">10. Menores de edad</h2>
+          <h2 class="h4 fw-bold mt-5 mb-3">11. Menores de edad</h2>
           <p>
             Las fichas de menores de edad deben ser creadas y administradas por su padre, madre o tutor legal.
           </p>
 
-          <h2 class="h4 fw-bold mt-5 mb-3">11. Cambios a esta política</h2>
+          <h2 class="h4 fw-bold mt-5 mb-3">12. Cambios a esta política</h2>
           <p>
             Si cambiamos esta política, actualizaremos la fecha de arriba y, si el cambio es importante, te avisaremos por
             email.
