@@ -80,6 +80,12 @@ body.mini { background: #fff; }
 .pay-logo-box.sm .pay-logo { font-size: 14px; }
 @media (max-width: 560px) { .pay-img { height: 30px; } .pay-logo { font-size: 22px; } }
 .field.check { margin-top: 16px; }
+/* Cupón Premium: campo + botón Aplicar en una fila */
+.field.cupon { margin-bottom: 18px; }
+.cupon-fila { display: flex; gap: 8px; }
+.cupon-fila .fl { flex: 1; min-width: 0; }
+.cupon-btn { --h: 54px; padding: 0 20px; border-radius: 12px; flex-shrink: 0; }
+.cupon input[readonly] { background: #f8fafc; color: #475569; }
 .chk { display: flex; gap: 12px; align-items: flex-start; font-size: 14.5px; color: #334155; line-height: 1.45; cursor: pointer; }
 .chk input { width: 20px; height: 20px; margin: 1px 0 0; flex-shrink: 0; accent-color: var(--ink); }
 .chk a { color: #1d4ed8; text-decoration: underline; text-underline-offset: 3px; }

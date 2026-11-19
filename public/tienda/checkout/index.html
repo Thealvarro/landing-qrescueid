@@ -37,6 +37,7 @@
         <a class="co-edit" href="/tienda/carro/"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-pencil"/></svg>Editar carro</a>
         <div class="co-totals">
           <div class="csum-row"><span>Subtotal</span><b id="coSub"></b></div>
+          <div class="csum-row" id="coCuponFila" hidden><span>Cupón Premium 20%</span><span id="coCupon"></span></div>
           <div class="csum-row"><span>Envío</span><span id="coEnvio">Ingresa tu región</span></div>
           <div class="csum-row total"><span>Total</span><span class="tot"><small>CLP</small><b id="coTotal"></b></span></div>
           <p class="csum-note" id="coTotalNota" hidden>El despacho se suma cuando confirmemos el valor para tu región.</p>
@@ -103,6 +104,13 @@
           <section class="co-sec" aria-labelledby="s-pago">
             <h2 id="s-pago">Pago</h2>
             <p class="co-sec-note"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-lock"/></svg>Pagas en el sitio de Webpay o Mercado Pago. No guardamos los datos de tu tarjeta.</p>
+            <div class="field cupon">
+              <div class="cupon-fila">
+                <div class="fl"><input id="cupon" name="cupon" type="text" placeholder=" " aria-describedby="e-cupon h-cupon" maxlength="20" autocomplete="off" autocapitalize="characters" spellcheck="false"><label for="cupon">¿Tienes un cupón?</label></div>
+                <button type="button" class="btn btn-navy cupon-btn" id="cuponAplicar"><span class="spin" aria-hidden="true"></span><span class="lbl">Aplicar</span></button>
+              </div>
+              <p class="hint" id="h-cupon">Si tienes Plan Premium, encuentras tu cupón de 20% en Mi Plan.</p><p class="err" id="e-cupon" hidden></p>
+            </div>
             <div class="pay" role="radiogroup" aria-label="Medio de pago">
               <label class="pay-o"><input type="radio" name="medio" value="webpay" checked><span class="pay-c"><span class="pay-logo-box" data-logo-webpay><span class="pay-logo wp" aria-hidden="true">web<i>pay</i></span></span><span class="pay-txt"><b>Webpay Plus</b><small>Tarjetas de crédito, débito y prepago</small></span></span></label>
               <label class="pay-o"><input type="radio" name="medio" value="mercadopago"><span class="pay-c"><span class="pay-logo-box"><img class="pay-img" src="/assets/pagos/mercadopago.svg" alt="Mercado Pago" width="152" height="40"></span><span class="pay-txt"><b>Mercado Pago</b><small>Continúas el pago en el sitio de Mercado Pago</small></span></span></label>

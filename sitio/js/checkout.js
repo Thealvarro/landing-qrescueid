@@ -4,6 +4,8 @@
 // - Los datos del comprador NO se guardan en ningún almacenamiento del navegador.
 // - Al servidor se envía solo { items:[{product_id, variant, quantity}], buyer, shipping, provider, captcha_token }.
 //   Sin precios ni total: el cobro lo calcula el servidor.
+// - Cupón Premium: se manda solo el código (`cupon`). El descuento lo calcula el servidor, tanto al
+//   apretar Aplicar (modo cotizar de tienda-crear-pedido) como al crear el pedido.
 //   OJO: el servidor todavía no conoce `variant` (hoy ignora los campos de más). Hay que agregarlo a
 //   tienda-crear-pedido y a store_order_items antes de abrir la tienda, o el pedido no guardará el tamaño.
 // - Todo texto dinámico va con textContent.
@@ -62,7 +64,11 @@ function iniciar() {
   pintarResumen();
   const r0 = resumen();
   track('InitiateCheckout', { content_ids: [...new Set(r0.items.map(i => i.product_id))], content_type: 'product', num_items: r0.unidades, value: r0.subtotal, currency: 'CLP' });
-  addEventListener('carro:cambio', () => { if (!resumen().items.length) mostrarSinCarro(); else pintarResumen(); });
+  addEventListener('carro:cambio', () => {
+    if (!resumen().items.length) { mostrarSinCarro(); return; }
+    pintarResumen();
+    if (cupon) aplicarCupon(cupon.codigo); // el descuento depende del carro: se vuelve a cotizar
+  });
   if (REAL) cargarTurnstile();
 }
 
@@ -86,8 +92,12 @@ toggle.addEventListener('click', () => {
 const tarifa = nombre => REGIONES.find(r => r.nombre === nombre);
 function pintarResumen() {
   pintarLista($('coLista'), { modo: 'resumen' });
-  const { subtotal } = resumen();
-  $('coSub').textContent = pesos(subtotal);
+  const { subtotal: bruto } = resumen();
+  $('coSub').textContent = pesos(bruto);
+  const descuento = cupon ? cupon.descuento : 0;
+  $('coCuponFila').hidden = !descuento;
+  $('coCupon').textContent = '-' + pesos(descuento);
+  const subtotal = bruto - descuento;
   const r = tarifa(form.region.value);
   const envio = $('coEnvio'), nota = $('coTotalNota'), precio = $('shipPrecio'), plazo = $('shipPlazo');
   let textoTotal;
@@ -116,6 +126,61 @@ function pintarResumen() {
   $('shipOpt').toggleAttribute('data-sin-region', !r);
   for (const id of ['coTotal', 'coTotal2', 'coToggleTotal']) $(id).textContent = textoTotal;
 }
+
+// ---------- Cupón Premium ----------
+// cupon = { codigo, descuento } cuando el servidor lo aceptó; null si no hay cupón aplicado
+let cupon = null;
+const campoCupon = form.cupon, botonCupon = $('cuponAplicar'), errCupon = $('e-cupon');
+function estadoCupon(msg = '') {
+  errCupon.textContent = msg;
+  errCupon.hidden = !msg;
+  campoCupon.closest('.field').classList.toggle('bad', !!msg);
+  campoCupon.readOnly = !!cupon;
+  botonCupon.querySelector('.lbl').textContent = cupon ? 'Quitar' : 'Aplicar';
+  $('h-cupon').textContent = cupon
+    ? `Cupón aplicado, ahorras ${pesos(cupon.descuento)}. El 20% es sobre el precio normal, en hasta 2 unidades.`
+    : 'Si tienes Plan Premium, encuentras tu cupón de 20% en Mi Plan.';
+}
+function quitarCupon(msg) {
+  cupon = null;
+  estadoCupon(msg);
+  pintarResumen();
+}
+async function aplicarCupon(codigo) {
+  if (!REAL) { quitarCupon('Modo prototipo: los cupones se validan solo en qrescueid.app.'); return; }
+  botonCupon.disabled = true;
+  botonCupon.classList.add('loading');
+  try {
+    const items = resumen().items.map(({ product_id, variant, quantity }) => ({ product_id, variant, quantity }));
+    const res = await fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-store-preview': llave },
+      body: JSON.stringify({ cotizar: true, items, cupon: codigo }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || typeof data.descuento !== 'number') {
+      quitarCupon(typeof data.error === 'string' ? data.error : 'No pudimos validar el cupón. Intenta de nuevo.');
+      return;
+    }
+    cupon = { codigo, descuento: data.descuento };
+    estadoCupon();
+    pintarResumen();
+  } catch {
+    quitarCupon('No pudimos conectarnos. Revisa tu conexión e intenta de nuevo.');
+  } finally {
+    botonCupon.disabled = false;
+    botonCupon.classList.remove('loading');
+  }
+}
+botonCupon.addEventListener('click', () => {
+  if (cupon) { quitarCupon(); campoCupon.focus(); return; }
+  const codigo = campoCupon.value.trim().toUpperCase();
+  if (!codigo) { estadoCupon('Escribe tu cupón, por ejemplo DESC-ABCD-EFGH.'); campoCupon.focus(); return; }
+  aplicarCupon(codigo);
+});
+// Enter en el campo aplica el cupón en vez de enviar el formulario
+campoCupon.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); botonCupon.click(); } });
+campoCupon.addEventListener('input', () => { if (!errCupon.hidden) estadoCupon(); });
 
 // ---------- Región → comuna ----------
 function llenarComunas() {
@@ -251,7 +316,7 @@ form.addEventListener('submit', async e => {
   const est = resumen();
   const tar = tarifa(form.region.value);
   const medida = {
-    value: est.subtotal + (tar && tar.precio ? tar.precio : 0), currency: 'CLP',
+    value: est.subtotal - (cupon ? cupon.descuento : 0) + (tar && tar.precio ? tar.precio : 0), currency: 'CLP',
     content_ids: [...new Set(est.items.map(i => i.product_id))], num_items: est.unidades,
   };
   const pagoListo = order_number => {
@@ -287,10 +352,13 @@ form.addEventListener('submit', async e => {
           // Atribución de campaña (utm_*, fbclid y, con consentimiento, _fbp/_fbc). Sin datos personales.
           // OJO: el servidor todavía no recibe ni guarda este campo (hoy ignora los campos de más).
           atribucion: atribucion(),
+          ...(cupon ? { cupon: cupon.codigo } : {}),
         }),
       });
     } catch { throw new Error('No pudimos conectarnos. Revisa tu conexión e intenta de nuevo.'); }
     const data = await res.json().catch(() => ({}));
+    // Cupón rechazado al crear el pedido (por ejemplo, venció o se usó entretanto): se quita del resumen
+    if (!res.ok && typeof data.cupon === 'string') quitarCupon(typeof data.error === 'string' ? data.error : '');
     if (!res.ok) throw new Error(typeof data.error === 'string' ? data.error : 'No pudimos crear tu pedido. Intenta de nuevo.');
     let destino;
     try { destino = new URL(data.url); } catch {}
