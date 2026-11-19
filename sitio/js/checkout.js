@@ -12,6 +12,7 @@ import { REGIONES, textoPlazo } from './despacho-datos.js';
 import { COMUNAS } from './comunas-datos.js';
 import { resumen, pintarLista, vacio } from './carro.js';
 import { track, atribucion } from './medicion.js';
+import { leerLlave } from './llave-tienda.js';
 
 const API = 'https://byzjsuxbdmbmvwoagujg.supabase.co/functions/v1/tienda-crear-pedido';
 const SITEKEY = '0x4AAAAAADt7NVt_5oppicP0';
@@ -28,14 +29,11 @@ const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const TELEFONO = /^\+?[0-9 ()-]{6,20}$/;
 const RUT = /^[0-9.]{1,10}-?[0-9kK]$/;
 
-// ---------- Llave de vista previa: #k= → sessionStorage → header x-store-preview ----------
-// El fragmento (#k=...) nunca viaja al servidor; se borra de la barra apenas se lee.
-let llave = new URLSearchParams(location.hash.slice(1)).get('k');
-try {
-  if (llave) sessionStorage.setItem('tiendaPreview', llave);
-  else llave = sessionStorage.getItem('tiendaPreview');
-} catch {}
-if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+// ---------- Llave de vista previa: #k= (llave-tienda.js) → header x-store-preview ----------
+// El fragmento (#k=...) nunca viaja al servidor; llave-tienda.js lo guarda y lo borra de la barra.
+const llave = leerLlave();
+// Llave pegada con el checkout ya abierto en "no disponible": se recarga para mostrar el formulario
+addEventListener('tienda:llave', () => { if (!$('sinTienda').hidden) location.reload(); });
 
 // ---------- Logo de Webpay ----------
 // Cuando llegue el archivo, déjalo en assets/pagos/ y pon aquí su ruta: './assets/pagos/webpay.svg' (o .png).

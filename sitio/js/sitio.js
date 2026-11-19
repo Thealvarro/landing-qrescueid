@@ -3,6 +3,7 @@
 // índice de lectura y easter egg de consola. ?p= (0 a 1) fija la posición para capturas.
 // En v2.html (body data-solo-nav) solo se activa el menú: lo demás ya lo hace v2.js.
 import Lenis from 'lenis';
+import './llave-tienda.js'; // llave de vista previa (#k=): se guarda y sale de la URL antes de cualquier medición
 import './medicion.js'; // Píxel de Meta con consentimiento (antes que el carro: PageView primero)
 import './carro.js'; // contador del carro en el nav y panel lateral (todas las páginas)
 import './preventa-ui.js'; // franja fija y pop-up de preventa (solo mientras dure)
