@@ -117,13 +117,13 @@ body.mini { background: #fff; }
 .csum-row.total.mob { display: none; }
 .muted { color: #64748b; font-size: 14px; }
 
-.co-closed-wrap { max-width: 640px; margin: 0 auto; padding: 0 var(--gut); }
+.co-closed-wrap { flex: 1 0 auto; width: 100%; max-width: 640px; margin: 0 auto; padding: 0 var(--gut); }
 .co-closed { margin: 48px 0; padding: 32px; border-radius: var(--card-r); background: var(--bg-2); border: 1px solid var(--line); text-align: center; }
 .co-closed[hidden] { display: none; }
 .co-closed .btn { margin-top: 18px; }
 .co-foot { border-top: 1px solid var(--line); padding: 20px var(--gut) calc(24px + env(safe-area-inset-bottom)); text-align: center; }
 .co-foot nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 18px; }
-.co-foot nav a { padding: 8px 0; font-size: 13.5px; color: #1d4ed8; }
+.co-foot nav a, .co-foot nav .cookie-pref { padding: 8px 0; font-size: 13.5px; color: #1d4ed8; }
 .co-foot p { margin: 8px 0 0; font-size: 12.5px; color: #94a3b8; }
 .co-foot p a { color: #94a3b8; }
 

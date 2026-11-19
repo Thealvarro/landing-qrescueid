@@ -55,6 +55,12 @@
 }
 .wa-float:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 20px 36px -12px rgba(18,140,70,.8), inset 0 1px 0 rgba(255,255,255,.35); }
 
+/* ---------- Pie siempre abajo ----------
+   En páginas cortas (carro vacío, checkout cerrado, pedido) el pie quedaba a media pantalla:
+   el body ocupa al menos el alto de la ventana y el contenido principal crece. */
+body { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
+body > main { flex: 1 0 auto; }
+
 /* ---------- Footer del sitio ---------- */
 .sfoot { margin-top: clamp(80px, 9vw, 140px); border-top: 1px solid var(--line); background: var(--bg-2); }
 .sfoot.flush { margin-top: 0; }
@@ -156,7 +162,8 @@
 .ck-b .btn { min-height: 44px; }
 .ck-on body { padding-bottom: 150px; }
 .ck-on .wa-float { bottom: calc(max(16px, env(safe-area-inset-bottom)) + 150px); }
-.cookie-pref { padding: 0; border: 0; background: none; font: inherit; color: inherit; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.cookie-pref { padding: 0; border: 0; background: none; font: inherit; color: inherit; cursor: pointer; }
+.sfoot-legal .cookie-pref:hover { color: #64748b; }
 @media (max-width: 760px) {
   .ck { left: 8px; right: 8px; bottom: max(8px, env(safe-area-inset-bottom)); width: auto; padding: 14px; gap: 10px; }
   .ck-b .btn { flex: 1; }
