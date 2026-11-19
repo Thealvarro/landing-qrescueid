@@ -3,8 +3,8 @@
   "type": "module",
   "version": "0.1.0",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build && node scripts/vercel-runtime.mjs",
+    "dev": "node scripts/build-sitio.mjs && astro dev",
+    "build": "node scripts/build-sitio.mjs && astro build && node scripts/vercel-runtime.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -16,5 +16,11 @@
     "@astrojs/vercel": "^7.8.1",
     "astro": "^4.16.0",
     "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "@fontsource-variable/inter": "5.3.0",
+    "esbuild": "0.21.5",
+    "lenis": "1.3.27",
+    "three": "0.187.0"
   }
 }

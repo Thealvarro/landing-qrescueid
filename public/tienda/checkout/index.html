@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Comprar - QRescueID</title>
+  <meta name="description" content="Compra tu QRescueID.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f8fafc">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icono/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/icono/favicon-48.png">
+  <link rel="apple-touch-icon" href="/assets/icono/apple-touch-icon.png">
+  <link rel="preload" href="/fonts/inter/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/inter/inter.css">
+  <link rel="stylesheet" href="/css/lenis.css">
+  <link rel="stylesheet" href="/css/sitio.css">
+  <link rel="stylesheet" href="/css/sitio-nav.css">
+  <link rel="stylesheet" href="/css/paginas.css">
+  <link rel="stylesheet" href="/css/checkout.css">
+</head>
+<body class="mini">
+  <header class="co-top">
+    <div class="co-top-in">
+      <a class="co-logo" href="/" aria-label="QRescueID, ir al inicio"><img src="/assets/qrescueid-logo.png" alt="QRescueID" width="707" height="186"></a>
+      <a class="co-back" href="/tienda/carro/"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-left"/></svg>Volver al carro</a>
+    </div>
+  </header>
+  <div class="co-shell" id="coShell" hidden>
+    <button class="co-toggle" type="button" aria-expanded="false" aria-controls="coSide" id="coToggle">
+      <span><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-shopping-bag"/></svg><span id="coToggleTxt">Mostrar resumen del pedido</span><svg class="ic chev" aria-hidden="true"><use href="/assets/icons.svg#i-chevron-down"/></svg></span>
+      <b id="coToggleTotal"></b>
+    </button>
+    <aside class="co-side" id="coSide" aria-label="Resumen del pedido">
+      <div class="co-side-in">
+        <div id="coLista" class="co-lines"></div>
+        <a class="co-edit" href="/tienda/carro/"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-pencil"/></svg>Editar carro</a>
+        <div class="co-totals">
+          <div class="csum-row"><span>Subtotal</span><b id="coSub"></b></div>
+          <div class="csum-row"><span>Envío</span><span id="coEnvio">Ingresa tu región</span></div>
+          <div class="csum-row total"><span>Total</span><span class="tot"><small>CLP</small><b id="coTotal"></b></span></div>
+          <p class="csum-note" id="coTotalNota" hidden>El despacho se suma cuando confirmemos el valor para tu región.</p>
+        </div>
+        <p class="pv-line" data-preventa hidden><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-calendar"/></svg><span><b>Preventa.</b> <span data-preventa-fecha>Despacho desde el 7 de diciembre</span>.</span></p>
+      </div>
+    </aside>
+    <main class="co-main">
+      <div class="co-main-in">
+        <nav class="co-steps" aria-label="Pasos"><a href="/tienda/carro/">Carro</a><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-chevron-right"/></svg><span aria-current="step">Datos y pago</span><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-chevron-right"/></svg><span>Confirmación</span></nav>
+        <p class="co-pv" data-preventa hidden><b data-preventa-hasta>Preventa hasta el 7 de diciembre</b> · <a href="/tienda/qrescueid-fisico/#condiciones" target="_blank" rel="noopener">Condiciones de la promoción</a></p>
+        <h1 class="co-h1">Finalizar compra</h1>
+        <form id="checkoutForm" novalidate>
+          <section class="co-sec" aria-labelledby="s-contacto">
+            <h2 id="s-contacto">Contacto</h2>
+            <div class="field">
+                <div class="fl"><input id="correo" name="correo" type="email" placeholder=" " required aria-required="true" aria-describedby="e-correo h-correo" autocomplete="email" inputmode="email" maxlength="254" autocapitalize="off" spellcheck="false"><label for="correo">Correo electrónico</label></div>
+                <p class="hint" id="h-correo">Te enviaremos la confirmación del pedido a este correo.</p><p class="err" id="e-correo" hidden></p>
+              </div>
+          </section>
+          <section class="co-sec" aria-labelledby="s-entrega">
+            <h2 id="s-entrega">Entrega</h2>
+            <p class="co-sec-note"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-map-pin"/></svg>Despacho solo dentro de Chile, por Blue Express. Valor estimado según la región.</p>
+            <div class="fields">
+              <div class="field full">
+                <div class="fl"><input id="nombre" name="nombre" type="text" placeholder=" " required aria-required="true" aria-describedby="e-nombre" autocomplete="name" maxlength="120"><label for="nombre">Nombre y apellido</label></div>
+                <p class="err" id="e-nombre" hidden></p>
+              </div>
+              <div class="field full">
+                <div class="fl"><input id="telefono" name="telefono" type="tel" placeholder=" " required aria-required="true" aria-describedby="e-telefono h-telefono" autocomplete="tel" inputmode="tel" maxlength="20"><label for="telefono">Teléfono</label></div>
+                <p class="hint" id="h-telefono">Ejemplo: +56 9 1234 5678. Blue Express te puede llamar para coordinar la entrega.</p><p class="err" id="e-telefono" hidden></p>
+              </div>
+              <div class="field">
+                <div class="fl sel"><select id="region" name="region" required aria-required="true" aria-describedby="e-region" autocomplete="address-level1"><option value="">Elige tu región</option><option value="Arica y Parinacota">Arica y Parinacota</option><option value="Tarapacá">Tarapacá</option><option value="Antofagasta">Antofagasta</option><option value="Atacama">Atacama</option><option value="Coquimbo">Coquimbo</option><option value="Valparaíso">Valparaíso</option><option value="Metropolitana de Santiago">Metropolitana de Santiago</option><option value="Libertador General Bernardo O&#x27;Higgins">Libertador General Bernardo O&#x27;Higgins</option><option value="Maule">Maule</option><option value="Ñuble">Ñuble</option><option value="Biobío">Biobío</option><option value="La Araucanía">La Araucanía</option><option value="Los Ríos">Los Ríos</option><option value="Los Lagos">Los Lagos</option><option value="Aysén del General Carlos Ibáñez del Campo">Aysén del General Carlos Ibáñez del Campo</option><option value="Magallanes y de la Antártica Chilena">Magallanes y de la Antártica Chilena</option></select><label for="region">Región</label><svg class="ic sel-ic" aria-hidden="true"><use href="/assets/icons.svg#i-chevron-down"/></svg></div>
+                <p class="err" id="e-region" hidden></p>
+              </div>
+              <div class="field">
+                <div class="fl sel"><select id="comuna" name="comuna" required aria-required="true" aria-describedby="e-comuna" autocomplete="address-level2" disabled><option value="">Primero elige la región</option></select><label for="comuna">Comuna</label><svg class="ic sel-ic" aria-hidden="true"><use href="/assets/icons.svg#i-chevron-down"/></svg></div>
+                <p class="err" id="e-comuna" hidden></p>
+              </div>
+              <div class="field full">
+                <div class="fl"><input id="direccion" name="direccion" type="text" placeholder=" " required aria-required="true" aria-describedby="e-direccion h-direccion" autocomplete="address-line1" maxlength="200"><label for="direccion">Dirección</label></div>
+                <p class="hint" id="h-direccion">Calle, número y depto o casa.</p><p class="err" id="e-direccion" hidden></p>
+              </div>
+              <div class="field full">
+                <div class="fl"><textarea id="indicaciones" name="indicaciones" placeholder=" " maxlength="500" rows="2" aria-describedby="e-indicaciones" autocomplete="off"></textarea><label for="indicaciones">Indicaciones para el despacho (opcional)</label></div>
+                <p class="err" id="e-indicaciones" hidden></p>
+              </div>
+              <div class="field full">
+                <div class="fl"><input id="rut" name="rut" type="text" placeholder=" " aria-describedby="e-rut h-rut" maxlength="12" autocomplete="off" autocapitalize="characters" spellcheck="false"><label for="rut">RUT (opcional)</label></div>
+                <p class="hint" id="h-rut">Solo si necesitas boleta con RUT.</p><p class="err" id="e-rut" hidden></p>
+              </div>
+            </div>
+          </section>
+          <section class="co-sec" aria-labelledby="s-envio">
+            <h2 id="s-envio">Método de envío</h2>
+            <div class="ship-opt" id="shipOpt" data-sin-region>
+              <span class="ship-radio" aria-hidden="true"></span>
+              <span class="ship-txt"><b>Blue Express a domicilio</b><small id="shipPlazo">Ingresa tu región para ver el costo y el plazo.</small></span>
+              <b class="ship-price" id="shipPrecio">—</b>
+            </div>
+            
+          </section>
+          <section class="co-sec" aria-labelledby="s-pago">
+            <h2 id="s-pago">Pago</h2>
+            <p class="co-sec-note"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-lock"/></svg>Pagas en el sitio de Webpay o Mercado Pago. No guardamos los datos de tu tarjeta.</p>
+            <div class="pay" role="radiogroup" aria-label="Medio de pago">
+              <label class="pay-o"><input type="radio" name="medio" value="webpay" checked><span class="pay-c"><span class="pay-logo-box" data-logo-webpay><span class="pay-logo wp" aria-hidden="true">web<i>pay</i></span></span><span class="pay-txt"><b>Webpay Plus</b><small>Tarjetas de crédito, débito y prepago</small></span></span></label>
+              <label class="pay-o"><input type="radio" name="medio" value="mercadopago"><span class="pay-c"><span class="pay-logo-box"><img class="pay-img" src="/assets/pagos/mercadopago.svg" alt="Mercado Pago" width="152" height="40"></span><span class="pay-txt"><b>Mercado Pago</b><small>Continúas el pago en el sitio de Mercado Pago</small></span></span></label>
+            </div>
+            <div class="field check">
+              <label class="chk"><input type="checkbox" id="acepto" name="acepto" required aria-required="true" aria-describedby="e-acepto"><span>Acepto los <a href="/terminos/" target="_blank" rel="noopener">Términos y condiciones</a> y la <a href="/privacidad/" target="_blank" rel="noopener">Política de privacidad</a></span></label>
+              <p class="err" id="e-acepto" hidden></p>
+            </div>
+            <div id="turnstile"></div>
+          </section>
+          <div class="co-pay">
+            <div class="csum-row total mob"><span>Total</span><span class="tot"><small>CLP</small><b id="coTotal2"></b></span></div>
+            <p class="co-aviso" id="aviso" role="alert" hidden></p>
+            <button type="submit" class="btn btn-navy btn-xl" id="pagar"><span class="spin" aria-hidden="true"></span><span class="lbl">Pagar ahora</span></button>
+            <ul class="trust">
+              <li><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-lock"/></svg><span>Pago seguro con Webpay y Mercado Pago<span class="trust-logos" aria-hidden="true"><span class="pay-logo-box sm" data-logo-webpay><span class="pay-logo wp">web<i>pay</i></span></span><span class="pay-logo-box sm"><img class="pay-img" src="/assets/pagos/mercadopago.svg" alt="" width="76" height="20"></span></span></span></li>
+              <li><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-truck"/></svg>Despacho a todo Chile por Blue Express</li>
+              <li><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-undo-2"/></svg><span>Derecho a retracto de 10 días. <a href="/terminos/#6-productos-fisicos" target="_blank" rel="noopener">Ver condiciones</a></span></li>
+              <li><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#b-whatsapp"/></svg><span>¿Dudas? <a href="https://wa.me/56954751380" target="_blank" rel="noopener">Escríbenos por WhatsApp</a></span></li>
+            </ul>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+  <div class="co-closed-wrap">
+    <div id="sinTienda" class="co-closed" hidden>
+      <p class="lead">La tienda en línea todavía no está disponible.</p>
+      <a class="btn btn-gold" href="/tienda/">Volver a la tienda</a>
+    </div>
+    <div id="sinCarro" class="co-closed" hidden></div>
+  </div>
+
+  <footer class="co-foot">
+    <p class="co-seller"><b>Vendido por</b> <span class="seller" data-vendedor>Soluciones Informáticas Cofre SpA · RUT 77.154.424-K</span></p>
+    <nav aria-label="Legal"><a href="/terminos/#6-productos-fisicos">Derecho a retracto</a><a href="/terminos/">Términos y condiciones</a><a href="/privacidad/">Política de privacidad</a><a href="/contacto/">Contacto</a><button type="button" class="cookie-pref" data-cookies>Preferencias de cookies</button></nav>
+    <p>© 2026 QRescueID · Desarrollado por <a href="https://alvarocofre.dev" target="_blank" rel="noopener noreferrer">SICS</a></p>
+  </footer>
+  <script type="module" src="/js/sitio.js"></script>
+  <script type="module" src="/js/checkout.js"></script>
+</body>
+</html>

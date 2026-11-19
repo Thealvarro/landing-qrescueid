@@ -12,3 +12,8 @@ node_modules/
 .env.local
 .vercel
 .env*
+
+# Salida de scripts/build-sitio.mjs (se genera en cada build)
+public/js/
+public/css/
+public/fonts/

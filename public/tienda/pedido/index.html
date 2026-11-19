@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Tu pedido - QRescueID</title>
+  <meta name="description" content="Estado de tu pedido en QRescueID.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f8fafc">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icono/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/icono/favicon-48.png">
+  <link rel="apple-touch-icon" href="/assets/icono/apple-touch-icon.png">
+  <link rel="preload" href="/fonts/inter/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/inter/inter.css">
+  <link rel="stylesheet" href="/css/lenis.css">
+  <link rel="stylesheet" href="/css/sitio.css">
+  <link rel="stylesheet" href="/css/sitio-nav.css">
+  <link rel="stylesheet" href="/css/paginas.css">
+  <link rel="stylesheet" href="/css/checkout.css">
+</head>
+<body class="mini">
+  <header class="co-top">
+    <div class="co-top-in">
+      <a class="co-logo" href="/" aria-label="QRescueID, ir al inicio"><img src="/assets/qrescueid-logo.png" alt="QRescueID" width="707" height="186"></a>
+      <a class="co-back" href="/tienda/"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-arrow-left"/></svg>Volver a la tienda</a>
+    </div>
+  </header>
+  <main class="ty">
+    <div class="ty-in">
+      <div data-estado="ok" hidden>
+        <div class="ty-head"><span class="ty-check ok"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-check"/></svg></span><div><p class="ty-num numero" hidden>Pedido <strong></strong></p><h2 class="ty-title">Gracias, tu pedido está confirmado</h2></div></div>
+        <div class="ty-card">
+          <h2>Qué pasa ahora</h2>
+          <ol class="ty-steps">
+            <li><span class="tile t-blue"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-mail"/></svg></span><div><b>Confirmación por correo</b><p>Te enviamos el detalle de tu compra al correo que ingresaste.</p></div></li>
+            <li><span class="tile t-yellow"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-package"/></svg></span><div><b>Preparamos tu pedido</b><p>Alistamos tus identificadores con el tamaño que elegiste.</p></div></li>
+            <li><span class="tile t-green"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-truck"/></svg></span><div><b>Despacho por Blue Express</b><p>Te escribimos con el número de seguimiento para que sigas tu envío.</p></div></li>
+          </ol>
+          <p class="pv-line" data-preventa hidden><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-calendar"/></svg><span><b>Preventa.</b> <span data-preventa-fecha>Despacho desde el 7 de diciembre</span>.</span></p>
+        </div>
+        <div class="ty-card ty-code" data-preventa hidden>
+          <h2>Tu código de Plan Premium</h2>
+          <p>Te llega por correo junto con la confirmación de tu pedido. Para canjearlo: entra a tu cuenta, ve a <b>Mi Plan</b> y elige <b>Tengo un código</b>.</p>
+          <p class="ty-small">Los meses corren desde el día en que canjeas el código. <a href="/tienda/qrescueid-fisico/#condiciones">Condiciones de la promoción</a></p>
+        </div>
+        <div class="ty-card ty-cta">
+          <span class="tile tile-lg t-yellow"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-user"/></svg></span>
+          <div><h2>Deja lista tu ficha mientras llega</h2><p>Crea tu cuenta gratis y completa tus datos de emergencia. Cuando recibas tu QRescueID, solo lo activas y lo pegas.</p></div>
+          <a class="btn btn-navy btn-lg" href="https://plataforma.qrescueid.app/auth?mode=register" target="_blank" rel="noopener">Crear cuenta gratis</a>
+        </div>
+        <p class="ty-seller"><b>Vendido por</b> <span class="seller" data-vendedor>Soluciones Informáticas Cofre SpA · RUT 77.154.424-K</span></p>
+        <div class="ty-ctas"><a class="btn btn-ghost btn-lg" href="/tienda/">Volver a la tienda</a></div>
+      </div>
+      <div data-estado="rechazado" hidden>
+        <div class="ty-head"><span class="ty-check bad"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-x"/></svg></span><div><p class="ty-num numero" hidden>Pedido <strong></strong></p><h2 class="ty-title">El pago fue rechazado</h2></div></div>
+        <div class="ty-card"><p class="lead">Tu banco rechazó el pago y no se hizo ningún cobro. Puedes intentarlo de nuevo.</p></div>
+        <div class="ty-ctas"><a class="btn btn-gold btn-lg" href="/tienda/checkout/">Intentar de nuevo</a><a class="btn btn-ghost btn-lg" href="/tienda/">Volver a la tienda</a></div>
+      </div>
+      <div data-estado="cancelado" hidden>
+        <div class="ty-head"><span class="ty-check warn"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-undo-2"/></svg></span><div><p class="ty-num numero" hidden>Pedido <strong></strong></p><h2 class="ty-title">Pago anulado</h2></div></div>
+        <div class="ty-card"><p class="lead">Anulaste el pago, así que no se hizo ningún cobro.</p></div>
+        <div class="ty-ctas"><a class="btn btn-gold btn-lg" href="/tienda/checkout/">Intentar de nuevo</a><a class="btn btn-ghost btn-lg" href="/tienda/">Volver a la tienda</a></div>
+      </div>
+      <div data-estado="pendiente" hidden>
+        <div class="ty-head"><span class="ty-check warn"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-clock"/></svg></span><div><p class="ty-num numero" hidden>Pedido <strong></strong></p><h2 class="ty-title">Tu pago está en proceso</h2></div></div>
+        <div class="ty-card"><p class="lead">Mercado Pago todavía no confirma tu pago. Te avisaremos por correo apenas se confirme. <b>No pagues de nuevo</b> mientras tanto.</p></div>
+        <div class="ty-ctas"><a class="btn btn-ghost btn-lg" href="https://wa.me/56954751380" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#b-whatsapp"/></svg>¿Dudas? Escríbenos</a><a class="btn btn-ghost btn-lg" href="/tienda/">Volver a la tienda</a></div>
+      </div>
+      <div data-estado="error" hidden>
+        <div class="ty-head"><span class="ty-check info"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-circle-alert"/></svg></span><div><p class="ty-num numero" hidden>Pedido <strong></strong></p><h2 class="ty-title">No pudimos confirmar el pago</h2></div></div>
+        <div class="ty-card">
+          <p class="lead"><b>No vuelvas a pagar todavía:</b> es posible que el cobro sí se haya hecho.</p>
+          <ol class="ty-list">
+            <li>Revisa tu correo: si el pago se confirmó, te llega la confirmación del pedido.</li>
+            <li>Revisa en tu banco o en Mercado Pago si aparece el cargo.</li>
+            <li>Escríbenos por WhatsApp con tu número de pedido y lo revisamos.</li>
+          </ol>
+        </div>
+        <div class="ty-ctas"><a class="btn btn-gold btn-lg" href="https://wa.me/56954751380" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#b-whatsapp"/></svg>Escribir por WhatsApp</a></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="co-foot">
+    <p class="co-seller"><b>Vendido por</b> <span class="seller" data-vendedor>Soluciones Informáticas Cofre SpA · RUT 77.154.424-K</span></p>
+    <nav aria-label="Legal"><a href="/terminos/#6-productos-fisicos">Derecho a retracto</a><a href="/terminos/">Términos y condiciones</a><a href="/privacidad/">Política de privacidad</a><a href="/contacto/">Contacto</a><button type="button" class="cookie-pref" data-cookies>Preferencias de cookies</button></nav>
+    <p>© 2026 QRescueID · Desarrollado por <a href="https://alvarocofre.dev" target="_blank" rel="noopener noreferrer">SICS</a></p>
+  </footer>
+  <script type="module" src="/js/sitio.js"></script>
+  <script type="module" src="/js/pedido.js"></script>
+</body>
+</html>

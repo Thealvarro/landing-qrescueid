@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Tu carro - QRescueID</title>
+  <meta name="description" content="Revisa los productos de tu carro antes de pagar.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f8fafc">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icono/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/icono/favicon-48.png">
+  <link rel="apple-touch-icon" href="/assets/icono/apple-touch-icon.png">
+  <link rel="preload" href="/fonts/inter/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/inter/inter.css">
+  <link rel="stylesheet" href="/css/lenis.css">
+  <link rel="stylesheet" href="/css/sitio.css">
+  <link rel="stylesheet" href="/css/sitio-nav.css">
+  <link rel="stylesheet" href="/css/paginas.css">
+</head>
+<body>
+  <header class="snav-wrap">
+    <nav class="snav" aria-label="Principal">
+      <a class="snav-logo" href="/" aria-label="QRescueID, ir al inicio"><img src="/assets/qrescueid-logo.png" alt="QRescueID" width="707" height="186"></a>
+      <div class="snav-links">
+        <a href="/">Inicio</a>
+        <a href="/planes/">Planes</a>
+        <a href="/empresas/">Empresas</a>
+        <a href="/tienda/" aria-current="page">Tienda</a>
+        <a href="/guias/">Guías</a>
+        <a href="/contacto/">Contacto</a>
+      </div>
+      <div class="snav-end">
+        <a class="snav-cart" href="/tienda/carro/" aria-label="Carro" aria-controls="panel-carro"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-shopping-bag"/></svg><span class="snav-count" hidden>0</span></a>
+        <a class="btn btn-navy btn-sm snav-cta" href="https://plataforma.qrescueid.app/auth?mode=register" target="_blank" rel="noopener">Crear cuenta</a>
+        <button class="snav-menu" type="button" aria-expanded="false" aria-controls="menu-sitio" aria-label="Abrir menú"><svg class="ic ic-m" aria-hidden="true"><use href="/assets/icons.svg#i-menu"/></svg><svg class="ic ic-x" aria-hidden="true"><use href="/assets/icons.svg#i-x"/></svg></button>
+      </div>
+      <div class="snav-panel" id="menu-sitio">
+        <a class="pl" href="/"><span class="tile t-yellow"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-house"/></svg></span>Inicio<svg class="ic go" aria-hidden="true"><use href="/assets/icons.svg#i-chevron-right"/></svg></a>
+        <a class="pl" href="/planes/"><span class="tile t-violet"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-crown"/></svg></span>Planes<svg class="ic go" aria-hidden="true"><use href="/assets/icons.svg#i-chevron-right"/></svg></a>
+        <a class="pl" href="/empresas/"><span class="tile t-blue"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-building-2"/></svg></span>Empresas<svg class="ic go" aria-hidden="true"><use href="/assets/icons.svg#i-chevron-right"/></svg></a>
+        <a class="pl" href="/tienda/" aria-current="page"><span class="tile t-rose"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-store"/></svg></span>Tienda<svg class="ic go" aria-hidden="true"><use href="/assets/icons.svg#i-chevron-right"/></svg></a>
+        <a class="pl" href="/guias/"><span class="tile t-green"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-book-open"/></svg></span>Guías<svg class="ic go" aria-hidden="true"><use href="/assets/icons.svg#i-chevron-right"/></svg></a>
+        <a class="pl" href="/contacto/"><span class="tile t-yellow"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-message-circle"/></svg></span>Contacto<svg class="ic go" aria-hidden="true"><use href="/assets/icons.svg#i-chevron-right"/></svg></a>
+        <a class="btn btn-gold btn-lg" href="https://plataforma.qrescueid.app/auth?mode=register" target="_blank" rel="noopener">Crear cuenta</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="phero cart-hero">
+      <div class="phero-bg sky-warm"></div>
+      <div class="wrap">
+        <nav class="crumbs" aria-label="Migas de pan"><a href="/">Inicio</a><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-chevron-right"/></svg><a href="/tienda/">Tienda</a><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-chevron-right"/></svg><span aria-current="page">Carro</span></nav>
+        <h1 class="display md">Tu carro</h1>
+      </div>
+    </section>
+    <section class="wrap cart-page">
+      <div class="cart-main" id="carroLista"></div>
+      <aside class="cart-sum" id="carroResumen" hidden>
+        <h2 class="h4">Resumen</h2>
+        <div class="csum-row"><span>Subtotal</span><b id="carroSub"></b></div>
+        <div class="csum-row"><span>Despacho por Blue Express</span><span class="muted">Se calcula en el checkout</span></div>
+        <p class="pv-line" data-preventa hidden><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-calendar"/></svg><span><b>Preventa.</b> <span data-preventa-fecha>Despacho desde el 7 de diciembre</span>.</span></p>
+        <a class="btn btn-gold btn-lg" href="/tienda/checkout/">Finalizar compra</a>
+        <a class="cdrawer-link" href="/tienda/">Seguir comprando</a>
+      </aside>
+    </section>
+  </main>
+  <a class="wa-float" href="https://wa.me/56954751380" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#b-whatsapp"/></svg></a>
+  <footer class="sfoot">
+    <div class="sfoot-in">
+      <div class="sfoot-brand">
+        <img src="/assets/qrescueid-logo.png" alt="QRescueID" width="707" height="186" loading="lazy">
+        <p>Tu identificación de emergencia, siempre contigo.</p>
+      </div>
+      <div class="sfoot-cols">
+        <nav class="sfoot-col" aria-label="Sitio">
+          <p>Sitio</p>
+          <a href="/">Inicio</a><a href="/planes/">Planes</a><a href="/empresas/">Empresas</a><a href="/tienda/">Tienda</a><a href="/guias/">Guías</a><a href="/contacto/">Contacto</a>
+        </nav>
+        <nav class="sfoot-col" aria-label="Legal">
+          <p>Legal</p>
+          <a href="/privacidad/">Política de privacidad</a><a href="/terminos/">Términos</a><a href="/eliminar-cuenta/">Eliminar cuenta</a>
+        </nav>
+      </div>
+      <div class="sfoot-legal">
+        <span>© 2026 QRescueID – Todos los derechos reservados.</span>
+        <span><button type="button" class="cookie-pref" data-cookies>Preferencias de cookies</button> · Desarrollado por <a href="https://alvarocofre.dev" target="_blank" rel="noopener noreferrer">SICS</a></span>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="/js/sitio.js"></script>
+  <script type="module" src="/js/tienda.js"></script>
+</body>
+</html>
