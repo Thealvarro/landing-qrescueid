@@ -128,6 +128,58 @@ function carrusel(now) {
 }
 requestAnimationFrame(carrusel);
 
+// ---------- Comentarios: título palabra por palabra + columnas en loop ----------
+const tst = document.querySelector('.tst');
+if (tst) {
+  const titulo = tst.querySelector('.tst-title');
+  if (quieto || fijo || !('IntersectionObserver' in window)) {
+    titulo.classList.add('in');
+  } else {
+    const palabras = titulo.textContent.trim().split(/\s+/);
+    titulo.textContent = '';
+    palabras.forEach((p, i) => {
+      const w = document.createElement('span');
+      w.className = 'w';
+      w.style.setProperty('--i', i);
+      w.textContent = p;
+      titulo.append(w, i < palabras.length - 1 ? ' ' : '');
+    });
+    const ioT = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { titulo.classList.add('in'); ioT.disconnect(); }
+    }, { rootMargin: '0px 0px -15% 0px' });
+    ioT.observe(titulo);
+  }
+
+  // Cada columna lleva todas las tarjetas en otro orden, duplicadas para que el loop no tenga salto.
+  // La lista original queda oculta a la vista pero disponible para lectores de pantalla.
+  if (!quieto) {
+    const cards = [...tst.querySelectorAll('.tst-list > .tst-card')];
+    const cols = document.createElement('div');
+    cols.className = 'tst-cols';
+    cols.setAttribute('aria-hidden', 'true');
+    for (let c = 0; c < 5; c++) {
+      const col = document.createElement('div');
+      col.className = 'tst-col';
+      const inner = document.createElement('div');
+      inner.className = 'tst-col-in';
+      const orden = cards.map((_, i) => cards[(i + c * 3) % cards.length]);
+      for (let vuelta = 0; vuelta < 2; vuelta++) {
+        orden.forEach(card => {
+          const copia = document.createElement('div');
+          copia.className = 'tst-card';
+          copia.append(...[...card.childNodes].map(n => n.cloneNode(true)));
+          inner.appendChild(copia);
+        });
+      }
+      col.appendChild(inner);
+      cols.appendChild(col);
+    }
+    tst.querySelector('.tst-list').after(cols);
+    tst.classList.add('vivo');
+    new IntersectionObserver(([e]) => cols.classList.toggle('en-pantalla', e.isIntersecting)).observe(cols);
+  }
+}
+
 // ---------- Depuración (?debug): mide desbordes, errores y fotos que no cargan ----------
 if (params.has('debug')) {
   const errs = [];
