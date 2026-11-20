@@ -58,7 +58,6 @@ const aviso = $('aviso');
 const lbl = boton.querySelector('.lbl');
 
 function iniciar() {
-  if (REAL && !llave) { $('sinTienda').hidden = false; return; }
   if (!resumen().items.length) { mostrarSinCarro(); return; }
   $('coShell').hidden = false;
   pintarResumen();
