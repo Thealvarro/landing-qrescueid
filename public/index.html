@@ -26,13 +26,11 @@
   <link rel="icon" type="image/png" sizes="48x48" href="/assets/icono/favicon-48.png">
   <link rel="apple-touch-icon" href="/assets/icono/apple-touch-icon.png">
   <link rel="preload" href="/fonts/inter/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/fonts/inter/inter.css">
-  <link rel="stylesheet" href="/css/lenis.css">
-  <link rel="stylesheet" href="/css/v2.css">
-  <link rel="stylesheet" href="/css/sitio-nav.css">
+  <link rel="stylesheet" href="/css/home.css">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es un QR para casco?", "acceptedAnswer": {"@type": "Answer", "text": "Es un sticker resistente con código QR y chip NFC que se adhiere a tu casco de moto, bicicleta o trabajo. Al escanearlo, muestra tu información médica y contactos de emergencia al instante, sin necesidad de descargar ninguna app."}}, {"@type": "Question", "name": "¿Para qué sirve el QR en el casco?", "acceptedAnswer": {"@type": "Answer", "text": "Sirve para identificarte en caso de accidente. Si quedas inconsciente o no puedes hablar, cualquier persona con un celular puede escanear el QR y acceder a tu nombre, grupo sanguíneo, alergias, medicamentos y los teléfonos de tus contactos de emergencia."}}, {"@type": "Question", "name": "¿En qué cascos funciona QRescueID?", "acceptedAnswer": {"@type": "Answer", "text": "Funciona en cualquier tipo de casco: moto, bicicleta, MTB, construcción y seguridad industrial. El adhesivo 3M ultra resistente se adhiere a cualquier superficie dura."}}, {"@type": "Question", "name": "¿Necesito una app para escanear el QR?", "acceptedAnswer": {"@type": "Answer", "text": "No. Cualquier celular con cámara puede escanear el código QR sin instalar nada. Los celulares con NFC también pueden leer la información acercando el teléfono al casco."}}, {"@type": "Question", "name": "¿Es resistente al agua y al calor?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. QRescueID está diseñado para resistir condiciones extremas: agua, calor y uso rudo. El adhesivo 3M garantiza que no se despegue del casco incluso en condiciones climáticas adversas."}}, {"@type": "Question", "name": "¿Puedo actualizar mis datos después de pegarlo?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Tus datos se guardan en tu perfil digital — puedes actualizarlos cuando quieras desde la plataforma. El sticker físico del casco siempre apunta a tu perfil actualizado."}}]}</script>
 </head>
 <body data-solo-nav>
+  <script src="/js/franja-temprana.js"></script>
   <!-- 1. Navegación del sitio (compartida con las demás páginas: sitio-nav.css + sitio.js) -->
   <header class="snav-wrap">
     <nav class="snav" aria-label="Principal">
@@ -78,7 +76,7 @@
       </div>
       <div class="hero-stage" data-reveal style="--d:2">
         <canvas id="hero-canvas" aria-label="Sticker QR de emergencia QRescueID para casco girando, rodeado de fotos de motociclistas, ciclistas, patines y skate" role="img"></canvas>
-        <img class="hero-fallback" src="/assets/identificador-armado.png" alt="" width="1070" height="356">
+        <picture><source type="image/avif" srcset="/assets/identificador-armado-600.avif 600w, /assets/identificador-armado.avif 1070w" sizes="min(560px, 80vw)"><source type="image/webp" srcset="/assets/identificador-armado-600.webp 600w, /assets/identificador-armado.webp 1070w" sizes="min(560px, 80vw)"><img class="hero-fallback" src="/assets/identificador-armado.png" alt="" width="1070" height="356" decoding="async"></picture>
       </div>
     </section>
 
@@ -111,7 +109,7 @@
               <div class="phone-bezel"><div class="phone-screen">
                 <div class="sb"><span>9:41</span><i class="island"></i><span class="sb-i"><svg><use href="/assets/icons.svg#sb-signal"/></svg><svg><use href="/assets/icons.svg#sb-wifi"/></svg><svg class="bat"><use href="/assets/icons.svg#sb-battery"/></svg></span></div>
                 <div class="app app-public">
-                  <div class="pub-head"><img src="/assets/qrescueid-logo.png" alt=""><span class="pub-tag">Ficha de emergencia</span></div>
+                  <div class="pub-head"><img src="/assets/qrescueid-logo.png" alt="" width="707" height="186"><span class="pub-tag">Ficha de emergencia</span></div>
                   <div class="pub-body">
                     <div class="pub-profile">
                       <span class="pub-avatar">M</span>
@@ -202,7 +200,7 @@
               <div class="phone-bezel"><div class="phone-screen">
                 <div class="sb"><span>9:41</span><i class="island"></i><span class="sb-i"><svg><use href="/assets/icons.svg#sb-signal"/></svg><svg><use href="/assets/icons.svg#sb-wifi"/></svg><svg class="bat"><use href="/assets/icons.svg#sb-battery"/></svg></span></div>
                 <div class="app app-home">
-                  <div class="home-head"><img src="/assets/qrescueid-logo.png" alt=""><span class="home-av">M</span></div>
+                  <div class="home-head"><img src="/assets/qrescueid-logo.png" alt="" width="707" height="186"><span class="home-av">M</span></div>
                   <p class="home-hi">Hola, Martín</p>
                   <p class="home-title">Tu identidad de emergencia, siempre lista</p>
                   <div class="qr-card">
@@ -248,7 +246,7 @@
     <!-- 5. Imagen de impacto -->
     <section class="section section-tight">
       <figure class="impact" data-reveal>
-        <img class="foto" src="/assets/impacto/solo-ruta.jpg" srcset="/assets/impacto/solo-ruta-900.jpg 900w, /assets/impacto/solo-ruta.jpg 2000w" sizes="(max-width: 760px) 100vw, 1280px" alt="Ciclista con casco de bicicleta, solo en una carretera de montaña al amanecer" loading="lazy" width="2000" height="1125">
+        <picture><source type="image/avif" srcset="/assets/impacto/solo-ruta-900.avif 900w, /assets/impacto/solo-ruta-1400.avif 1400w, /assets/impacto/solo-ruta.avif 2000w" sizes="(max-width: 760px) 100vw, 1280px"><source type="image/webp" srcset="/assets/impacto/solo-ruta-900.webp 900w, /assets/impacto/solo-ruta-1400.webp 1400w, /assets/impacto/solo-ruta.webp 2000w" sizes="(max-width: 760px) 100vw, 1280px"><img class="foto" src="/assets/impacto/solo-ruta.jpg" srcset="/assets/impacto/solo-ruta-900.jpg 900w, /assets/impacto/solo-ruta-1400.jpg 1400w, /assets/impacto/solo-ruta.jpg 2000w" sizes="(max-width: 760px) 100vw, 1280px" alt="Ciclista con casco de bicicleta, solo en una carretera de montaña al amanecer" loading="lazy" decoding="async" width="2000" height="1125"></picture>
         <figcaption class="impact-copy">
           <h2 class="h2 on-dark">Cuando andas solo, tu casco habla</h2>
           <p>Si no puedes decir quién eres, el QR de tu casco lo dice por ti.</p>
@@ -264,7 +262,7 @@
       </header>
       <ol class="steps">
         <li class="step" data-reveal>
-          <div class="step-media"><img class="foto" src="/assets/impacto/casco-id-900.jpg" srcset="/assets/impacto/casco-id-900.jpg 900w, /assets/impacto/casco-id.jpg 2000w" sizes="(max-width: 760px) 92vw, 420px" alt="Casco visto por detrás con el sticker QR de emergencia QRescueID pegado al centro" loading="lazy" width="900" height="675"></div>
+          <div class="step-media"><picture><source type="image/avif" srcset="/assets/impacto/casco-id-900.avif 900w, /assets/impacto/casco-id.avif 2000w" sizes="(max-width: 760px) 92vw, 420px"><source type="image/webp" srcset="/assets/impacto/casco-id-900.webp 900w, /assets/impacto/casco-id.webp 2000w" sizes="(max-width: 760px) 92vw, 420px"><img class="foto" src="/assets/impacto/casco-id-900.jpg" srcset="/assets/impacto/casco-id-900.jpg 900w, /assets/impacto/casco-id.jpg 2000w" sizes="(max-width: 760px) 92vw, 420px" alt="Casco visto por detrás con el sticker QR de emergencia QRescueID pegado al centro" loading="lazy" decoding="async" width="900" height="675"></picture></div>
           <span class="step-n">01</span>
           <h3 class="h4">Pégalo en tu casco</h3>
           <p>Limpia la superficie, pégalo y presiona unos segundos. El adhesivo es ultra resistente.</p>
@@ -282,7 +280,7 @@
           <p>Agrega tus contactos, tu tipo de sangre, alergias y lo que alguien debería saber.</p>
         </li>
         <li class="step" data-reveal style="--d:2">
-          <div class="step-media"><img class="foto" src="/assets/impacto/ayuda-900.jpg" srcset="/assets/impacto/ayuda-900.jpg 900w, /assets/impacto/ayuda.jpg 2000w" sizes="(max-width: 760px) 92vw, 420px" alt="Una persona revisa su celular junto a un ciclista caído en el pasto" loading="lazy" width="900" height="675"></div>
+          <div class="step-media"><picture><source type="image/avif" srcset="/assets/impacto/ayuda-900.avif 900w, /assets/impacto/ayuda.avif 2000w" sizes="(max-width: 760px) 92vw, 420px"><source type="image/webp" srcset="/assets/impacto/ayuda-900.webp 900w, /assets/impacto/ayuda.webp 2000w" sizes="(max-width: 760px) 92vw, 420px"><img class="foto" src="/assets/impacto/ayuda-900.jpg" srcset="/assets/impacto/ayuda-900.jpg 900w, /assets/impacto/ayuda.jpg 2000w" sizes="(max-width: 760px) 92vw, 420px" alt="Una persona revisa su celular junto a un ciclista caído en el pasto" loading="lazy" decoding="async" width="900" height="675"></picture></div>
           <span class="step-n">03</span>
           <h3 class="h4">Sal tranquilo</h3>
           <p>Si te pasa algo, quien te ayuda escanea tu casco y sabe a quién llamar.</p>
@@ -372,13 +370,13 @@
       </header>
       <div class="carousel" data-reveal>
         <div class="track" tabindex="0" aria-label="Fotos de gente usando casco">
-          <figure class="slide"><img class="foto" src="/assets/deportes/moto-640.jpg" alt="Motociclista con casco de moto en la ciudad" loading="lazy" width="640" height="480"><figcaption>Moto</figcaption><span class="chip"><svg class="ic c-red"><use href="/assets/icons.svg#i-droplet"/></svg>O+</span></figure>
-          <figure class="slide"><img class="foto" src="/assets/deportes/bici-urbana-640.jpg" alt="Ciclista urbana con casco de bicicleta" loading="lazy" width="480" height="640"><figcaption>Bici urbana</figcaption><span class="chip"><svg class="ic c-green"><use href="/assets/icons.svg#i-circle-check"/></svg>Ficha lista</span></figure>
-          <figure class="slide"><img class="foto" src="/assets/deportes/patines-640.jpg" alt="Persona en patines" loading="lazy" width="480" height="640"><figcaption>Patines</figcaption><span class="chip"><svg class="ic c-green"><use href="/assets/icons.svg#i-users"/></svg>3 contactos</span></figure>
-          <figure class="slide"><img class="foto" src="/assets/deportes/mountain-bike-640.jpg" alt="Ciclista de mountain bike con casco" loading="lazy" width="640" height="480"><figcaption>Mountain bike</figcaption><span class="chip"><svg class="ic c-blue"><use href="/assets/icons.svg#i-nfc"/></svg>NFC</span></figure>
-          <figure class="slide"><img class="foto" src="/assets/deportes/skate-640.jpg" alt="Persona en skate" loading="lazy" width="480" height="640"><figcaption>Skate</figcaption><span class="chip"><svg class="ic c-amber"><use href="/assets/icons.svg#i-qr-code"/></svg>QR activo</span></figure>
-          <figure class="slide"><img class="foto" src="/assets/deportes/scooter-640.jpg" alt="Persona en scooter eléctrico" loading="lazy" width="480" height="640"><figcaption>Scooter</figcaption><span class="chip"><svg class="ic c-green"><use href="/assets/icons.svg#i-circle-check"/></svg>Ficha lista</span></figure>
-          <figure class="slide"><img class="foto" src="/assets/deportes/ruta-640.jpg" alt="Ciclista de ruta con casco de bicicleta" loading="lazy" width="640" height="480"><figcaption>Ruta</figcaption><span class="chip"><svg class="ic c-red"><use href="/assets/icons.svg#i-heart-pulse"/></svg>Donante</span></figure>
+          <figure class="slide"><picture><source type="image/avif" srcset="/assets/deportes/moto-640.avif"><source type="image/webp" srcset="/assets/deportes/moto-640.webp"><img class="foto" src="/assets/deportes/moto-640.jpg" alt="Motociclista con casco de moto en la ciudad" loading="lazy" decoding="async" width="640" height="480"></picture><figcaption>Moto</figcaption><span class="chip"><svg class="ic c-red"><use href="/assets/icons.svg#i-droplet"/></svg>O+</span></figure>
+          <figure class="slide"><picture><source type="image/avif" srcset="/assets/deportes/bici-urbana-640.avif"><source type="image/webp" srcset="/assets/deportes/bici-urbana-640.webp"><img class="foto" src="/assets/deportes/bici-urbana-640.jpg" alt="Ciclista urbana con casco de bicicleta" loading="lazy" decoding="async" width="480" height="640"></picture><figcaption>Bici urbana</figcaption><span class="chip"><svg class="ic c-green"><use href="/assets/icons.svg#i-circle-check"/></svg>Ficha lista</span></figure>
+          <figure class="slide"><picture><source type="image/avif" srcset="/assets/deportes/patines-640.avif"><source type="image/webp" srcset="/assets/deportes/patines-640.webp"><img class="foto" src="/assets/deportes/patines-640.jpg" alt="Persona en patines" loading="lazy" decoding="async" width="480" height="640"></picture><figcaption>Patines</figcaption><span class="chip"><svg class="ic c-green"><use href="/assets/icons.svg#i-users"/></svg>3 contactos</span></figure>
+          <figure class="slide"><picture><source type="image/avif" srcset="/assets/deportes/mountain-bike-640.avif"><source type="image/webp" srcset="/assets/deportes/mountain-bike-640.webp"><img class="foto" src="/assets/deportes/mountain-bike-640.jpg" alt="Ciclista de mountain bike con casco" loading="lazy" decoding="async" width="640" height="480"></picture><figcaption>Mountain bike</figcaption><span class="chip"><svg class="ic c-blue"><use href="/assets/icons.svg#i-nfc"/></svg>NFC</span></figure>
+          <figure class="slide"><picture><source type="image/avif" srcset="/assets/deportes/skate-640.avif"><source type="image/webp" srcset="/assets/deportes/skate-640.webp"><img class="foto" src="/assets/deportes/skate-640.jpg" alt="Persona en skate" loading="lazy" decoding="async" width="480" height="640"></picture><figcaption>Skate</figcaption><span class="chip"><svg class="ic c-amber"><use href="/assets/icons.svg#i-qr-code"/></svg>QR activo</span></figure>
+          <figure class="slide"><picture><source type="image/avif" srcset="/assets/deportes/scooter-640.avif"><source type="image/webp" srcset="/assets/deportes/scooter-640.webp"><img class="foto" src="/assets/deportes/scooter-640.jpg" alt="Persona en scooter eléctrico" loading="lazy" decoding="async" width="480" height="640"></picture><figcaption>Scooter</figcaption><span class="chip"><svg class="ic c-green"><use href="/assets/icons.svg#i-circle-check"/></svg>Ficha lista</span></figure>
+          <figure class="slide"><picture><source type="image/avif" srcset="/assets/deportes/ruta-640.avif"><source type="image/webp" srcset="/assets/deportes/ruta-640.webp"><img class="foto" src="/assets/deportes/ruta-640.jpg" alt="Ciclista de ruta con casco de bicicleta" loading="lazy" decoding="async" width="640" height="480"></picture><figcaption>Ruta</figcaption><span class="chip"><svg class="ic c-red"><use href="/assets/icons.svg#i-heart-pulse"/></svg>Donante</span></figure>
         </div>
       </div>
     </section>
@@ -390,7 +388,7 @@
           <h2 class="h3 big">Código QR y chip NFC para tu casco</h2>
           <p>Simple por fuera: sin cables, sin batería, sin nada que cargar.</p>
         </div>
-        <img class="simple-img" src="/assets/identificador-v2.png" srcset="/assets/identificador-v2-800.png 800w, /assets/identificador-v2.png 1440w" sizes="(max-width: 760px) 92vw, 620px" alt="Sticker QR para casco de moto con chip NFC y resina abombada" width="1440" height="504" loading="lazy">
+        <picture><source type="image/avif" srcset="/assets/identificador-v2-800.avif 800w, /assets/identificador-v2.avif 1440w" sizes="(max-width: 760px) 92vw, 620px"><source type="image/webp" srcset="/assets/identificador-v2-800.webp 800w, /assets/identificador-v2.webp 1440w" sizes="(max-width: 760px) 92vw, 620px"><img class="simple-img" src="/assets/identificador-v2.png" srcset="/assets/identificador-v2-800.png 800w, /assets/identificador-v2.png 1440w" sizes="(max-width: 760px) 92vw, 620px" alt="Sticker QR para casco de moto con chip NFC y resina abombada" width="1440" height="504" loading="lazy" decoding="async"></picture>
         <ul class="simple-list">
           <li><span class="tile t-yellow"><svg class="ic"><use href="/assets/icons.svg#i-qr-code"/></svg></span><div><b>Código QR</b><small>Cualquier cámara lo lee, sin instalar nada.</small></div></li>
           <li><span class="tile t-blue"><svg class="ic"><use href="/assets/icons.svg#i-nfc"/></svg></span><div><b>Chip NFC</b><small>Basta con acercar el celular al casco.</small></div></li>
@@ -412,7 +410,7 @@
           </ul>
           <a class="btn btn-gold btn-lg" href="/empresas/" data-cta="empresas-ventas">Hablar con ventas</a>
         </div>
-        <div class="biz-media"><img class="foto" src="/assets/impacto/cuadrilla-900.jpg" srcset="/assets/impacto/cuadrilla-900.jpg 900w, /assets/impacto/cuadrilla.jpg 1600w" sizes="(max-width: 760px) 92vw, 620px" alt="Cuadrilla de brigadistas con sus cascos e identificadores QRescueID" loading="lazy" width="900" height="675"></div>
+        <div class="biz-media"><picture><source type="image/avif" srcset="/assets/impacto/cuadrilla-900.avif 900w, /assets/impacto/cuadrilla.avif 1600w" sizes="(max-width: 760px) 92vw, 620px"><source type="image/webp" srcset="/assets/impacto/cuadrilla-900.webp 900w, /assets/impacto/cuadrilla.webp 1600w" sizes="(max-width: 760px) 92vw, 620px"><img class="foto" src="/assets/impacto/cuadrilla-900.jpg" srcset="/assets/impacto/cuadrilla-900.jpg 900w, /assets/impacto/cuadrilla.jpg 1600w" sizes="(max-width: 760px) 92vw, 620px" alt="Cuadrilla de brigadistas con sus cascos e identificadores QRescueID" loading="lazy" decoding="async" width="900" height="675"></picture></div>
       </div>
     </section>
 
@@ -469,7 +467,7 @@
     <section class="section close" id="comprar">
       <div class="close-grid">
         <div class="close-media" data-reveal>
-          <img class="foto" src="/assets/impacto/familia-900.jpg" srcset="/assets/impacto/familia-900.jpg 900w, /assets/impacto/familia.jpg 1500w" sizes="(max-width: 760px) 80vw, 460px" alt="Mujer en el sillón de su casa con el celular en la mano" loading="lazy" width="675" height="900">
+          <picture><source type="image/avif" srcset="/assets/impacto/familia-900.avif 900w, /assets/impacto/familia.avif 1500w" sizes="(max-width: 760px) 80vw, 460px"><source type="image/webp" srcset="/assets/impacto/familia-900.webp 900w, /assets/impacto/familia.webp 1500w" sizes="(max-width: 760px) 80vw, 460px"><img class="foto" src="/assets/impacto/familia-900.jpg" srcset="/assets/impacto/familia-900.jpg 900w, /assets/impacto/familia.jpg 1500w" sizes="(max-width: 760px) 80vw, 460px" alt="Mujer en el sillón de su casa con el celular en la mano" loading="lazy" decoding="async" width="675" height="900"></picture>
           <div class="float f-family">
             <span class="f-ico i-red"><svg class="ic"><use href="/assets/icons.svg#i-map-pin"/></svg></span>
             <div><small>Ubicación de Martín</small><b class="md">Recibida</b></div>

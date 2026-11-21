@@ -36,6 +36,8 @@ body {
   overflow-x: clip;
 }
 img { display: block; max-width: 100%; height: auto; }
+picture { display: contents; } /* <picture> con AVIF/WebP: no agrega una caja al layout */
+picture > source { display: none; }
 a { color: inherit; text-decoration: none; }
 ul, ol { list-style: none; margin: 0; padding: 0; }
 h1, h2, h3, h4, p, figure, dl, dd { margin: 0; }
@@ -159,7 +161,10 @@ h1, h2, h3, h4, p, figure, dl, dd { margin: 0; }
 .hero-stage { position: relative; z-index: 1; height: clamp(420px, 42vw, 620px); margin-top: clamp(-40px, -2.5vw, 0px); }
 #hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 8%, #000 86%, transparent 100%); mask-image: linear-gradient(180deg, transparent 0, #000 8%, #000 86%, transparent 100%); }
 .hero-fallback { position: absolute; left: 50%; top: 50%; width: min(560px, 80%); transform: translate(-50%, -50%) rotate(-4deg); filter: drop-shadow(0 30px 30px rgba(15,23,42,.2)); }
-.gl .hero-fallback { display: none; }
+.hero-fallback { transition: opacity .9s var(--ease); }
+#hero-canvas { opacity: 0; transition: opacity .9s var(--ease); }
+.gl #hero-canvas { opacity: 1; }
+.gl .hero-fallback { opacity: 0; pointer-events: none; }
 
 /* ---------- Franja de confianza ---------- */
 .trust { max-width: calc(var(--wrap) + 2 * var(--gut)); margin: 0 auto; padding: 8px var(--gut) 0; }
@@ -608,6 +613,9 @@ h1, h2, h3, h4, p, figure, dl, dd { margin: 0; }
 /* ---------- Entradas ---------- */
 .js [data-reveal] { opacity: 0; transform: translateY(30px); transition: opacity 1s var(--ease), transform 1.2s var(--ease); transition-delay: calc(var(--d, 0) * 110ms); }
 .js [data-reveal].in { opacity: 1; transform: none; }
+/* El texto del hero parte en .01 (a la vista es igual a 0): así el navegador lo cuenta como pintado
+   desde el primer cuadro (LCP) y la entrada se ve exactamente igual. */
+.js .hero-copy [data-reveal]:not(.in) { opacity: .01; }
 .js .hero-stage[data-reveal] { transform: translateY(40px) scale(.97); }
 .js .hero-stage[data-reveal].in { transform: none; }
 

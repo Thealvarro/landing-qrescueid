@@ -21,7 +21,9 @@ try {
 } catch {
   throw new Error('Sin WebGL: queda la imagen de respaldo');
 }
-document.documentElement.classList.add('gl');
+// La clase .gl (que cambia la imagen de respaldo por el canvas con un fundido) se pone recién
+// cuando el sticker está cargado y los shaders compilados: así nunca queda un hueco en blanco.
+let listo = false;
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 renderer.setClearColor(0x000000, 0);
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -42,7 +44,7 @@ scene.add(key, fill, new THREE.HemisphereLight(0xeaf2ff, 0xf6e7cf, 0.3));
 const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
 
 // ---------- Identificador ----------
-const { sticker, layers, restZ, resin } = crearIdentificador(renderer);
+const { sticker, layers, restZ, resin, texturaLista } = crearIdentificador(renderer);
 layers.forEach((l, i) => { l.position.z = restZ[i] - 0.05; });
 resin.material.envMapIntensity *= 0.55;
 const holder = new THREE.Group();
@@ -108,7 +110,7 @@ const panels = FOTOS.map((d, i) => {
   scene.add(mesh);
   const img = new Image();
   img.onload = () => { mat.map = panelTexture(img, d.v); mat.needsUpdate = true; mesh.userData.ok = true; };
-  img.src = `/assets/deportes/${d.f}${innerWidth <= 760 ? '-640' : ''}.jpg`;
+  img.src = `/assets/deportes/${d.f}-${innerWidth <= 760 ? '640' : '1000'}.webp`; // el panel mide 800 px
   return { mesh, w, h, i };
 });
 
@@ -151,6 +153,7 @@ const now = () => (tFijo !== null ? tFijo : quieto ? 2 : (performance.now() - t0
 const v = new THREE.Vector3();
 
 function draw(t) {
+  if (!listo) return;
   const sy = clamp01(scrollY / Math.max(1, hero.offsetHeight)); // avance del hero
   const swing = Math.sin(t * 0.42) * 0.38;
   holder.rotation.set(-0.1 + sy * 0.15, swing + sy * 0.5, 0.0);
@@ -195,12 +198,20 @@ function loop() {
   draw(now());
   raf = requestAnimationFrame(loop);
 }
-function start() { if (!running && tFijo === null && !quieto) { running = true; raf = requestAnimationFrame(loop); } }
+function start() { if (listo && !running && tFijo === null && !quieto) { running = true; raf = requestAnimationFrame(loop); } }
 function stop() { running = false; cancelAnimationFrame(raf); }
 
 // Pausa cuando el hero sale de pantalla
-new IntersectionObserver(([e]) => { e.isIntersecting ? start() : stop(); }).observe(hero);
+let enPantalla = false;
+new IntersectionObserver(([e]) => { enPantalla = e.isIntersecting; enPantalla ? start() : stop(); }).observe(hero);
 resize();
+// compileAsync compila los shaders sin bloquear el hilo principal (donde el navegador lo permite)
+Promise.all([texturaLista, renderer.compileAsync(scene, camera).catch(() => {})]).then(() => {
+  listo = true;
+  draw(now());
+  document.documentElement.classList.add('gl');
+  if (enPantalla) start();
+});
 // Con reloj fijo o movimiento reducido: se dibuja a pedido (al cargar fotos, scroll o resize)
 if (tFijo !== null || quieto) {
   const redraw = () => draw(now());

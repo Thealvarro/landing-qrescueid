@@ -7,10 +7,10 @@
 import { CATALOGO, preventaActiva, precioVigente, textoHastaPreventa, textoDespachoPreventa, pesos } from './tienda-datos.js';
 import { resumen, el, icono } from './carro.js';
 import { trackCustom } from './medicion.js';
+import { franjaVisible } from './franja-estado.js';
 
 const pagina = location.pathname.replace(/index\.html$/, '').replace(/\/?$/, '/'); // ruta: /tienda/, /tienda/carro/…
 const forzar = new URLSearchParams(location.search).get('popup') === '1';
-const SIN_FRANJA = ['/tienda/checkout/', '/tienda/pedido/'];
 const SIN_POPUP = ['/tienda/carro/', '/tienda/checkout/', '/tienda/pedido/', '/privacidad/', '/terminos/', '/eliminar-cuenta/'];
 const TIENDA = ['/tienda/', '/tienda/qrescueid-fisico/', '/tienda/kit-premium/'];
 const CADA_3_DIAS = 3 * 24 * 60 * 60 * 1000;
@@ -20,8 +20,7 @@ const desde = Math.min(...Object.keys(CATALOGO).map(precioVigente));
 
 // ---------- Franja fija ----------
 function franja() {
-  if (SIN_FRANJA.includes(pagina) || document.body.classList.contains('mini')) return;
-  if (leer(sessionStorage, 'qrescueid-franja-cerrada')) return;
+  if (!franjaVisible()) return;
   const bar = el('div', 'pvbar');
   bar.setAttribute('role', 'region');
   bar.setAttribute('aria-label', 'Preventa');

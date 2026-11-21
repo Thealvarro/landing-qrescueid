@@ -2,7 +2,7 @@
 // menú móvil, scroll suave (Lenis), entradas al aparecer, radio 19 % de las fotos,
 // índice de lectura y easter egg de consola. ?p= (0 a 1) fija la posición para capturas.
 // En v2.html (body data-solo-nav) solo se activa el menú: lo demás ya lo hace v2.js.
-import Lenis from 'lenis';
+import { iniciarScroll } from './suave.js';
 import './llave-tienda.js'; // llave de vista previa (#k=): se guarda y sale de la URL antes de cualquier medición
 import './medicion.js'; // Píxel de Meta con consentimiento (antes que el carro: PageView primero)
 import './carro.js'; // contador del carro en el nav y panel lateral (todas las páginas)
@@ -41,16 +41,19 @@ if (!soloNav) {
   root.classList.add('js');
 
   // ---------- Fotos: radio = 19 % del lado más corto (fotos de producto: 15,5 %) ----------
-  const ponerRadio = el => {
-    const { width, height } = el.getBoundingClientRect();
+  // Las medidas vienen del ResizeObserver (también avisa al observar): sin reflow forzado
+  const ponerRadio = (el, width, height) => {
     if (!width || !height) return;
     // 19 % del lado corto en todo el sitio; las fotos de producto usan data-radio (15,5 %)
     const r = (parseFloat(el.dataset.radio) || 0.19) * Math.min(width, height);
     el.style.borderRadius = `${r.toFixed(1)}px`;
     el.style.setProperty('--r', `${r.toFixed(1)}px`);
   };
-  const ro = new ResizeObserver(entries => entries.forEach(e => ponerRadio(e.target)));
-  document.querySelectorAll('.foto, .rr').forEach(el => { ponerRadio(el); ro.observe(el); });
+  const ro = new ResizeObserver(entries => entries.forEach(e => {
+    const b = e.borderBoxSize?.[0];
+    ponerRadio(e.target, b ? b.inlineSize : e.contentRect.width, b ? b.blockSize : e.contentRect.height);
+  }));
+  document.querySelectorAll('.foto, .rr').forEach(el => ro.observe(el));
 
   // ---------- Modo captura ----------
   if (fijo) document.querySelectorAll('img[loading="lazy"]').forEach(i => { i.loading = 'eager'; });
@@ -67,9 +70,7 @@ if (!soloNav) {
   }
 
   // ---------- Scroll suave ----------
-  if (!fijo && !quieto) {
-    window.lenis = new Lenis({ autoRaf: true, anchors: { offset: -96 }, lerp: 0.1 });
-  }
+  if (!fijo && !quieto) iniciarScroll(-96);
   if (fijo) {
     const ir = () => scrollTo(0, Math.min(1, Math.max(0, parseFloat(params.get('p')) || 0)) * (root.scrollHeight - innerHeight));
     ir();

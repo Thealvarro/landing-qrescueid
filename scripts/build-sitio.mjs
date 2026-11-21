@@ -21,6 +21,20 @@ await build({
   minify: true,
   target: 'es2020',
   chunkNames: 'chunks/[name]-[hash]',
+  sourcemap: 'linked', // .map junto a cada archivo (solo lo pide DevTools; es código del frontend)
+  legalComments: 'none',
+  logLevel: 'warning',
+});
+
+// Script clásico y diminuto al inicio del <body>: reserva el espacio de la franja de preventa
+// antes del primer pintado (sin esto el contenido salta al aparecer la franja).
+await build({
+  entryPoints: ['sitio/js/franja-temprana.js'],
+  outdir: 'public/js',
+  bundle: true,
+  format: 'iife',
+  minify: true,
+  target: 'es2020',
   legalComments: 'none',
   logLevel: 'warning',
 });
@@ -40,5 +54,22 @@ for (const [, archivo] of css.matchAll(/url\(\.\/files\/([^)]+)\)/g)) {
   cpSync(`${fuente}/files/${archivo}`, `public/fonts/inter/${archivo}`);
 }
 writeFileSync('public/fonts/inter/inter.css', css.replaceAll('url(./files/', 'url(/fonts/inter/'));
+
+// CSS unido por tipo de página: una sola hoja que bloquea el render en vez de cuatro o cinco.
+// Mismo contenido y mismo orden que los <link> sueltos que reemplaza (los sueltos se siguen generando).
+const UNIDOS = {
+  home: ['public/fonts/inter/inter.css', 'public/css/lenis.css', 'sitio/css/v2.css', 'sitio/css/sitio-nav.css'],
+  'paginas-todo': ['public/fonts/inter/inter.css', 'public/css/lenis.css', 'sitio/css/sitio.css', 'sitio/css/sitio-nav.css', 'sitio/css/paginas.css'],
+};
+for (const [nombre, hojas] of Object.entries(UNIDOS)) {
+  await build({
+    stdin: { contents: hojas.map(h => `@import "./${h}";`).join('\n'), resolveDir: '.', loader: 'css' },
+    outfile: `public/css/${nombre}.css`,
+    bundle: true,
+    minify: true,
+    external: ['/fonts/*', '/assets/*'],
+    logLevel: 'warning',
+  });
+}
 
 console.log('[build-sitio] listo: public/js, public/css, public/fonts');

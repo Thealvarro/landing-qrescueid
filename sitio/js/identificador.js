@@ -89,7 +89,10 @@ export function crearIdentificador(renderer) {
 
   // 2. Impresión: papel mate, ganancia calibrada para que el color en pantalla calce con el arte
   const PRINT_GAIN = new THREE.Color().setScalar(0.68);
-  const printTex = new THREE.TextureLoader().load('/assets/sticker.png');
+  // WebP del mismo arte (sticker.png queda como original); la promesa avisa cuando ya cargó
+  let avisar;
+  const texturaLista = new Promise(r => { avisar = r; });
+  const printTex = new THREE.TextureLoader().load('/assets/sticker.webp', avisar, undefined, avisar);
   printTex.colorSpace = THREE.SRGBColorSpace;
   printTex.anisotropy = maxAniso;
   const printGeo = slab(0.008);
@@ -111,7 +114,7 @@ export function crearIdentificador(renderer) {
   const restZ = [0.082, 0.074, 0.056, 0]; // resina, impresión, NFC, adhesivo
   layers.forEach(l => sticker.add(l));
 
-  return { sticker, layers, restZ, resin, inlay };
+  return { sticker, layers, restZ, resin, inlay, texturaLista };
 
   // ---------- Geometría y materiales ----------
   // ---------- Geometría base ----------
